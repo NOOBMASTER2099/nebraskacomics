@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nebraska Comics | Lincoln, NE — Buy · Sell · Trade</title>
+  <meta name="description" content="Nebraska Comics in Lincoln. Graded slabs, key issues, full runs, $1 bins, toys and collectables. Buy, sell, and trade inside Timeless Treasures at 1717 O Street." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070708;
+      --panel: #121214;
+      --red: #c41e3a;
+      --red-hot: #ff2a4a;
+      --gold: #e8c547;
+      --ink: #f4f1ea;
+      --muted: #b7b3a8;
+      --line: #2a2a2e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(196,30,58,.18), transparent 28%),
+        radial-gradient(circle at 88% 0%, rgba(232,197,71,.08), transparent 32%),
+        repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,.015) 3px, rgba(255,255,255,.015) 4px);
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(7,7,8,.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; gap: 16px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px; text-decoration: none;
+    }
+    .mark {
+      width: 46px; height: 46px; border-radius: 8px;
+      background: linear-gradient(160deg, #1a1a1c, #0b0b0c);
+      border: 2px solid var(--red);
+      display: grid; place-items: center;
+      font-family: Bangers, cursive; color: var(--red-hot); font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .brand-name {
+      font-family: Bangers, cursive; font-size: 26px; letter-spacing: 1.5px;
+      line-height: 1;
+    }
+    .brand-name span { color: var(--red-hot); }
+    nav ul { display: flex; gap: 18px; list-style: none; flex-wrap: wrap; }
+    nav a {
+      text-decoration: none; font-family: Oswald, sans-serif;
+      text-transform: uppercase; letter-spacing: .08em; font-size: 14px;
+      color: var(--muted);
+    }
+    nav a:hover { color: var(--gold); }
+    .hero {
+      padding: 72px 0 56px;
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center;
+    }
+    .kicker {
+      font-family: Oswald, sans-serif; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold); font-size: 13px; margin-bottom: 10px;
+    }
+    h1 {
+      font-family: Bangers, cursive; font-size: clamp(48px, 8vw, 92px);
+      line-height: .9; letter-spacing: 2px; margin-bottom: 18px;
+    }
+    h1 em { font-style: normal; color: var(--red-hot); }
+    .lede { font-size: 19px; color: var(--muted); max-width: 540px; margin-bottom: 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 13px 22px; border-radius: 999px; text-decoration: none;
+      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .08em;
+      font-weight: 600;
+    }
+    .btn-primary { background: var(--red); color: white; }
+    .btn-primary:hover { background: var(--red-hot); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+    .hero-card h2 {
+      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .08em;
+      font-size: 20px; margin-bottom: 16px;
+    }
+    .meta { display: grid; gap: 12px; color: var(--muted); }
+    .meta strong { display: block; color: var(--ink); font-family: Oswald, sans-serif; letter-spacing: .04em; }
+    section { padding: 64px 0; }
+    .section-title {
+      font-family: Bangers, cursive; font-size: 42px; letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .section-sub { color: var(--muted); margin-bottom: 28px; max-width: 620px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px;
+    }
+    .card h3 {
+      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .06em;
+      margin-bottom: 8px; color: var(--gold);
+    }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    iframe.map {
+      width: 100%; height: 340px; border: 0; border-radius: 16px; filter: grayscale(.2) contrast(1.05);
+    }
+    .hours { list-style: none; }
+    .hours li {
+      display: flex; justify-content: space-between; padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .cta-band {
+      background: linear-gradient(90deg, #8b1224, #c41e3a 40%, #8b1224);
+      border-radius: 18px; padding: 36px; display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    }
+    .cta-band h2 { font-family: Bangers, cursive; font-size: 36px; letter-spacing: 1px; }
+    footer {
+      border-top: 1px solid var(--line); padding: 36px 0 48px; color: var(--muted); font-size: 14px;
+    }
+    .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .socials { display: flex; gap: 14px; flex-wrap: wrap; }
+    .socials a { color: var(--gold); text-decoration: none; font-family: Oswald, sans-serif; letter-spacing: .06em; text-transform: uppercase; font-size: 13px; }
+    @media (max-width: 800px) {
+      .hero, .grid-3, .split, .cta-band { grid-template-columns: 1fr; display: grid; }
+      nav ul { display: none; }
+      h1 { font-size: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <div class="mark">NC</div>
+        <div class="brand-name">Nebraska <span>Comics</span></div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#shop">The Shop</a></li>
+          <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <p class="kicker">Lincoln, Nebraska · Inside Timeless Treasures</p>
+        <h1>Comics of<br />all <em>eras</em>.</h1>
+        <p class="lede">Graded slabs, key issues, full runs, $1 bins, toys and collectables. Buy, sell, and trade — restocked weekly.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get Directions</a>
+          <a class="btn btn-ghost" href="tel:+14024135332">Text 402-413-5332</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h2>Open This Week</h2>
+        <div class="meta">
+          <div><strong>Hours</strong>Mon–Sat 10am–6pm<br />Sun 12pm–5pm</div>
+          <div><strong>Location</strong>Timeless Treasures<br />1717 O Street, Lincoln, NE 68508</div>
+          <div><strong>Contact</strong><a href="mailto:Contact@nebraskacomics.com">Contact@nebraskacomics.com</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="shop" class="wrap">
+      <h2 class="section-title">The shop</h2>
+      <p class="section-sub">A Lincoln booth built for collectors — from high-grade Marvel keys in glass to weekly $1 short boxes you can actually dig through.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Buy</h3>
+          <p>Modern hits, vintage runs, CGC slabs, keys, toys, and collectables. Always hunting collections and individual issues.</p>
+        </article>
+        <article class="card">
+          <h3>Sell</h3>
+          <p>Bring a collection or a stack. Fair offers, fast decisions, and a shop that actually reads the books.</p>
+        </article>
+        <article class="card">
+          <h3>Trade</h3>
+          <p>We love making deals. Expand your run, clear space, and leave with something you actually want.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="inventory" class="wrap">
+      <h2 class="section-title">What’s on the floor</h2>
+      <p class="section-sub">Inventory turns every week. Follow the socials for restock drops, $1 bin hauls, and Comic Con booth updates.</p>
+      <div class="grid-3">
+        <article class="card"><h3>Graded slabs</h3><p>CGC and other certified keys — Marvel, Spider-titles, Deadpool, Wolverine, and more in glass.</p></article>
+        <article class="card"><h3>Raw books & runs</h3><p>Full runs, back issues, and modern weeklies sleeved and ready to flip.</p></article>
+        <article class="card"><h3>$1 bins</h3><p>Short boxes priced to move. Hidden gems, reader copies, and cheap stack-builders.</p></article>
+        <article class="card"><h3>Toys & pops</h3><p>Funko, figures, and collectables mixed in with the longboxes.</p></article>
+        <article class="card"><h3>Keys & specials</h3><p>First appearances, variant covers, and event books when they hit the booth.</p></article>
+        <article class="card"><h3>Shows & drops</h3><p>Comic Con booths, restock flyers, and Marketplace bundles announced on socials.</p></article>
+      </div>
+    </section>
+
+    <section id="visit" class="wrap split">
+      <div>
+        <h2 class="section-title">Find us</h2>
+        <p class="section-sub">Inside Timeless Treasures on O Street. Easy downtown Lincoln stop — look for the slabs and the short boxes.</p>
+        <ul class="hours">
+          <li><span>Monday – Saturday</span><span>10:00 AM – 6:00 PM</span></li>
+          <li><span>Sunday</span><span>12:00 PM – 5:00 PM</span></li>
+        </ul>
+      </div>
+      <iframe class="map" title="Map to Nebraska Comics" src="https://maps.google.com/maps?q=1717%20O%20St%2C%20Lincoln%2C%20NE%2068508&output=embed"></iframe>
+    </section>
+
+    <section id="contact" class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Got books to move?</h2>
+          <p>Text photos of your stack or email a list. We buy collections and make trades in person.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-ghost" href="mailto:Contact@nebraskacomics.com">Email the shop</a>
+          <a class="btn btn-primary" href="tel:+14024135332">402-413-5332</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <strong style="color:#fff">Nebraska Comics</strong><br />
+        1717 O St, Lincoln, NE 68508<br />
+        A portion of proceeds supports the Staenberg Family Dyslexic Foundation.
+      </div>
+      <div class="socials">
+        <a href="https://x.com/Nebraska_comics" target="_blank" rel="noopener">X</a>
+        <a href="https://www.nebraskacomics.com/">Current site</a>
+        <a href="mailto:Contact@nebraskacomics.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
