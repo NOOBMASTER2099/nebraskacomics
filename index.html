@@ -9,13 +9,149 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --bg: #070708;
+      --panel: #121214;
+      --red: #c41e3a;
+      --red-hot: #e12626;
+      --ink: #f4f1ea;
+      --muted: #b7b3a8;
+      --line: #2a2a2e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      background-image:
+        radial-gradient(circle at 14% 0%, rgba(196,30,58,.22), transparent 34%),
+        radial-gradient(circle at 90% 8%, rgba(225,38,38,.08), transparent 30%);
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(7,7,8,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 0; gap: 12px; min-height: 64px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+    .brand img {
+      width: 44px !important;
+      height: 44px !important;
+      max-width: 44px !important;
+      object-fit: contain;
+      background: #000;
+      border-radius: 8px;
+      flex: 0 0 44px;
+    }
+    .brand-name {
+      font-family: Bangers, cursive; font-size: 22px; letter-spacing: 1px; line-height: 1; white-space: nowrap;
+    }
+    .brand-name span { color: var(--red-hot); }
+    nav ul { display: flex; gap: 18px; list-style: none; }
+    nav a {
+      text-decoration: none; font-family: Oswald, sans-serif;
+      text-transform: uppercase; letter-spacing: .08em; font-size: 14px; color: var(--muted);
+    }
+    .hero { padding: 36px 0 12px; text-align: center; }
+    .logo-frame {
+      width: min(280px, 72vw);
+      margin: 0 auto 22px;
+      background: #000;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .logo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .kicker {
+      font-family: Oswald, sans-serif; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--red-hot); font-size: 12px; margin-bottom: 10px;
+    }
+    h1 {
+      font-family: Bangers, cursive;
+      font-size: clamp(44px, 12vw, 76px);
+      line-height: .88; letter-spacing: 2px; margin-bottom: 14px;
+    }
+    h1 em { font-style: normal; color: var(--red-hot); }
+    .lede { font-size: 18px; color: var(--muted); max-width: 540px; margin: 0 auto 22px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px; border-radius: 999px; text-decoration: none;
+      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+    }
+    .btn-primary { background: var(--red-hot); color: #fff; }
+    .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+    .facts { display: grid; gap: 12px; padding: 28px 0 20px; }
+    .fact { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; text-align: left; }
+    .fact strong { display: block; font-family: Oswald, sans-serif; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+    .fact span, .fact a { color: var(--muted); }
+    section { padding: 48px 0; }
+    .section-title { font-family: Bangers, cursive; font-size: 38px; letter-spacing: 1px; margin-bottom: 8px; }
+    .section-sub { color: var(--muted); margin-bottom: 22px; max-width: 640px; }
+    .grid-3, .social-grid { display: grid; gap: 14px; }
+    .card, a.social-card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; text-decoration: none;
+    }
+    .card h3, .social-card h3 {
+      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .06em;
+      margin-bottom: 8px; color: var(--red-hot);
+    }
+    a.social-card p { color: var(--muted); font-size: 15px; }
+    .hours { list-style: none; }
+    .hours li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); gap: 12px; }
+    iframe.map { width: 100%; height: 280px; border: 0; border-radius: 16px; margin-top: 18px; }
+    .cta-band {
+      background: linear-gradient(90deg, #6b1010, #c41e3a 42%, #6b1010);
+      border-radius: 18px; padding: 28px 22px; text-align: center;
+    }
+    .cta-band h2 { font-family: Bangers, cursive; font-size: 32px; letter-spacing: 1px; margin-bottom: 8px; }
+    .cta-band .actions { margin-top: 16px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+    .foot-brand { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+    .foot-brand img { width: 56px; height: 56px; object-fit: contain; background: #000; border-radius: 10px; }
+    .socials { display: flex; gap: 8px; flex-wrap: wrap; }
+    .socials a {
+      color: var(--ink); text-decoration: none; font-family: Oswald, sans-serif;
+      letter-spacing: .06em; text-transform: uppercase; font-size: 12px;
+      border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px;
+    }
+    @media (min-width: 860px) {
+      .hero { display: grid; grid-template-columns: 320px 1fr; gap: 48px; text-align: left; align-items: center; padding: 56px 0 20px; }
+      .logo-frame { margin: 0; width: 100%; }
+      .lede { margin: 0 0 22px; }
+      .actions { justify-content: flex-start; }
+      .facts, .grid-3, .social-grid { grid-template-columns: repeat(3, 1fr); }
+      .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+      iframe.map { margin-top: 0; height: 340px; }
+      .cta-band { display: flex; justify-content: space-between; align-items: center; text-align: left; padding: 36px; }
+      .cta-band .actions { margin-top: 0; }
+      .foot { display: flex; justify-content: space-between; align-items: center; }
+      .foot-brand { margin-bottom: 0; }
+    }
+    @media (max-width: 859px) {
+      nav ul { display: none; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top">
-        <img class="logo-sm" src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="Nebraska Comics logo" />
+        <img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" width="44" height="44" alt="Nebraska Comics" />
         <div class="brand-name">Nebraska <span>Comics</span></div>
       </a>
       <nav>
@@ -33,7 +169,7 @@
   <main id="top">
     <section class="wrap hero">
       <div class="logo-frame">
-        <img class="logo-lg" src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="Nebraska Comics — red N with caped hero" />
+        <img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" width="400" height="400" alt="Nebraska Comics — red N with caped hero" />
       </div>
       <div>
         <p class="kicker">Lincoln, Nebraska · Inside Timeless Treasures</p>
@@ -88,7 +224,7 @@
       </div>
     </section>
 
-    <section id="visit" class="wrap split">
+    <section id="visit" class="wrap visit">
       <div>
         <h2 class="section-title">Find us</h2>
         <p class="section-sub">Inside Timeless Treasures on O Street. Easy downtown Lincoln stop — look for the slabs and the short boxes.</p>
@@ -117,7 +253,7 @@
   <footer>
     <div class="wrap foot">
       <div class="foot-brand">
-        <img class="logo-foot" src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="Nebraska Comics" />
+        <img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" width="56" height="56" alt="Nebraska Comics" />
         <div>
           <strong style="color:#fff">Nebraska Comics</strong><br />
           1717 O St, Lincoln, NE 68508<br />
