@@ -6,7 +6,7 @@
   --ink: #f4f1ea;
   --muted: #b7b3a8;
   --line: #2a2a2e;
-  --logo: url("logo.svg");
+  --logo: url("logo.svg"), url("https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg");
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -30,7 +30,11 @@ header {
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .mark {
-  background: #000 var(--logo) center / contain no-repeat;
+  background-color: #000;
+  background-image: var(--logo);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   flex: 0 0 auto;
 }
 .mark-sm { width: 52px; height: 52px; border-radius: 8px; }
@@ -44,7 +48,7 @@ header {
   background: #000;
   border: 1px solid var(--line);
   border-radius: 20px;
-  padding: 26px;
+  padding: 28px;
   display: grid;
   place-items: center;
   box-shadow: 0 24px 70px rgba(225,38,38,.16);
