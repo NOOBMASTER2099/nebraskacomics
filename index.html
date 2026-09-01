@@ -71,9 +71,7 @@
       padding: 56px 0 48px;
       display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center;
     }
-    .logo-hero {
-      display: grid; place-items: center;
-    }
+    .logo-hero { display: grid; place-items: center; }
     .logo-hero img {
       width: min(360px, 100%);
       height: auto;
@@ -140,6 +138,24 @@
       border-radius: 18px; padding: 36px; display: flex; justify-content: space-between; align-items: center; gap: 20px;
     }
     .cta-band h2 { font-family: Bangers, cursive; font-size: 36px; letter-spacing: 1px; }
+    .link-grid { display: grid; gap: 12px; }
+    .link-btn {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 54px;
+      border: 1px solid #3a3a3e;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: Oswald, sans-serif;
+      text-transform: none;
+      letter-spacing: .02em;
+      font-size: 18px;
+      background: #0c0c0e;
+    }
+    .link-btn:hover { border-color: var(--red-hot); background: #161618; }
+    .link-label {
+      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .14em;
+      color: var(--muted); font-size: 13px; text-align: center; margin: 18px 0 8px;
+    }
     footer {
       border-top: 1px solid var(--line); padding: 36px 0 48px; color: var(--muted); font-size: 14px;
     }
@@ -167,6 +183,7 @@
         <ul>
           <li><a href="#shop">The Shop</a></li>
           <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#links">Links</a></li>
           <li><a href="#visit">Visit</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -230,6 +247,27 @@
       </div>
     </section>
 
+    <section id="links" class="wrap">
+      <h2 class="section-title">Links</h2>
+      <p class="section-sub">Same buttons as the old page — shop, socials, and how to find us.</p>
+      <div class="link-grid" style="max-width:560px;margin:0 auto;">
+        <a class="link-btn" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Click Here for Directions</a>
+
+        <p class="link-label">Social Media</p>
+        <a class="link-btn" href="https://www.facebook.com/nebraskacomics" target="_blank" rel="noopener">Facebook</a>
+        <a class="link-btn" href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
+        <a class="link-btn" href="https://x.com/Nebraska_comics" target="_blank" rel="noopener">X.com</a>
+        <a class="link-btn" href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
+        <a class="link-btn" href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
+
+        <p class="link-label">Online Shopping</p>
+        <a class="link-btn" href="https://www.facebook.com/marketplace/lincoln/search/?query=Nebraska%20Comics" target="_blank" rel="noopener">Merch Store / Marketplace</a>
+        <a class="link-btn" href="https://www.yelp.com/biz/nebraska-comics-lincoln" target="_blank" rel="noopener">Yelp</a>
+        <a class="link-btn" href="mailto:Contact@nebraskacomics.com">Email the Shop</a>
+        <a class="link-btn" href="tel:+14024135332">Call or Text 402-413-5332</a>
+      </div>
+    </section>
+
     <section id="visit" class="wrap split">
       <div>
         <h2 class="section-title">Find us</h2>
@@ -267,7 +305,11 @@
         </div>
       </div>
       <div class="socials">
+        <a href="https://www.facebook.com/nebraskacomics" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
         <a href="https://x.com/Nebraska_comics" target="_blank" rel="noopener">X</a>
+        <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
         <a href="mailto:Contact@nebraskacomics.com">Email</a>
       </div>
     </div>
