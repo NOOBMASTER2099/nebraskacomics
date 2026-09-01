@@ -10,134 +10,67 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #070708;
-      --panel: #121214;
-      --red: #c41e3a;
-      --red-hot: #e12626;
-      --ink: #f4f1ea;
-      --muted: #b7b3a8;
-      --line: #2a2a2e;
+    :root { --bg:#070708; --panel:#121214; --red:#c41e3a; --red-hot:#e12626; --ink:#f4f1ea; --muted:#b7b3a8; --line:#2a2a2e; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:"Source Sans 3",system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; background-image:radial-gradient(circle at 14% 0%, rgba(196,30,58,.22), transparent 34%), radial-gradient(circle at 90% 8%, rgba(225,38,38,.08), transparent 30%); }
+    a { color:inherit; }
+    .wrap { width:min(1120px, calc(100% - 32px)); margin:0 auto; }
+    header { position:sticky; top:0; z-index:20; background:rgba(7,7,8,.94); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:10px 0; gap:12px; min-height:64px; }
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; min-width:0; }
+    .brand img { width:44px !important; height:44px !important; max-width:44px !important; object-fit:contain; background:#000; border-radius:8px; flex:0 0 44px; }
+    .brand-name { font-family:Bangers,cursive; font-size:22px; letter-spacing:1px; line-height:1; white-space:nowrap; }
+    .brand-name span { color:var(--red-hot); }
+    nav ul { display:flex; gap:18px; list-style:none; }
+    nav a { text-decoration:none; font-family:Oswald,sans-serif; text-transform:uppercase; letter-spacing:.08em; font-size:14px; color:var(--muted); }
+    .hero { padding:36px 0 12px; text-align:center; }
+    .logo-frame { width:min(280px,72vw); margin:0 auto 22px; background:#000; border:1px solid var(--line); border-radius:18px; padding:16px; }
+    .logo-frame img { width:100%; height:auto; display:block; object-fit:contain; }
+    .kicker { font-family:Oswald,sans-serif; letter-spacing:.18em; text-transform:uppercase; color:var(--red-hot); font-size:12px; margin-bottom:10px; }
+    h1 { font-family:Bangers,cursive; font-size:clamp(44px,12vw,76px); line-height:.88; letter-spacing:2px; margin-bottom:14px; }
+    h1 em { font-style:normal; color:var(--red-hot); }
+    .lede { font-size:18px; color:var(--muted); max-width:540px; margin:0 auto 22px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 20px; border-radius:999px; text-decoration:none; font-family:Oswald,sans-serif; text-transform:uppercase; letter-spacing:.08em; font-weight:600; }
+    .btn-primary { background:var(--red-hot); color:#fff; }
+    .btn-ghost { border:1px solid var(--line); color:var(--ink); }
+    .facts { display:grid; gap:12px; padding:28px 0 20px; }
+    .fact { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:18px 20px; text-align:left; }
+    .fact strong { display:block; font-family:Oswald,sans-serif; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
+    .fact span, .fact a { color:var(--muted); }
+    section { padding:48px 0; }
+    .section-title { font-family:Bangers,cursive; font-size:38px; letter-spacing:1px; margin-bottom:8px; }
+    .section-sub { color:var(--muted); margin-bottom:22px; max-width:640px; }
+    .grid-3, .social-grid { display:grid; gap:14px; }
+    .card, a.social-card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:20px; text-decoration:none; }
+    .card h3, .social-card h3 { font-family:Oswald,sans-serif; text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; color:var(--red-hot); }
+    a.social-card p { color:var(--muted); font-size:15px; }
+    .hours { list-style:none; }
+    .hours li { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line); gap:12px; }
+    iframe.map { width:100%; height:280px; border:0; border-radius:16px; margin-top:18px; }
+    .cta-band { background:linear-gradient(90deg,#6b1010,#c41e3a 42%,#6b1010); border-radius:18px; padding:28px 22px; text-align:center; }
+    .cta-band h2 { font-family:Bangers,cursive; font-size:32px; letter-spacing:1px; margin-bottom:8px; }
+    .cta-band .actions { margin-top:16px; }
+    footer { border-top:1px solid var(--line); padding:28px 0 40px; color:var(--muted); font-size:14px; }
+    .foot-brand { display:flex; gap:12px; align-items:center; margin-bottom:16px; }
+    .foot-brand img { width:56px; height:56px; object-fit:contain; background:#000; border-radius:10px; }
+    .socials { display:flex; gap:8px; flex-wrap:wrap; }
+    .socials a { color:var(--ink); text-decoration:none; font-family:Oswald,sans-serif; letter-spacing:.06em; text-transform:uppercase; font-size:12px; border:1px solid var(--line); border-radius:999px; padding:8px 12px; }
+    @media (min-width:860px) {
+      .hero { display:grid; grid-template-columns:320px 1fr; gap:48px; text-align:left; align-items:center; padding:56px 0 20px; }
+      .logo-frame { margin:0; width:100%; }
+      .lede { margin:0 0 22px; }
+      .actions { justify-content:flex-start; }
+      .facts, .grid-3, .social-grid { grid-template-columns:repeat(3,1fr); }
+      .visit { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+      iframe.map { margin-top:0; height:340px; }
+      .cta-band { display:flex; justify-content:space-between; align-items:center; text-align:left; padding:36px; }
+      .cta-band .actions { margin-top:0; }
+      .foot { display:flex; justify-content:space-between; align-items:center; }
+      .foot-brand { margin-bottom:0; }
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Source Sans 3", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.55;
-      background-image:
-        radial-gradient(circle at 14% 0%, rgba(196,30,58,.22), transparent 34%),
-        radial-gradient(circle at 90% 8%, rgba(225,38,38,.08), transparent 30%);
-    }
-    a { color: inherit; }
-    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(7,7,8,.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 0; gap: 12px; min-height: 64px;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
-    .brand img {
-      width: 44px !important;
-      height: 44px !important;
-      max-width: 44px !important;
-      object-fit: contain;
-      background: #000;
-      border-radius: 8px;
-      flex: 0 0 44px;
-    }
-    .brand-name {
-      font-family: Bangers, cursive; font-size: 22px; letter-spacing: 1px; line-height: 1; white-space: nowrap;
-    }
-    .brand-name span { color: var(--red-hot); }
-    nav ul { display: flex; gap: 18px; list-style: none; }
-    nav a {
-      text-decoration: none; font-family: Oswald, sans-serif;
-      text-transform: uppercase; letter-spacing: .08em; font-size: 14px; color: var(--muted);
-    }
-    .hero { padding: 36px 0 12px; text-align: center; }
-    .logo-frame {
-      width: min(280px, 72vw);
-      margin: 0 auto 22px;
-      background: #000;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-    }
-    .logo-frame img { width: 100%; height: auto; display: block; object-fit: contain; }
-    .kicker {
-      font-family: Oswald, sans-serif; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--red-hot); font-size: 12px; margin-bottom: 10px;
-    }
-    h1 {
-      font-family: Bangers, cursive;
-      font-size: clamp(44px, 12vw, 76px);
-      line-height: .88; letter-spacing: 2px; margin-bottom: 14px;
-    }
-    h1 em { font-style: normal; color: var(--red-hot); }
-    .lede { font-size: 18px; color: var(--muted); max-width: 540px; margin: 0 auto 22px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 12px 20px; border-radius: 999px; text-decoration: none;
-      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
-    }
-    .btn-primary { background: var(--red-hot); color: #fff; }
-    .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
-    .facts { display: grid; gap: 12px; padding: 28px 0 20px; }
-    .fact { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; text-align: left; }
-    .fact strong { display: block; font-family: Oswald, sans-serif; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
-    .fact span, .fact a { color: var(--muted); }
-    section { padding: 48px 0; }
-    .section-title { font-family: Bangers, cursive; font-size: 38px; letter-spacing: 1px; margin-bottom: 8px; }
-    .section-sub { color: var(--muted); margin-bottom: 22px; max-width: 640px; }
-    .grid-3, .social-grid { display: grid; gap: 14px; }
-    .card, a.social-card {
-      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; text-decoration: none;
-    }
-    .card h3, .social-card h3 {
-      font-family: Oswald, sans-serif; text-transform: uppercase; letter-spacing: .06em;
-      margin-bottom: 8px; color: var(--red-hot);
-    }
-    a.social-card p { color: var(--muted); font-size: 15px; }
-    .hours { list-style: none; }
-    .hours li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); gap: 12px; }
-    iframe.map { width: 100%; height: 280px; border: 0; border-radius: 16px; margin-top: 18px; }
-    .cta-band {
-      background: linear-gradient(90deg, #6b1010, #c41e3a 42%, #6b1010);
-      border-radius: 18px; padding: 28px 22px; text-align: center;
-    }
-    .cta-band h2 { font-family: Bangers, cursive; font-size: 32px; letter-spacing: 1px; margin-bottom: 8px; }
-    .cta-band .actions { margin-top: 16px; }
-    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
-    .foot-brand { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
-    .foot-brand img { width: 56px; height: 56px; object-fit: contain; background: #000; border-radius: 10px; }
-    .socials { display: flex; gap: 8px; flex-wrap: wrap; }
-    .socials a {
-      color: var(--ink); text-decoration: none; font-family: Oswald, sans-serif;
-      letter-spacing: .06em; text-transform: uppercase; font-size: 12px;
-      border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px;
-    }
-    @media (min-width: 860px) {
-      .hero { display: grid; grid-template-columns: 320px 1fr; gap: 48px; text-align: left; align-items: center; padding: 56px 0 20px; }
-      .logo-frame { margin: 0; width: 100%; }
-      .lede { margin: 0 0 22px; }
-      .actions { justify-content: flex-start; }
-      .facts, .grid-3, .social-grid { grid-template-columns: repeat(3, 1fr); }
-      .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
-      iframe.map { margin-top: 0; height: 340px; }
-      .cta-band { display: flex; justify-content: space-between; align-items: center; text-align: left; padding: 36px; }
-      .cta-band .actions { margin-top: 0; }
-      .foot { display: flex; justify-content: space-between; align-items: center; }
-      .foot-brand { margin-bottom: 0; }
-    }
-    @media (max-width: 859px) { nav ul { display: none; } }
+    @media (max-width:859px) { nav ul { display:none; } }
   </style>
 </head>
 <body>
@@ -150,8 +83,8 @@
       <nav>
         <ul>
           <li><a href="#shop">The Shop</a></li>
-          <li><a href="#inventory">Inventory</a></li>
-          <li><a href="#connect">Connect</a></li>
+          <li><a href="#buy">Shop Online</a></li>
+          <li><a href="#socials">Socials</a></li>
           <li><a href="#visit">Visit</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -200,17 +133,24 @@
         <article class="card"><h3>$1 bins</h3><p>Short boxes priced to move. Hidden gems, reader copies, and cheap stack-builders.</p></article>
         <article class="card"><h3>Toys & pops</h3><p>Funko, figures, and collectables mixed in with the longboxes.</p></article>
         <article class="card"><h3>Keys & specials</h3><p>First appearances, variant covers, and event books when they hit the booth.</p></article>
-        <article class="card"><h3>Shows & drops</h3><p>Comic Con booths, restock flyers, and Marketplace bundles announced on socials.</p></article>
+        <article class="card"><h3>Shows & drops</h3><p>Comic Con booths, restock flyers, and live sales announced on socials.</p></article>
       </div>
     </section>
 
-    <section id="connect" class="wrap">
-      <h2 class="section-title">Connect</h2>
-      <p class="section-sub">Shop online or follow restocks. eBay for books, Bonfire for merch.</p>
+    <section id="buy" class="wrap">
+      <h2 class="section-title">Shop online</h2>
+      <p class="section-sub">Books and merch you can grab without coming downtown.</p>
       <div class="social-grid">
         <a class="social-card" href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener"><h3>eBay</h3><p>Comics and collectibles listed online.</p></a>
-        <a class="social-card" href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener"><h3>Bonfire</h3><p>Official Nebraska Comics merch.</p></a>
-        <a class="social-card" href="https://www.facebook.com/marketplace/lincoln/search/?query=Nebraska%20Comics" target="_blank" rel="noopener"><h3>Marketplace</h3><p>Local bundles and Lincoln pickups.</p></a>
+        <a class="social-card" href="https://www.whatnot.com/user/nebraskacomics" target="_blank" rel="noopener"><h3>Whatnot</h3><p>Live sales and auction drops.</p></a>
+        <a class="social-card" href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener"><h3>Shirts & Merch</h3><p>Official Nebraska Comics gear.</p></a>
+      </div>
+    </section>
+
+    <section id="socials" class="wrap">
+      <h2 class="section-title">Socials</h2>
+      <p class="section-sub">Restocks, $1 bin hauls, and what just hit the booth.</p>
+      <div class="social-grid">
         <a class="social-card" href="https://www.facebook.com/nebraskacomics" target="_blank" rel="noopener"><h3>Facebook</h3><p>Page, drops, and local updates.</p></a>
         <a class="social-card" href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener"><h3>TikTok</h3><p>Restock clips and $1 bin hauls.</p></a>
         <a class="social-card" href="https://x.com/Nebraska_comics" target="_blank" rel="noopener"><h3>X</h3><p>@Nebraska_comics</p></a>
@@ -257,13 +197,13 @@
       </div>
       <div class="socials">
         <a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a>
-        <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Bonfire</a>
+        <a href="https://www.whatnot.com/user/nebraskacomics" target="_blank" rel="noopener">Whatnot</a>
+        <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Merch</a>
         <a href="https://www.facebook.com/nebraskacomics" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
         <a href="https://x.com/Nebraska_comics" target="_blank" rel="noopener">X</a>
         <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
         <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:Contact@nebraskacomics.com">Email</a>
       </div>
     </div>
   </footer>
