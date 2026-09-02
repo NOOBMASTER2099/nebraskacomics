@@ -35,10 +35,13 @@
     .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 20px; border-radius:999px; text-decoration:none; font-family:Oswald,sans-serif; text-transform:uppercase; letter-spacing:.08em; font-weight:600; }
     .btn-primary { background:var(--red-hot); color:#fff; }
     .btn-ghost { border:1px solid var(--line); color:var(--ink); }
-    .facts { display:grid; gap:12px; padding:28px 0 20px; }
+    .facts { display:grid; gap:12px; padding:28px 0 8px; }
     .fact { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:18px 20px; text-align:left; }
     .fact strong { display:block; font-family:Oswald,sans-serif; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
     .fact span, .fact a { color:var(--muted); }
+    .restock { padding:0 0 20px; }
+    a.restock-card { display:block; text-decoration:none; }
+    a.restock-card b { color:var(--ink); }
     section { padding:48px 0; }
     .section-title { font-family:Bangers,cursive; font-size:38px; letter-spacing:1px; margin-bottom:8px; }
     .section-sub { color:var(--muted); margin-bottom:22px; max-width:640px; }
@@ -103,7 +106,7 @@
         <p class="lede">Graded slabs, key issues, full runs, $1 bins, toys and collectables. Buy, sell, and trade — restocked weekly.</p>
         <div class="actions">
           <a class="btn btn-primary" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get Directions</a>
-          <a class="btn btn-ghost" href="tel:+14024135332">Call or Text</a>
+          <a class="btn btn-ghost" href="sms:+14024135332?body=COMICS">Text COMICS</a>
         </div>
       </div>
     </section>
@@ -112,6 +115,12 @@
       <div class="fact"><strong>Hours</strong><span>Mon–Sat 10am–6pm<br />Sun 12pm–5pm</span></div>
       <div class="fact"><strong>Location</strong><span>Timeless Treasures<br />1717 O Street, Lincoln, NE 68508</span></div>
       <div class="fact"><strong>Contact</strong><span><a href="mailto:Contact@nebraskacomics.com">Contact@nebraskacomics.com</a><br />402-413-5332</span></div>
+    </div>
+    <div class="wrap restock">
+      <a class="fact restock-card" href="sms:+14024135332?body=COMICS">
+        <strong>Restock texts</strong>
+        <span>Text <b>COMICS</b> to 402-413-5332 for first look at slabs, keys, and $1 bins. Reply STOP to quit.</span>
+      </a>
     </div>
 
     <section id="socials" class="wrap">
@@ -166,11 +175,11 @@
       <div class="cta-band">
         <div>
           <h2>Got books to move?</h2>
-          <p>Text photos of your stack or email a list. We buy collections and make trades in person.</p>
+          <p>Text photos of your stack or email a list. We buy collections and make trades in person. For restock alerts, text COMICS to 402-413-5332.</p>
         </div>
         <div class="actions">
           <a class="btn btn-ghost" href="mailto:Contact@nebraskacomics.com">Email the shop</a>
-          <a class="btn btn-primary" href="tel:+14024135332">402-413-5332</a>
+          <a class="btn btn-primary" href="sms:+14024135332?body=COMICS">Text COMICS</a>
         </div>
       </div>
     </section>
@@ -187,6 +196,7 @@
         </div>
       </div>
       <div class="socials">
+        <a href="sms:+14024135332?body=COMICS">Text COMICS</a>
         <a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a>
         <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a>
         <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Merch</a>
