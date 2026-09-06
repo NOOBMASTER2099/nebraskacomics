@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nebraska Comics — Template Picker</title>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nebraska Comics — 5 layouts</title>
+<link rel="icon" href="../logo.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg:#0a0a0b; --red:#c41e3a; --ink:#f4f1ea; --muted:#9a968c; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:Georgia,serif; background:var(--bg); color:var(--ink); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:32px 20px; }
-  .box { max-width:640px; width:100%; text-align:center; }
-  h1 { font-size:clamp(28px,6vw,44px); letter-spacing:1px; margin-bottom:10px; }
-  h1 span { color:var(--red); }
-  p { color:var(--muted); margin-bottom:28px; }
-  .grid { display:grid; gap:14px; }
-  a { display:block; text-decoration:none; color:var(--ink); border:1px solid #2a2a2e; border-radius:14px; padding:22px 20px; background:#121214; transition:.15s; }
-  a:hover { border-color:var(--red); transform:translateY(-2px); }
-  a b { display:block; font-size:20px; margin-bottom:6px; }
-  a span { color:var(--muted); font-size:15px; }
-  .tag { display:inline-block; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--red); margin-bottom:8px; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#fff;font-family:Oswald,sans-serif;padding:40px 24px}
+h1{font-size:36px;letter-spacing:.06em}
+h1 span{color:#e41c38}
+p{color:#aaa;margin:10px 0 28px;font-weight:500}
+.g{display:grid;gap:14px;max-width:720px}
+a{display:block;border:2px solid #fff;padding:18px 20px;color:#fff;text-decoration:none}
+a:hover{border-color:#e41c38;background:#14060a}
+a b{display:block;color:#e41c38;letter-spacing:.16em;font-size:12px}
+a strong{font-size:22px;letter-spacing:.04em}
+a em{display:block;font-style:normal;color:#9a9a9a;margin-top:4px;font-weight:500}
 </style>
 </head>
 <body>
-  <div class="box">
-    <p class="tag">Nebraska Comics · three new layouts</p>
-    <h1>Pick a <span>direction</span></h1>
-    <p>Completely different structures — not just color swaps. Same info, logo, hours, and links on all three.</p>
-    <div class="grid">
-      <a href="one.html"><b>One — Editorial Split</b><span>Cream paper, serif headlines, two-column magazine layout. Feels like a collector's catalog.</span></a>
-      <a href="two.html"><b>Two — Dark Terminal</b><span>Near-black, monospace, terminal/dashboard vibe. Inventory as a live feed.</span></a>
-      <a href="three.html"><b>Three — Light Showcase</b><span>White gallery, big logo, airy cards. Clean retail look.</span></a>
-    </div>
-  </div>
+<h1>NEBRASKA <span>COMICS</span> — 5 LAYOUTS</h1>
+<p>Black / scarlet / white. Same shop info. Different bones.</p>
+<div class="g">
+  <a href="1-splash.html"><b>01</b><strong>SPLASH COVER</strong><em>Full-bleed issue. Logo as the cover. Big slogan.</em></a>
+  <a href="2-scoreboard.html"><b>02</b><strong>SCOREBOARD</strong><em>Husker board. Jersey numbers. Ticker tape.</em></a>
+  <a href="3-newsstand.html"><b>03</b><strong>NEWSSTAND</strong><em>Three issues on a rack. Pulp shop.</em></a>
+  <a href="4-panels.html"><b>04</b><strong>COMIC PANELS</strong><em>Page of panels. POW burst. Caption boxes.</em></a>
+  <a href="5-ticket.html"><b>05</b><strong>TICKET STUB</strong><em>Admit-one card. Tear line. Event wristband energy.</em></a>
+</div>
 </body>
 </html>
