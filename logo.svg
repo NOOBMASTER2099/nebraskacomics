@@ -1,4 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
-  <rect width="400" height="400" fill="#000"/>
-  <image href="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" x="0" y="0" width="400" height="400" preserveAspectRatio="xMidYMid meet"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="Nebraska Comics">
+  <rect width="400" height="480" fill="#000"/>
+  <text x="200" y="54" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="40" font-weight="900" fill="#fff" letter-spacing="6">NEBRASKA</text>
+  <g transform="translate(48,78)">
+    <path d="M8 8 h78 v28 H36 v196 H8 Z" fill="none" stroke="#e12626" stroke-width="16"/>
+    <path d="M214 8 h86 v224 h-70 L214 8 Z" fill="#e12626"/>
+    <path d="M8 8 h16 v224 H8 Z M70 8 h16 v224 H70 Z" fill="#e12626"/>
+    <path d="M70 8 l144 224 h-28 L70 44 Z" fill="#e12626"/>
+    <path d="M118 70 C40 92 8 150 0 196 C52 168 92 158 138 150 C168 146 188 118 196 88 Z" fill="#c41e3a"/>
+    <path d="M128 72 C70 92 36 136 20 180 C68 158 104 152 140 146 Z" fill="#e12626"/>
+    <ellipse cx="188" cy="58" rx="20" ry="22" fill="#f4f1ea"/>
+    <path d="M176 78 h28 l10 36 h-46 z" fill="#f4f1ea"/>
+    <path d="M168 112 l-12 68 22 8 12-48 z" fill="#111"/>
+    <path d="M200 114 l20 62 20-8 -12-58 z" fill="#111"/>
+    <path d="M206 90 l46 10 -8 14 -42 2 z" fill="#f4f1ea"/>
+    <path d="M170 90 l-36 12 8 14 32-6 z" fill="#f4f1ea"/>
+  </g>
+  <text x="200" y="430" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="52" font-weight="900" fill="#e12626" letter-spacing="4">COMICS</text>
 </svg>
