@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nebraska Comics — Panels</title>
+<link rel="icon" href="../logo.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Karla:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#fff;font-family:Karla,sans-serif}
+a{color:#fff;text-decoration:none}
+.page{max-width:1100px;margin:0 auto;padding:16px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.top img{width:56px;height:68px;object-fit:contain}
+.top strong{font-family:Bangers,cursive;font-size:28px;letter-spacing:1px}
+.top strong em{font-style:normal;color:#e41c38}
+.comic{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto auto;gap:10px}
+.p{border:4px solid #fff;background:#0a0a0a;padding:18px;position:relative;overflow:hidden}
+.p.red{border-color:#e41c38;background:#16060a}
+.p.big{grid-row:1 / span 2}
+.burst{font-family:Bangers,cursive;font-size:clamp(42px,6vw,72px);line-height:.9;letter-spacing:1px}
+.burst b{color:#e41c38}
+.cap{position:absolute;left:12px;bottom:12px;background:#fff;color:#000;font-weight:700;padding:6px 10px;font-size:13px}
+.wham{position:absolute;right:-8px;top:-8px;background:#e41c38;color:#fff;font-family:Bangers,cursive;padding:10px 16px;transform:rotate(8deg);font-size:22px}
+.p img{width:120px;float:right;margin-left:12px}
+ul{list-style:none}
+ul li{border-bottom:2px solid #222;padding:8px 0;display:flex;justify-content:space-between}
+.shop a{display:block;border-bottom:2px dashed #333;padding:10px 0;font-weight:700}
+.shop a span{display:block;font-weight:400;color:#aaa;font-size:14px}
+.foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.foot a{border:3px solid #fff;padding:10px 14px;font-weight:700;text-transform:uppercase;font-size:13px}
+.foot a.r{background:#e41c38;border-color:#e41c38}
+@media(max-width:800px){.comic{grid-template-columns:1fr}.p.big{grid-row:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="../logo.svg" alt="" />
+      <strong>NEBRASKA <em>COMICS</em></strong>
+    </div>
+    <div style="color:#e41c38;font-weight:700">LINCOLN · 1717 O</div>
+  </div>
+  <div class="comic">
+    <div class="p big red">
+      <div class="wham">POW!</div>
+      <img src="../logo.svg" alt="" />
+      <div class="burst">ALL AGES.<br><b>ALL ERAS.</b><br>ALL PRICES.</div>
+      <p style="margin-top:16px;max-width:420px;color:#ddd">Graded slabs, keys, runs, $1 bins, toys. Buy, sell, and trade — restocked weekly.</p>
+      <div class="cap">Page 1 · The Booth</div>
+    </div>
+    <div class="p">
+      <h3 style="font-family:Bangers,cursive;font-size:28px;color:#e41c38">Hours</h3>
+      <ul>
+        <li><span>Mon–Sat</span><b>10–6</b></li>
+        <li><span>Sunday</span><b>12–5</b></li>
+        <li><span>Phone</span><b>402-413-5332</b></li>
+      </ul>
+    </div>
+    <div class="p shop">
+      <h3 style="font-family:Bangers,cursive;font-size:28px;color:#e41c38">Shop</h3>
+      <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Shirts & Merch<span>Bonfire</span></a>
+      <a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay<span>Ships from Lincoln</span></a>
+      <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot<span>Live sales</span></a>
+      <a href="tel:+14024135332">Buy / Sell / Trade<span>Text a stack</span></a>
+    </div>
+    <div class="p" style="grid-column:1 / -1">
+      <h3 style="font-family:Bangers,cursive;font-size:28px;color:#e41c38">Socials</h3>
+      <div class="foot">
+        <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://x.com/nebraskacomics1" target="_blank" rel="noopener">X</a>
+        <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
+        <a class="r" href="sms:+14024135332?body=COMICS">Text COMICS</a>
+        <a class="r" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Map</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

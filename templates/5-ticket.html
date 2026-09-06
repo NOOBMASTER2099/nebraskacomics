@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nebraska Comics — Ticket</title>
+<link rel="icon" href="../logo.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#fff;font-family:"Courier Prime",monospace;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+a{color:#fff}
+.ticket{width:min(920px,100%);display:grid;grid-template-columns:1.7fr .7fr;background:#0b0b0b;border:2px dashed #e41c38;position:relative}
+.ticket:before,.ticket:after{content:"";position:absolute;width:28px;height:28px;background:#000;border-radius:50%;left:68%;transform:translateX(-50%)}
+.ticket:before{top:-14px;border-bottom:2px dashed #e41c38}
+.ticket:after{bottom:-14px;border-top:2px dashed #e41c38}
+.main{padding:28px 32px;border-right:2px dashed #e41c38}
+.stub{padding:28px 18px;text-align:center;background:#14060a;display:flex;flex-direction:column;justify-content:space-between}
+.row{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.row img{width:64px;height:76px;object-fit:contain}
+.admit{font-family:"Bebas Neue",sans-serif;letter-spacing:.2em;color:#e41c38;font-size:14px}
+h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(48px,8vw,86px);line-height:.85;letter-spacing:1px}
+h1 span{color:#e41c38}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:28px 0;font-size:13px}
+.grid b{display:block;color:#e41c38;font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:1px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{border:1px solid #fff;padding:8px 12px;text-decoration:none;font-size:12px;letter-spacing:.06em}
+.links a.r{background:#e41c38;border-color:#e41c38}
+.stub img{width:100%;max-width:140px;margin:0 auto}
+.stub .code{font-family:"Bebas Neue",sans-serif;font-size:42px;color:#e41c38;letter-spacing:4px}
+.stub small{color:#999}
+@media(max-width:720px){.ticket{grid-template-columns:1fr}.ticket:before,.ticket:after,.main{border-right:0}.stub{border-top:2px dashed #e41c38}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="ticket">
+  <div class="main">
+    <div class="row">
+      <img src="../logo.svg" alt="" />
+      <div class="admit">ADMIT ONE · GENERAL · DOWNTOWN LINCOLN</div>
+    </div>
+    <h1>NEBRASKA<br><span>COMICS</span></h1>
+    <p style="margin-top:12px;color:#ccc">All ages. All eras. All prices. Slabs, keys, $1 bins inside Timeless Treasures.</p>
+    <div class="grid">
+      <div><b>WHEN</b>Mon–Sat 10–6<br>Sun 12–5</div>
+      <div><b>WHERE</b>1717 O Street<br>Lincoln, NE</div>
+      <div><b>GATE</b>402-413-5332<br>Call or text</div>
+    </div>
+    <div class="links">
+      <a class="r" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">DIRECTIONS</a>
+      <a class="r" href="sms:+14024135332?body=COMICS">TEXT COMICS</a>
+      <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">MERCH</a>
+      <a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">EBAY</a>
+      <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">WHATNOT</a>
+      <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">FACEBOOK</a>
+      <a href="https://x.com/nebraskacomics1" target="_blank" rel="noopener">X</a>
+      <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">IG</a>
+      <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TIKTOK</a>
+    </div>
+  </div>
+  <div class="stub">
+    <div class="admit">STUB</div>
+    <img src="../logo.svg" alt="" />
+    <div>
+      <div class="code">NCG-01</div>
+      <small>Keep this stub<br>for restocks</small>
+    </div>
+  </div>
+</div>
+</body>
+</html>
