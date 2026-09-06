@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nebraska Comics — Splash</title>
+<link rel="icon" href="../logo.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{--red:#e41c38;--ink:#fff;--bg:#000}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:#000;color:#fff;font-family:Oswald,sans-serif}
+body{background:radial-gradient(ellipse at 70% 40%,#3a0a12 0%,#000 55%)}
+a{color:#fff;text-decoration:none}
+.stage{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;gap:0}
+.left{padding:28px 36px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:72px;height:86px;object-fit:contain}
+.brand b{font-family:Bangers,cursive;font-size:34px;letter-spacing:1px}
+.brand b span{color:var(--red)}
+.kicker{letter-spacing:.28em;color:var(--red);font-size:13px;margin:48px 0 14px}
+h1{font-family:Bangers,cursive;font-size:clamp(56px,9vw,108px);line-height:.85;letter-spacing:2px}
+h1 em{font-style:normal;color:var(--red)}
+.sub{max-width:420px;color:#cfcfcf;font-size:18px;margin:22px 0 28px;font-weight:400}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:14px 22px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:14px}
+.btn-r{background:var(--red)}
+.btn-w{border:2px solid #fff}
+.meta{display:flex;gap:28px;color:#9a9a9a;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:40px}
+.meta b{display:block;color:#fff;letter-spacing:0;font-size:15px;margin-top:4px;text-transform:none}
+.right{position:relative;overflow:hidden;background:#111;border-left:8px solid var(--red);display:flex;align-items:center;justify-content:center;padding:28px}
+.cover{width:min(420px,86%);aspect-ratio:2/3;background:#0b0b0b;border:10px solid #fff;box-shadow:0 0 0 8px var(--red),0 30px 80px rgba(228,28,56,.25);display:flex;flex-direction:column;padding:14px;position:relative}
+.cover .top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;color:var(--red)}
+.cover img{width:100%;flex:1;object-fit:contain;background:#000}
+.cover .cap{font-family:Bangers,cursive;font-size:28px;text-align:center;color:var(--red);letter-spacing:1px;margin-top:8px}
+.strip{background:var(--red);color:#fff;padding:12px 20px;display:flex;gap:22px;flex-wrap:wrap;justify-content:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.strip a:hover{text-decoration:underline}
+@media(max-width:860px){.stage{grid-template-columns:1fr}.right{min-height:70vh;border-left:0;border-top:8px solid var(--red)}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="left">
+    <a class="brand" href="#"><img src="../logo.svg" alt="" /><b>NEBRASKA <span>COMICS</span></b></a>
+    <div>
+      <div class="kicker">Lincoln · No. 1 · On the floor now</div>
+      <h1>ALL AGES.<br><em>ALL ERAS.</em><br>ALL PRICES.</h1>
+      <p class="sub">Graded slabs, keys, runs, $1 bins. Buy, sell, and trade inside Timeless Treasures on O Street.</p>
+      <div class="row">
+        <a class="btn btn-r" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn-w" href="tel:+14024135332">Call or Text</a>
+        <a class="btn btn-w" href="sms:+14024135332?body=COMICS">Text COMICS</a>
+      </div>
+      <div class="meta">
+        <div>Hours<b>Mon–Sat 10–6 · Sun 12–5</b></div>
+        <div>Booth<b>1717 O St</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="cover">
+      <div class="top"><span>10¢ · 1953</span><span>NCG</span></div>
+      <img src="../logo.svg" alt="Nebraska Comics" />
+      <div class="cap">UFOs OVER THE PLAINS</div>
+    </div>
+  </div>
+</div>
+<div class="strip">
+  <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Shirts & Merch</a>
+  <a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a>
+  <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a>
+  <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
+  <a href="https://x.com/nebraskacomics1" target="_blank" rel="noopener">X</a>
+  <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
+  <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
+  <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
+</div>
+</body>
+</html>
