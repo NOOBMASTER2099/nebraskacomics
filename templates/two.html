@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nebraska Comics — Terminal</title>
+<meta name="description" content="Nebraska Comics in Lincoln. Graded slabs, key issues, full runs, $1 bins, toys and collectables." />
+<link rel="icon" href="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#050607; --panel:#0c0e11; --panel-2:#111418; --green:#39ff88; --red:#ff3b5c; --amber:#ffb020; --muted:#6b7280; --line:#1c2128; --txt:#d7dde5; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'JetBrains Mono',monospace; background:var(--bg); color:var(--txt); line-height:1.55; }
+  a { color:var(--green); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .scan { position:fixed; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, transparent 1px 3px); z-index:50; }
+  .wrap { width:min(980px, calc(100% - 32px)); margin:0 auto; }
+  /* top bar */
+  .topbar { border-bottom:1px solid var(--line); padding:10px 0; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; font-size:12px; color:var(--muted); }
+  .topbar .brand { display:flex; align-items:center; gap:10px; color:var(--txt); font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:.5px; }
+  .topbar .brand img { width:30px; height:30px; object-fit:contain; background:#000; border-radius:4px; }
+  .topbar .status { color:var(--green); }
+  .topbar .status::before { content:'● '; }
+  .topbar nav { display:flex; gap:16px; }
+  .topbar nav a { color:var(--muted); font-size:12px; }
+  .topbar nav a:hover { color:var(--green); text-decoration:none; }
+  /* hero */
+  .hero { padding:40px 0 28px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
+  .logo-box { background:#000; border:1px solid var(--line); border-radius:8px; padding:14px; width:160px; }
+  .logo-box img { width:100%; display:block; }
+  .hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,6vw,52px); font-weight:700; line-height:1.05; letter-spacing:-.5px; }
+  .hero h1 .r { color:var(--red); } .hero h1 .g { color:var(--green); } .hero h1 .a { color:var(--amber); }
+  .hero p { color:var(--muted); margin-top:12px; max-width:520px; font-size:14px; }
+  .hero .acts { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border:1px solid var(--line); border-radius:6px; font-size:13px; font-family:'JetBrains Mono',monospace; color:var(--txt); background:var(--panel); }
+  .btn:hover { border-color:var(--green); color:var(--green); text-decoration:none; }
+  .btn.pri { background:var(--green); color:#04130a; border-color:var(--green); font-weight:700; }
+  .btn.pri:hover { background:#2be077; color:#04130a; }
+  /* terminal blocks */
+  .term { background:var(--panel); border:1px solid var(--line); border-radius:8px; margin:18px 0; overflow:hidden; }
+  .term-head { display:flex; align-items:center; gap:8px; padding:8px 12px; border-bottom:1px solid var(--line); background:var(--panel-2); font-size:11px; color:var(--muted); }
+  .term-head .dots { display:flex; gap:6px; }
+  .term-head .dots i { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .term-head .dots i:nth-child(1){background:#ff5f57} .term-head .dots i:nth-child(2){background:#febc2e} .term-head .dots i:nth-child(3){background:#28c840}
+  .term-body { padding:16px 18px; font-size:13px; }
+  .term-body .ln { display:flex; gap:12px; padding:3px 0; }
+  .term-body .ln .k { color:var(--muted); min-width:120px; }
+  .term-body .ln .v { color:var(--txt); }
+  .term-body .ln .v.g { color:var(--green); } .term-body .ln .v.r { color:var(--red); } .term-body .ln .v.a { color:var(--amber); }
+  .prompt { color:var(--green); } .prompt::before { content:'$ '; }
+  /* grid of modules */
+  .mods { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; padding:8px 0 28px; }
+  .mod { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px; }
+  .mod h3 { font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .mod h3 .ic { width:8px; height:8px; border-radius:2px; }
+  .mod p, .mod li { font-size:13px; color:var(--muted); }
+  .mod ul { list-style:none; }
+  .mod li { padding:5px 0; border-bottom:1px dashed var(--line); }
+  .mod li:last-child { border:0; }
+  .mod a { color:var(--green); }
+  /* social chips */
+  .chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--txt); background:var(--panel); }
+  .chip:hover { border-color:var(--amber); color:var(--amber); text-decoration:none; }
+  .chip .d { width:6px; height:6px; border-radius:50%; background:var(--green); }
+  /* map */
+  iframe.map { width:100%; height:240px; border:1px solid var(--line); border-radius:8px; }
+  /* cta */
+  .cta { background:linear-gradient(90deg,#1a0508,#2a0a10); border:1px solid var(--red); border-radius:8px; padding:24px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+  .cta h3 { font-family:'Space Grotesk',sans-serif; font-size:20px; color:var(--red); }
+  .cta p { color:var(--muted); font-size:13px; margin-top:6px; max-width:440px; }
+  .cta .acts { display:flex; gap:10px; }
+  footer { border-top:1px solid var(--line); padding:24px 0; font-size:12px; color:var(--muted); }
+  .foot { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; }
+  .foot .fb { display:flex; gap:10px; align-items:center; }
+  .foot .fb img { width:36px; height:36px; object-fit:contain; background:#000; border-radius:4px; }
+  .foot a { color:var(--muted); }
+  .foot a:hover { color:var(--green); }
+  @media (max-width:820px) {
+    .hero, .mods { grid-template-columns:1fr; }
+    .topbar nav { display:none; }
+    .logo-box { width:120px; }
+  }
+</style>
+</head>
+<body>
+  <div class="scan"></div>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="" /> NEBRASKA_COMICS</div>
+      <div class="status">BOOTH_ONLINE</div>
+      <nav>
+        <a href="#about">[about]</a>
+        <a href="#shop">[shop]</a>
+        <a href="#socials">[socials]</a>
+        <a href="#visit">[visit]</a>
+        <a href="#news">[newsletter]</a>
+      </nav>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="logo-box"><img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="Nebraska Comics" /></div>
+      <div>
+        <h1><span class="r">ALL</span> AGES. <span class="g">ALL</span> ERAS.<br /><span class="a">ALL</span> PRICES.</h1>
+        <p>Graded slabs, key issues, full runs, $1 bins, toys and collectables. Buy, sell, and trade — restocked weekly inside Timeless Treasures, Lincoln, NE.</p>
+        <div class="acts">
+          <a class="btn pri" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">→ GET_DIRECTIONS</a>
+          <a class="btn" href="tel:+14024135332">→ CALL_OR_TEXT</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="term">
+      <div class="term-head"><span class="dots"><i></i><i></i><i></i></span><span>shop_status.sh — live</span></div>
+      <div class="term-body">
+        <div class="ln"><span class="k">location</span><span class="v g">1717 O St, Lincoln, NE 68508</span></div>
+        <div class="ln"><span class="k">hours_mon_sat</span><span class="v">10:00 – 18:00</span></div>
+        <div class="ln"><span class="k">hours_sun</span><span class="v">12:00 – 17:00</span></div>
+        <div class="ln"><span class="k">phone</span><span class="v a"><a href="tel:+14024135332">402-413-5332</a></span></div>
+        <div class="ln"><span class="k">email</span><span class="v"><a href="mailto:Contact@nebraskacomics.com">Contact@nebraskacomics.com</a></span></div>
+        <div class="ln"><span class="k">foundation</span><span class="v">Staenberg Family Dyslexic Foundation (portion of proceeds)</span></div>
+      </div>
+    </div>
+
+    <div class="mods" id="about">
+      <div class="mod"><h3><span class="ic" style="background:var(--green)"></span>GRADED_SLABS</h3><p>CGC and certified keys — Marvel, Spider-Man titles, Deadpool, Wolverine, and more in glass.</p></div>
+      <div class="mod"><h3><span class="ic" style="background:var(--amber)"></span>RAW_BOOKS</h3><p>Full runs, back issues, modern weeklies sleeved and ready to flip.</p></div>
+      <div class="mod"><h3><span class="ic" style="background:var(--red)"></span>$1_BINS</h3><p>Short boxes priced to move. Hidden gems, reader copies, cheap stack-builders.</p></div>
+      <div class="mod"><h3><span class="ic" style="background:var(--green)"></span>TOYS_POPS</h3><p>Funko, figures, and collectables mixed in with the longboxes.</p></div>
+      <div class="mod"><h3><span class="ic" style="background:var(--amber)"></span>KEYS_SPECIALS</h3><p>First appearances, variant covers, event books when they hit the booth.</p></div>
+      <div class="mod"><h3><span class="ic" style="background:var(--red)"></span>SHOWS_DROPS</h3><p>Comic Con booths, restock flyers, live sales announced on socials.</p></div>
+    </div>
+
+    <div class="term" id="shop">
+      <div class="term-head"><span class="dots"><i></i><i></i><i></i></span><span>inventory_links — outbound</span></div>
+      <div class="term-body">
+        <div class="ln"><span class="k prompt">shirts_merch</span><span class="v"><a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">bonfire.com/store/nebraska-comics</a></span></div>
+        <div class="ln"><span class="k prompt">ebay</span><span class="v"><a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">ebay.com/usr/nebraskacomics</a></span></div>
+        <div class="ln"><span class="k prompt">whatnot</span><span class="v"><a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">whatnot.com/user/nebraksacomics</a></span></div>
+        <div class="ln"><span class="k prompt">buy_sell_trade</span><span class="v">in-person at booth · text photos or bring a stack</span></div>
+      </div>
+    </div>
+
+    <div class="term" id="socials">
+      <div class="term-head"><span class="dots"><i></i><i></i><i></i></span><span>social_feed — connected</span></div>
+      <div class="term-body" style="padding-bottom:20px;">
+        <div class="chips">
+          <a class="chip" href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener"><span class="d"></span>FACEBOOK</a>
+          <a class="chip" href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener"><span class="d"></span>TIKTOK</a>
+          <a class="chip" href="https://x.com/nebraskacomics1" target="_blank" rel="noopener"><span class="d"></span>X @nebraskacomics1</a>
+          <a class="chip" href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener"><span class="d"></span>YOUTUBE</a>
+          <a class="chip" href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener"><span class="d"></span>INSTAGRAM</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="term" id="visit">
+      <div class="term-head"><span class="dots"><i></i><i></i><i></i></span><span>map — 1717 O St</span></div>
+      <div class="term-body">
+        <iframe class="map" title="Map" src="https://maps.google.com/maps?q=1717%20O%20St%2C%20Lincoln%2C%20NE%2068508&output=embed"></iframe>
+      </div>
+    </div>
+
+    <div class="cta" id="news">
+      <div>
+        <h3>// NEWSLETTER_SIGNUP</h3>
+        <p>Text the word COMICS to 402-413-5332 — we'll ping you when new slabs, keys, and $1 bins hit the booth. Reply STOP to leave.</p>
+      </div>
+      <div class="acts">
+        <a class="btn pri" href="sms:+14024135332?body=COMICS">SUBSCRIBE</a>
+        <a class="btn" href="sms:+14024135332?body=STOP">UNSUBSCRIBE</a>
+      </div>
+    </div>
+
+    <div class="cta" id="contact" style="margin-top:14px;border-color:var(--amber);">
+      <div>
+        <h3 style="color:var(--amber);">// GOT_BOOKS_TO_MOVE?</h3>
+        <p>Text photos of your stack or email a list. We buy collections and make trades in person.</p>
+      </div>
+      <div class="acts">
+        <a class="btn" href="mailto:Contact@nebraskacomics.com">EMAIL_SHOP</a>
+        <a class="btn pri" href="tel:+14024135332">402-413-5332</a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="wrap foot">
+        <div class="fb"><img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="" /><span>NEBRASKA_COMICS // LINCOLN_NE</span></div>
+        <div>
+          <a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a> ·
+          <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a> ·
+          <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Merch</a> ·
+          <a href="https://x.com/nebraskacomics1" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
