@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nebraska Comics | Template A — Issue Cover</title>
+  <link rel="icon" href="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --red:#e12626; --bg:#08080a; --ink:#fff6ea; --muted:#c4bdb0; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"Source Sans 3",sans-serif; background:var(--bg); color:var(--ink); background-image:radial-gradient(circle at 20% 10%, rgba(225,38,38,.28), transparent 32%), repeating-radial-gradient(circle at 0 0, #111 0 1px, transparent 1px 7px); }
+    .bar { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:10px 16px; background:#000; border-bottom:4px solid var(--red); font-family:Oswald,sans-serif; letter-spacing:.08em; text-transform:uppercase; font-size:12px; }
+    .bar a { color:#aaa; text-decoration:none; }
+    .bar .on { color:#fff; }
+    .wrap { width:min(1080px, calc(100% - 28px)); margin:0 auto; }
+    .hero { display:grid; gap:28px; padding:36px 0 20px; }
+    .cover { background:#000; border:6px solid #fff; outline:6px solid var(--red); padding:18px; text-align:center; transform:rotate(-1.2deg); }
+    .cover img { width:min(280px,70vw); }
+    .kicker { font-family:Oswald,sans-serif; color:var(--red); letter-spacing:.2em; text-transform:uppercase; font-size:12px; margin-bottom:8px; }
+    h1 { font-family:Bangers,cursive; font-size:clamp(52px,11vw,92px); line-height:.85; letter-spacing:2px; }
+    h1 span { color:var(--red); }
+    .lede { margin:14px 0 20px; color:var(--muted); max-width:520px; font-size:18px; }
+    .btn { display:inline-block; background:var(--red); color:#fff; text-decoration:none; font-family:Oswald,sans-serif; text-transform:uppercase; letter-spacing:.08em; padding:12px 18px; margin:0 8px 8px 0; }
+    .btn.ghost { background:transparent; border:2px solid #fff; }
+    .facts { display:grid; gap:10px; padding:10px 0 30px; }
+    .fact { background:#111; border:3px solid #fff; padding:14px 16px; }
+    .fact b { display:block; font-family:Oswald,sans-serif; text-transform:uppercase; color:var(--red); }
+    h2 { font-family:Bangers,cursive; font-size:40px; letter-spacing:1px; margin:10px 0 14px; }
+    .grid { display:grid; gap:12px; }
+    a.card, .card { background:#111; border:3px solid #2a2a2e; padding:18px; text-decoration:none; color:inherit; }
+    a.card:hover { border-color:var(--red); }
+    a.card h3, .card h3 { font-family:Oswald,sans-serif; text-transform:uppercase; color:var(--red); margin-bottom:6px; }
+    section { padding:28px 0; }
+    .band { background:var(--red); color:#fff; padding:28px; }
+    .band a { color:#fff; font-weight:700; }
+    footer { padding:28px 0 40px; color:var(--muted); border-top:4px solid var(--red); }
+    @media (min-width:860px) {
+      .hero, .facts, .grid { grid-template-columns:repeat(2,1fr); }
+      .facts, .grid.three { grid-template-columns:repeat(3,1fr); }
+      .cover { transform:rotate(-2deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <span>Template A · Issue Cover · Preview only</span>
+    <span><a class="on" href="a.html">A</a> · <a href="b.html">B</a> · <a href="c.html">C</a> · <a href="/">Live site</a></span>
+  </div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="cover"><img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="Nebraska Comics" /></div>
+      <div>
+        <p class="kicker">Lincoln, NE · Inside Timeless Treasures</p>
+        <h1>All ages.<br />All <span>eras.</span><br />All prices.</h1>
+        <p class="lede">Graded slabs, key issues, full runs, $1 bins, toys and collectables. Buy, sell, and trade — restocked weekly.</p>
+        <a class="btn" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn ghost" href="tel:+14024135332">Call or Text</a>
+      </div>
+    </section>
+    <div class="facts">
+      <div class="fact"><b>Hours</b>Mon–Sat 10am–6pm<br />Sun 12pm–5pm</div>
+      <div class="fact"><b>Location</b>1717 O Street<br />Lincoln, NE 68508</div>
+      <div class="fact"><b>Contact</b><a href="mailto:Contact@nebraskacomics.com" style="color:#fff">Contact@nebraskacomics.com</a><br />402-413-5332</div>
+    </div>
+    <section>
+      <h2>Shop</h2>
+      <div class="grid three">
+        <a class="card" href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener"><h3>Shirts &amp; Merch</h3><p>Official Nebraska Comics gear.</p></a>
+        <a class="card" href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener"><h3>eBay</h3><p>Comics and collectibles listed online.</p></a>
+        <a class="card" href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener"><h3>Whatnot</h3><p>Live sales and auction drops.</p></a>
+      </div>
+    </section>
+    <section>
+      <h2>Socials</h2>
+      <div class="grid three">
+        <a class="card" href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener"><h3>Facebook</h3><p>Page, drops, and local updates.</p></a>
+        <a class="card" href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener"><h3>TikTok</h3><p>Restock clips and $1 bin hauls.</p></a>
+        <a class="card" href="https://x.com/nebraskacomics1" target="_blank" rel="noopener"><h3>X</h3><p>@nebraskacomics1</p></a>
+        <a class="card" href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener"><h3>YouTube</h3><p>Shop videos and booth footage.</p></a>
+        <a class="card" href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener"><h3>Instagram</h3><p>Covers, slabs, and weekly finds.</p></a>
+      </div>
+    </section>
+  </main>
+  <section class="band">
+    <div class="wrap">
+      <h2>Newsletter sign up</h2>
+      <p>Text <b>COMICS</b> to 402-413-5332 for restock alerts. Reply STOP to leave the list.</p>
+      <p style="margin-top:12px"><a href="sms:+14024135332?body=COMICS">Subscribe</a> · <a href="sms:+14024135332?body=STOP">Unsubscribe</a></p>
+    </div>
+  </section>
+  <footer class="wrap">Nebraska Comics · 1717 O St, Lincoln, NE 68508<br />A portion of proceeds supports the Staenberg Family Dyslexic Foundation.</footer>
+</body>
+</html>
