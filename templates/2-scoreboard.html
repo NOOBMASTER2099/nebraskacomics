@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nebraska Comics — Scoreboard</title>
+<link rel="icon" href="../logo.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#fff;font-family:Oswald,sans-serif}
+a{color:#fff;text-decoration:none}
+.board{border:6px solid #e41c38;margin:16px;background:#050505}
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:#e41c38;padding:10px 16px;gap:12px}
+.top .side{font-family:Anton,sans-serif;letter-spacing:2px;font-size:22px}
+.top .side.r{text-align:right}
+.score{font-family:Anton,sans-serif;font-size:42px;background:#000;padding:4px 18px;letter-spacing:4px}
+.clock{text-align:center;padding:8px;font-family:"IBM Plex Mono",monospace;letter-spacing:.3em;color:#e41c38;font-size:12px;border-bottom:2px solid #e41c38}
+.hero{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:28px 24px;align-items:center}
+.hero img{width:220px;background:#000}
+h1{font-family:Anton,sans-serif;font-size:clamp(40px,7vw,84px);line-height:.9;letter-spacing:1px}
+h1 span{color:#e41c38}
+.lede{color:#c8c8c8;max-width:520px;margin:12px 0 20px;font-size:18px;font-weight:500}
+.btns a{display:inline-block;margin:0 8px 8px 0;padding:12px 18px;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.fill{background:#e41c38}
+.line{border:2px solid #fff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid #e41c38;border-bottom:2px solid #e41c38}
+.stat{padding:16px;border-right:2px solid #222;text-align:center}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:Anton,sans-serif;font-size:28px;color:#e41c38}
+.stat span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#999}
+.grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.cell{padding:22px 16px;border-right:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a;min-height:120px}
+.cell:hover{background:#14060a}
+.num{font-family:Anton,sans-serif;color:#e41c38;font-size:28px}
+.cell h3{margin:6px 0 6px;font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+.cell p{color:#9a9a9a;font-size:14px;font-weight:500}
+.ticker{overflow:hidden;white-space:nowrap;background:#e41c38;padding:10px 0;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.ticker span{display:inline-block;padding-left:100%;animation:t 22s linear infinite}
+@keyframes t{to{transform:translateX(-100%)}}
+@media(max-width:800px){.hero,.stats,.grid,.top{grid-template-columns:1fr}.top .side.r{text-align:left}}
+</style>
+</head>
+<body>
+<div class="board">
+  <div class="top"><div class="side">HOME · LINCOLN</div><div class="score">N · C</div><div class="side r">VISITORS · COMICS</div></div>
+  <div class="clock">1ST QUARTER · O STREET · TIMELESS TREASURES</div>
+  <section class="hero">
+    <img src="../logo.svg" alt="Nebraska Comics" />
+    <div>
+      <h1>WITH GREAT COMICS<br><span>COMES GREAT</span><br>RESPONSIBILITY.</h1>
+      <p class="lede">Slabs, keys, full runs, $1 bins. Restocked weekly. A portion of proceeds supports the Staenberg Family Dyslexic Foundation.</p>
+      <div class="btns">
+        <a class="fill" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Directions</a>
+        <a class="line" href="tel:+14024135332">Call or Text</a>
+        <a class="line" href="sms:+14024135332?body=COMICS">Text COMICS</a>
+      </div>
+    </div>
+  </section>
+  <div class="stats">
+    <div class="stat"><b>10–6</b><span>Mon–Sat</span></div>
+    <div class="stat"><b>12–5</b><span>Sunday</span></div>
+    <div class="stat"><b>1717 O</b><span>Lincoln, NE</span></div>
+    <div class="stat"><b>402</b><span>413-5332</span></div>
+  </div>
+  <div class="grid">
+    <a class="cell" href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener"><div class="num">01</div><h3>Shirts & Merch</h3><p>Official gear on Bonfire.</p></a>
+    <a class="cell" href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener"><div class="num">02</div><h3>eBay</h3><p>Books that ship.</p></a>
+    <a class="cell" href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener"><div class="num">03</div><h3>Whatnot</h3><p>Live drops.</p></a>
+    <a class="cell" href="tel:+14024135332"><div class="num">04</div><h3>Buy / Sell / Trade</h3><p>Text a stack.</p></a>
+    <a class="cell" href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener"><div class="num">05</div><h3>Facebook</h3><p>Page & drops.</p></a>
+    <a class="cell" href="https://x.com/nebraskacomics1" target="_blank" rel="noopener"><div class="num">06</div><h3>X</h3><p>@nebraskacomics1</p></a>
+    <a class="cell" href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener"><div class="num">07</div><h3>Instagram</h3><p>Covers & slabs.</p></a>
+    <a class="cell" href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener"><div class="num">08</div><h3>TikTok</h3><p>Restock clips.</p></a>
+  </div>
+  <div class="ticker"><span>ALL AGES · ALL ERAS · ALL PRICES · GRADED SLABS · $1 BINS · KEYS · RUNS · TEXT COMICS TO 402-413-5332 · LINCOLN, NEBRASKA · </span></div>
+</div>
+</body>
+</html>
