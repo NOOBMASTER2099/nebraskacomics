@@ -16,6 +16,7 @@
   html { scroll-behavior:smooth; }
   body { font-family:'Inter',system-ui,sans-serif; background:var(--paper); color:var(--ink); line-height:1.6; }
   a { color:var(--red-deep); }
+  img { max-width:100%; display:block; }
   .wrap { width:min(1080px, calc(100% - 40px)); margin:0 auto; }
   .mast { border-bottom:3px double var(--ink); padding:18px 0 14px; }
   .mast-top { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
@@ -27,7 +28,7 @@
   .mast nav a { text-decoration:none; font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--ink); }
   .mast nav a:hover { color:var(--red); }
   .issue { font-family:Fraunces,serif; font-style:italic; font-size:14px; color:var(--muted); }
-  .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding:48px 0 36px; }
+  .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center; padding:48px 0 36px; }
   .hero-copy h2 { font-family:Fraunces,serif; font-size:clamp(36px,6.4vw,60px); line-height:1.02; font-weight:900; letter-spacing:-1px; }
   .hero-copy h2 em { font-style:italic; color:var(--red); }
   .hero-copy .sub { font-size:18px; color:var(--muted); max-width:440px; margin:18px 0 24px; }
@@ -35,8 +36,9 @@
   .btn { display:inline-flex; align-items:center; padding:13px 22px; border-radius:4px; text-decoration:none; font-weight:600; font-size:14px; letter-spacing:.03em; }
   .btn-fill { background:var(--red); color:#fff; }
   .btn-line { border:1.5px solid var(--ink); color:var(--ink); }
-  .hero-logo { background:#fff; border:1px solid var(--line); border-radius:8px; padding:24px; box-shadow:0 10px 30px rgba(0,0,0,.06); }
-  .hero-logo img { width:100%; height:auto; display:block; }
+  .hero-photo { background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px; box-shadow:0 10px 30px rgba(0,0,0,.06); }
+  .hero-photo img { width:100%; height:auto; border-radius:4px; object-fit:cover; aspect-ratio:3/2; background:var(--paper-2); }
+  .hero-photo figcaption { font-size:12px; color:var(--muted); font-style:italic; padding:10px 6px 4px; }
   .pull { background:var(--ink); color:var(--paper); text-align:center; padding:34px 20px; }
   .pull p { font-family:Fraunces,serif; font-size:clamp(22px,4vw,32px); font-style:italic; max-width:680px; margin:0 auto; }
   .pull span { display:block; margin-top:10px; font-family:Inter,sans-serif; font-style:normal; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--red); }
@@ -50,6 +52,11 @@
   .cols ul { list-style:none; }
   .cols li { padding:10px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; font-size:15px; }
   .cols li b { font-weight:600; }
+  .looks { display:grid; grid-template-columns:1.2fr 1fr; gap:16px; }
+  .looks figure { margin:0; background:var(--paper-2); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+  .looks img { width:100%; height:100%; object-fit:cover; aspect-ratio:3/2; background:#ddd4c4; min-height:160px; }
+  .looks .stack { display:grid; gap:16px; }
+  .looks figcaption { font-size:13px; color:var(--muted); padding:10px 14px 12px; font-family:Fraunces,serif; font-style:italic; }
   .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
   .card { background:var(--paper-2); border:1px solid var(--line); border-radius:6px; padding:22px; }
   .card h4 { font-family:Fraunces,serif; font-size:20px; margin-bottom:8px; }
@@ -76,7 +83,7 @@
   .foot-brand img { width:48px; height:48px; object-fit:contain; background:#000; border-radius:6px; }
   .foot-bottom { border-top:1px solid #2a2a2e; margin-top:24px; padding-top:16px; font-size:12px; color:#7a7568; }
   @media (max-width:860px) {
-    .hero, .cols, .cards, .soc-list, .foot-grid { grid-template-columns:1fr; }
+    .hero, .cols, .cards, .soc-list, .foot-grid, .looks { grid-template-columns:1fr; }
     .mast nav { display:none; }
     .news { flex-direction:column; align-items:flex-start; }
   }
@@ -90,7 +97,7 @@
         <h1>Nebraska <em>Comics</em></h1>
       </a>
       <nav>
-        <a href="#about">About</a>
+        <a href="#looks">Looks</a>
         <a href="#shop">Shop</a>
         <a href="#socials">Socials</a>
         <a href="#visit">Visit</a>
@@ -110,9 +117,10 @@
           <a class="btn btn-line" href="tel:+14024135332">Call or Text</a>
         </div>
       </div>
-      <div class="hero-logo">
-        <img src="https://easy-links.s3.us-west-2.amazonaws.com/avatars/avatar-nebraskacomics.com-yhNtG8.jpeg" alt="Nebraska Comics logo" />
-      </div>
+      <figure class="hero-photo">
+        <img data-photo="img/hero.b64" alt="Stacks, a slab, and a dollar bin on the table" />
+        <figcaption>Slabs, stacks, and the $1 bin — restocked weekly.</figcaption>
+      </figure>
     </section>
 
     <div class="pull">
@@ -120,8 +128,28 @@
       <span>Nebraska Comics · Lincoln</span>
     </div>
 
+    <section id="looks" class="wrap">
+      <div class="sec-head"><h3>The <em>looks</em></h3><span class="sec-num">01 / Floor</span></div>
+      <div class="looks">
+        <figure>
+          <img data-photo="img/booth.b64" alt="Booth with short boxes and a glass slab case" />
+          <figcaption>The booth inside Timeless Treasures — boxes to flip, glass for the keys.</figcaption>
+        </figure>
+        <div class="stack">
+          <figure>
+            <img data-photo="img/slabs.b64" alt="Graded comics in a glass case" />
+            <figcaption>Graded slabs under glass.</figcaption>
+          </figure>
+          <figure>
+            <img data-photo="img/bins.b64" alt="Short boxes marked one dollar bin" />
+            <figcaption>The $1 bins. Dig.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="wrap">
-      <div class="sec-head"><h3>The <em>shop</em></h3><span class="sec-num">01 / About</span></div>
+      <div class="sec-head"><h3>The <em>shop</em></h3><span class="sec-num">02 / About</span></div>
       <div class="cols">
         <div>
           <p>Nebraska Comics is Lincoln's home for comics of every era. We stock modern hits, vintage runs, CGC slabs, keys, toys, and collectibles — all inside Timeless Treasures on O Street.</p>
@@ -138,7 +166,7 @@
     </section>
 
     <section id="shop" class="wrap">
-      <div class="sec-head"><h3>Where to <em>buy</em></h3><span class="sec-num">02 / Shop</span></div>
+      <div class="sec-head"><h3>Where to <em>buy</em></h3><span class="sec-num">03 / Shop</span></div>
       <div class="cards">
         <article class="card"><span class="tag">Merch</span><h4><a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Shirts &amp; Merch</a></h4><p>Official Nebraska Comics gear on Bonfire.</p></article>
         <article class="card"><span class="tag">Online</span><h4><a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a></h4><p>Comics and collectibles listed for shipping.</p></article>
@@ -150,7 +178,7 @@
     </section>
 
     <section id="socials" class="wrap">
-      <div class="sec-head"><h3>On the <em>feed</em></h3><span class="sec-num">03 / Socials</span></div>
+      <div class="sec-head"><h3>On the <em>feed</em></h3><span class="sec-num">04 / Socials</span></div>
       <div class="soc-list">
         <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook<small>Page &amp; drops</small></a>
         <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok<small>Restock clips</small></a>
@@ -161,7 +189,7 @@
     </section>
 
     <section id="visit" class="wrap">
-      <div class="sec-head"><h3>Find <em>us</em></h3><span class="sec-num">04 / Visit</span></div>
+      <div class="sec-head"><h3>Find <em>us</em></h3><span class="sec-num">05 / Visit</span></div>
       <div class="cols">
         <div>
           <p>Inside Timeless Treasures, under the big blue awning just east of 17th &amp; O Street — close to the University of Nebraska campus. Look for the slabs and the short boxes.</p>
@@ -188,7 +216,7 @@
     </section>
 
     <section id="contact" class="wrap">
-      <div class="sec-head"><h3>Got books to <em>move?</em></h3><span class="sec-num">05 / Contact</span></div>
+      <div class="sec-head"><h3>Got books to <em>move?</em></h3><span class="sec-num">06 / Contact</span></div>
       <div class="cols">
         <div>
           <p>Text photos of your stack or email a list. We buy collections and make trades in person.</p>
@@ -233,5 +261,12 @@
     </div>
     <div class="wrap foot-bottom">Lincoln, Nebraska · With great comics comes great responsibility.</div>
   </footer>
+  <script>
+    document.querySelectorAll('img[data-photo]').forEach(function (img) {
+      fetch(img.getAttribute('data-photo')).then(function (r) { return r.text(); }).then(function (t) {
+        img.src = 'data:image/jpeg;base64,' + t.trim();
+      }).catch(function () {});
+    });
+  </script>
 </body>
 </html>
