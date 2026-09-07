@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Preview 1 — Arena | Nebraska Comics</title>
+<link rel="icon" href="../logo-black.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{--red:#e41c38;--ink:#fff;--mute:#9a9a9a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;line-height:1.55}
+a{color:#fff}
+img{max-width:100%;display:block}
+.wrap{width:min(1080px,calc(100% - 36px));margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:3px solid #fff}
+.top nav{display:flex;gap:18px}
+.top nav a{text-decoration:none;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.top nav a:hover{color:var(--red)}
+.pick{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.jumbo{min-height:78vh;display:grid;place-items:center;text-align:center;padding:48px 16px 36px;background:
+ radial-gradient(ellipse at center,#1a0508 0%,#000 68%)}
+.jumbo img{width:min(340px,78vw);margin:0 auto 22px}
+.jumbo h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(52px,12vw,120px);line-height:.85;letter-spacing:.02em}
+.jumbo h1 span{color:var(--red)}
+.jumbo p{color:var(--mute);max-width:460px;margin:14px auto 24px}
+.acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.btn-red{background:var(--red);color:#fff}
+.btn-line{border:2px solid #fff}
+.ticker{background:var(--red);overflow:hidden;white-space:nowrap;padding:10px 0;font-family:"Bebas Neue",sans-serif;letter-spacing:.12em;font-size:18px}
+.ticker span{display:inline-block;padding-left:100%;animation:t 22s linear infinite}
+@keyframes t{to{transform:translateX(-100%)}}
+section{padding:52px 0;border-bottom:1px solid #222}
+h2{font-family:"Bebas Neue",sans-serif;font-size:42px;letter-spacing:.04em;margin-bottom:8px}
+h2 em{font-style:normal;color:var(--red)}
+.lead{color:var(--mute);margin-bottom:22px}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cell{border:2px solid #fff;padding:18px 14px;min-height:140px}
+.cell .n{font-family:"Bebas Neue",sans-serif;color:var(--red);font-size:28px}
+.cell h3{font-size:16px;margin:6px 0}
+.cell h3 a{text-decoration:none}
+.cell h3 a:hover{color:var(--red)}
+.cell p{color:var(--mute);font-size:13px}
+.soc{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.soc a{border:1px solid #333;padding:14px 8px;text-align:center;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.soc a:hover{background:var(--red);border-color:var(--red)}
+.hours{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.hours li{list-style:none;display:flex;justify-content:space-between;border-bottom:1px solid #222;padding:10px 0}
+.news{background:#0d0d0d;border:2px solid var(--red);padding:28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.news h2{margin:0}
+footer{padding:28px 0 40px;color:#777;font-size:13px}
+footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:800px){
+  .board,.soc,.hours{grid-template-columns:1fr 1fr}
+  .top nav{display:none}
+}
+@media(max-width:520px){.board,.soc{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="pick" href="index.html">← 3 PREVIEW PICKS</a>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#socials">Socials</a>
+    <a href="#visit">Visit</a>
+    <a href="#newsletter">Newsletter</a>
+  </nav>
+  <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#888">Preview 01 · Arena</span>
+</header>
+<section class="jumbo">
+  <div>
+    <img src="../logo-black.svg" alt="Nebraska Comics" />
+    <h1>ALL AGES.<br><span>ALL ERAS.</span><br>ALL PRICES.</h1>
+    <p>Graded slabs, keys, full runs, $1 bins. Buy, sell, trade — downtown Lincoln.</p>
+    <div class="acts">
+      <a class="btn btn-red" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get Directions</a>
+      <a class="btn btn-line" href="tel:+14024135332">Call or Text</a>
+    </div>
+  </div>
+</section>
+<div class="ticker"><span>LINCOLN · 1717 O STREET · INSIDE TIMELESS TREASURES · SLABS · KEYS · $1 BINS · BUY SELL TRADE · RESTOCKED WEEKLY · </span></div>
+<section class="wrap" id="shop">
+  <h2>WHERE TO <em>BUY</em></h2>
+  <p class="lead">Four doors. Same shop.</p>
+  <div class="board">
+    <article class="cell"><div class="n">01</div><h3><a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Shirts &amp; Merch</a></h3><p>Official gear on Bonfire.</p></article>
+    <article class="cell"><div class="n">02</div><h3><a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a></h3><p>Comics and collectibles shipping out.</p></article>
+    <article class="cell"><div class="n">03</div><h3><a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a></h3><p>Live sales and auction drops.</p></article>
+    <article class="cell"><div class="n">04</div><h3><a href="#contact">Buy / Sell / Trade</a></h3><p>In person. Text photos or bring a stack.</p></article>
+  </div>
+</section>
+<section class="wrap" id="socials">
+  <h2>ON THE <em>FEED</em></h2>
+  <div class="soc">
+    <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://x.com/nebraskacomics1" target="_blank" rel="noopener">X</a>
+    <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</section>
+<section class="wrap hours" id="visit">
+  <div>
+    <h2>FIND <em>US</em></h2>
+    <p class="lead">Inside Timeless Treasures, under the big blue awning east of 17th &amp; O. Look for the slabs and short boxes.</p>
+    <iframe title="Map" src="https://maps.google.com/maps?q=1717%20O%20St%2C%20Lincoln%2C%20NE%2068508&output=embed" style="width:100%;height:240px;border:0;filter:grayscale(1) contrast(1.1)"></iframe>
+  </div>
+  <ul>
+    <li><span>Mon – Sat</span><b>10:00 AM – 6:00 PM</b></li>
+    <li><span>Sunday</span><b>12:00 PM – 5:00 PM</b></li>
+    <li><span>Address</span><b>1717 O St, Lincoln, NE</b></li>
+    <li><span>Phone</span><b><a href="tel:+14024135332">402-413-5332</a></b></li>
+    <li><span>Email</span><b><a href="mailto:Contact@nebraskacomics.com">Contact@nebraskacomics.com</a></b></li>
+  </ul>
+</section>
+<section class="wrap" id="newsletter">
+  <div class="news">
+    <div>
+      <h2>NEWSLETTER</h2>
+      <p class="lead" style="margin:8px 0 0">Text COMICS to 402-413-5332 for restocks. Reply STOP to leave the list.</p>
+    </div>
+    <div class="acts">
+      <a class="btn btn-red" href="sms:+14024135332?body=COMICS">Subscribe</a>
+      <a class="btn btn-line" href="sms:+14024135332?body=STOP">Unsubscribe</a>
+    </div>
+  </div>
+</section>
+<section class="wrap" id="contact">
+  <h2>GOT BOOKS TO <em>MOVE?</em></h2>
+  <p class="lead">Text photos of your stack or email a list. We buy collections and make trades in person.</p>
+  <div class="acts" style="justify-content:flex-start">
+    <a class="btn btn-line" href="mailto:Contact@nebraskacomics.com">Email the shop</a>
+    <a class="btn btn-red" href="tel:+14024135332">402-413-5332</a>
+  </div>
+</section>
+<footer class="wrap">
+  <div class="row">
+    <div>Nebraska Comics · 1717 O St, Lincoln, NE<br>A portion of proceeds supports the Staenberg Family Dyslexic Foundation.</div>
+    <div>Preview 01 · Arena · Not live yet</div>
+  </div>
+</footer>
+</body>
+</html>
