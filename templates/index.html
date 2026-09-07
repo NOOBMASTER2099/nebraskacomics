@@ -3,37 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pick a layout — Nebraska Comics</title>
+<title>Choose a direction — Nebraska Comics</title>
 <link rel="icon" href="../logo-black.svg" />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet" />
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;padding:36px 20px}
-.wrap{width:min(860px,100%);margin:0 auto}
-img{width:88px;height:88px;object-fit:contain;margin-bottom:16px}
-h1{font-family:Anton,sans-serif;font-size:clamp(36px,8vw,58px);line-height:.95}
-h1 span{color:#e41c38}
-p{color:#9a9a9a;margin:12px 0 28px}
-.g{display:grid;gap:12px}
-a.card{display:block;border:2px solid #fff;padding:20px;text-decoration:none;color:#fff}
-a.card:hover{border-color:#e41c38;background:#120406}
-a.card b{display:block;color:#e41c38;letter-spacing:.18em;font-size:11px;text-transform:uppercase}
-a.card strong{display:block;font-family:Anton,sans-serif;font-size:28px;margin:6px 0 4px}
-a.card em{font-style:normal;color:#8a8a8a;font-size:14px}
-.note{margin-top:22px;font-size:12px;color:#666}
+body{background:#000;color:#fff;font-family:Outfit,system-ui,sans-serif;padding:48px 22px}
+.wrap{width:min(720px,100%);margin:0 auto}
+img{width:72px;height:72px;margin-bottom:18px}
+h1{font-family:Newsreader,serif;font-size:clamp(34px,6vw,52px);font-weight:500;line-height:1.05}
+h1 em{font-style:italic;color:#e41c38}
+p{color:#8d8d8d;margin:14px 0 28px;max-width:42ch}
+a.opt{display:block;padding:22px 0;border-top:1px solid #222;text-decoration:none;color:#fff}
+a.opt:last-of-type{border-bottom:1px solid #222}
+a.opt b{display:block;color:#e41c38;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+a.opt strong{display:block;font-family:Newsreader,serif;font-size:28px;font-weight:500;margin:6px 0 4px}
+a.opt span{color:#8a8a8a;font-size:14px}
+a.opt:hover strong{color:#e41c38}
+.note{margin-top:22px;font-size:12px;color:#555}
 </style>
 </head>
 <body>
 <div class="wrap">
   <img src="../logo-black.svg" alt="Nebraska Comics" />
-  <h1>PICK ONE<br><span>BEFORE LIVE</span></h1>
-  <p>Same info. Same black / white / scarlet logo. Three different bones. Homepage is unchanged until you choose.</p>
-  <div class="g">
-    <a class="card" href="1-arena.html"><b>01</b><strong>ARENA</strong><em>Jumbotron logo. Giant slogan. Scoreboard shop tiles. Red ticker.</em></a>
-    <a class="card" href="2-issue.html"><b>02</b><strong>ISSUE</strong><em>Comic-book page. Logo as the cover. Thick white panel borders.</em></a>
-    <a class="card" href="3-locker.html"><b>03</b><strong>LOCKER</strong><em>Sideline / locker-room wall. Numbered doors. Red stripe newsletter.</em></a>
-  </div>
-  <p class="note">Live site stays the white editorial page until you say which one to push.</p>
+  <h1>Three directions.<br><em>Pick one.</em></h1>
+  <p>Black field, white type, scarlet mark. Same shop info. Completely different architecture. Homepage stays put until you choose.</p>
+  <a class="opt" href="a-house.html"><b>A</b><strong>House</strong><span>Quiet luxury. Split column, serif manifesto, shop as a typed list.</span></a>
+  <a class="opt" href="b-gallery.html"><b>B</b><strong>Gallery</strong><span>Museum case. Logo in a vitrine. Shop as four accession rooms.</span></a>
+  <a class="opt" href="c-flagship.html"><b>C</b><strong>Flagship</strong><span>Modern storefront. Soft cards, pill buttons, red newsletter banner.</span></a>
+  <p class="note">Live site is unchanged.</p>
 </div>
 </body>
 </html>
