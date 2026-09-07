@@ -6,10 +6,11 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>Nebraska Comics | Lincoln, NE — Buy · Sell · Trade</title>
 <meta name="description" content="Nebraska Comics in Lincoln. Graded slabs, key issues, full runs, $1 bins, toys and collectables inside Timeless Treasures at 1717 O Street." />
-<link rel="icon" href="logo.svg?v=raw7" type="image/svg+xml" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='22' font-family='Arial Black,sans-serif' font-weight='900' fill='%23e41c38'%3EN%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="logo.css?v=raw7" />
 <style>
 :root{--red:#e41c38;--mute:#8e8e8e;--card:#0d0d0d;--line:#1c1c1c}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -19,7 +20,6 @@ a{color:#fff;text-decoration:none}
 img{display:block;max-width:100%}
 .bar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);border-bottom:1px solid #141414}
 .logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.04em}
-.logo img{width:44px;height:44px;border-radius:8px;object-fit:cover;background:#000}
 .bar nav{display:flex;gap:22px;font-size:13px;font-weight:600}
 .bar nav a:hover{color:var(--red)}
 .hero{width:min(1120px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:56px 0 60px}
@@ -27,7 +27,6 @@ img{display:block;max-width:100%}
 .hero h1 span{color:var(--red)}
 .hero p{color:var(--mute);margin:18px 0 26px;max-width:440px;font-size:16px}
 .hero-logo{background:var(--card);border-radius:22px;padding:28px;display:grid;place-items:center;border:1px solid var(--line)}
-.hero-logo img{width:min(320px,100%);border-radius:8px}
 .btns{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:700;font-size:13px}
 .red{background:var(--red);color:#fff}
@@ -72,7 +71,7 @@ footer a:hover{color:#fff}
 </head>
 <body>
 <header class="bar">
-  <a class="logo" href="#top"><img src="logo.svg?v=raw7" alt="Nebraska Comics" /> Nebraska Comics</a>
+  <a class="logo" href="#top"><span class="mark" role="img" aria-label="Nebraska Comics"></span> Nebraska Comics</a>
   <nav>
     <a href="#shop">Shop</a>
     <a href="#visit">Visit</a>
@@ -89,7 +88,7 @@ footer a:hover{color:#fff}
       <a class="btn ghost" href="tel:+14024135332">Call or text</a>
     </div>
   </div>
-  <div class="hero-logo"><img src="logo.svg?v=raw7" alt="Nebraska Comics logo" /></div>
+  <div class="hero-logo"><div class="mark" role="img" aria-label="Nebraska Comics logo"></div></div>
 </section>
 <div class="band">1717 O Street · Lincoln, NE · Mon–Sat 10–6 · Sun 12–5</div>
 <section class="wrap shop" id="shop">
