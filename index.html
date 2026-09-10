@@ -93,7 +93,17 @@ h1 .heroes,h1 .heart{color:var(--red-hot)}
 .fact a:hover{color:#fff}
 section{padding:48px 0}
 .section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
-.section-sub{color:var(--muted);margin-bottom:28px;max-width:640px}
+.section-sub{color:var(--muted);margin-bottom:12px;max-width:640px}
+.open-status{
+  display:inline-block;
+  font-family:Oswald,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:22px;
+}
+.open-status.is-open{color:#6fdf8a}
+.open-status.is-closed{color:var(--muted)}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
@@ -184,7 +194,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
   </section>
 
-  <section class="wrap" id="visit" style="padding-top:8px;padding-bottom:8px">
+  <section class="wrap" style="padding-top:8px;padding-bottom:8px">
     <div class="facts">
       <div class="fact">
         <strong>Hours</strong>
@@ -229,10 +239,11 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
   </section>
 
-  <section class="wrap split">
+  <section class="wrap split" id="visit">
     <div>
       <h2 class="section-title">Find us</h2>
       <p class="section-sub">Inside Timeless Treasures, under the blue awning east of 17th & O. Look for the slabs and short boxes.</p>
+      <div class="open-status" id="open-status">Mon–Sat 10:00 AM–6:00 PM · Sun 12:00 PM–5:00 PM</div>
       <ul class="hours">
         <li><span>Monday – Saturday</span><b>10:00 AM – 6:00 PM</b></li>
         <li><span>Sunday</span><b>12:00 PM – 5:00 PM</b></li>
@@ -315,5 +326,45 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var el = document.getElementById('open-status');
+  if(!el) return;
+  var parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date());
+  var weekday = parts.find(function(p){ return p.type === 'weekday'; }).value;
+  var hour = parseInt(parts.find(function(p){ return p.type === 'hour'; }).value, 10);
+  var minute = parseInt(parts.find(function(p){ return p.type === 'minute'; }).value, 10);
+  var mins = hour * 60 + minute;
+  var order = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var names = {Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday'};
+  function hoursFor(day){
+    if(day === 'Sun') return {open:12*60, close:17*60, openLabel:'12:00 PM', closeLabel:'5:00 PM'};
+    return {open:10*60, close:18*60, openLabel:'10:00 AM', closeLabel:'6:00 PM'};
+  }
+  var today = hoursFor(weekday);
+  if(mins >= today.open && mins < today.close){
+    el.textContent = 'Open now · closes ' + today.closeLabel;
+    el.classList.add('is-open');
+    return;
+  }
+  var nextDay = weekday;
+  var nextHours = today;
+  var when = 'today';
+  if(mins >= today.close){
+    var idx = (order.indexOf(weekday) + 1) % 7;
+    nextDay = order[idx];
+    nextHours = hoursFor(nextDay);
+    when = names[nextDay];
+  }
+  el.textContent = 'Closed · opens ' + when + ' ' + nextHours.openLabel;
+  el.classList.add('is-closed');
+})();
+</script>
 </body>
 </html>
