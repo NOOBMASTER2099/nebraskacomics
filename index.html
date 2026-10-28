@@ -208,6 +208,14 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 @media(max-width:860px){
   .order-form{grid-template-columns:1fr}
 }
+
+.mockup-panel{margin-top:16px;display:none;flex-direction:column;gap:12px}
+.mockup-panel.is-on{display:flex}
+.mockup-panel img{width:min(320px,100%);border-radius:12px;border:1px solid var(--line);background:#000}
+.mockup-status{font-size:14px;color:var(--muted)}
+.mockup-status.err{color:#ff8a8a}
+.mockup-status.ok{color:#9dffa8}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -283,7 +291,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 
   <section class="wrap" id="plaques">
     <h2 class="section-title">Plaques &amp; Prints</h2>
-    <p class="section-sub">Original Lincoln landmark comic-cover plaques — no Marvel or DC characters. Pickup out front of Timeless Treasures, 1717 O St, Lincoln. Coming soon.</p>
+    <p class="section-sub">Original Lincoln landmark comic-cover plaques — no Marvel or DC characters. Pickup out front, text to set a time. Coming soon.</p>
     <div class="grid-3" style="margin-bottom:18px">
       <article class="card plaque-card">
         <div class="plaque-art">
@@ -296,7 +304,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <div class="plaque-body">
           <h3>LINCOLN #1: The Capitol Tower</h3>
           <p class="plaque-price">$15–20</p>
-          <p>Original comic-cover plaque of the Nebraska State Capitol. Pickup out front of Timeless Treasures, 1717 O St, Lincoln.</p>
+          <p>Original comic-cover plaque of the Nebraska State Capitol. Pickup out front, text to set a time.</p>
         </div>
       </article>
       <article class="card plaque-card">
@@ -310,7 +318,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <div class="plaque-body">
           <h3>Memorial Stadium</h3>
           <p class="plaque-price">$15–20</p>
-          <p>Hometown game-day cover art of Memorial Stadium. Original design — pickup out front at 1717 O St.</p>
+          <p>Hometown game-day cover art of Memorial Stadium. Original design — pickup out front, text to set a time.</p>
         </div>
       </article>
       <article class="card plaque-card">
@@ -324,15 +332,15 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <div class="plaque-body">
           <h3>The Haymarket</h3>
           <p class="plaque-price">$15–20</p>
-          <p>Lincoln’s historic Haymarket as an Issue #1 cover. Pickup out front of Timeless Treasures.</p>
+          <p>Lincoln’s historic Haymarket as an Issue #1 cover. Pickup out front, text to set a time.</p>
         </div>
       </article>
     </div>
 
     <div class="order-block">
       <h3>Custom Name Plaque — $25</h3>
-      <p>Personalized signs like “Jake’s Comic Cave.” Pickup out front of Timeless Treasures, 1717 O St, Lincoln. Email the form or text your order.</p>
-      <form class="order-form" action="mailto:appraise@nebraskacomics.com" method="post" enctype="text/plain">
+      <p>Personalized signs like “Jake’s Comic Cave.” $25. Pickup out front, text to set a time (402-413-5332). Preview an AI mockup first — nothing reaches us until you approve it.</p>
+      <form class="order-form" id="plaque-order-form" action="mailto:appraise@nebraskacomics.com" method="post" enctype="text/plain">
         <input type="hidden" name="subject" value="Custom Name Plaque order" />
         <label>Plaque name
           <input type="text" name="Plaque name" placeholder="Jake's Comic Cave" required />
@@ -357,8 +365,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <textarea name="Notes" placeholder="Size, font style, pickup timing…"></textarea>
         </label>
         <div class="full order-actions">
-          <button class="btn btn-primary" type="submit">Email order</button>
-          <a class="btn btn-ghost" href="sms:4024135332?body=Custom%20name%20plaque%20order%3A%20">Text your order</a>
+          <button class="btn btn-primary" type="button" id="make-mockup">Make my mockup</button>
+          <button class="btn btn-ghost" type="button" id="approve-order" disabled>Looks good, send order</button>
+        </div>
+        <div class="full mockup-panel" id="mockup-panel" aria-live="polite">
+          <p class="mockup-status" id="mockup-status"></p>
+          <img id="mockup-img" alt="AI plaque mockup preview" hidden />
         </div>
       </form>
     </div>
@@ -501,6 +513,141 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   }
   el.textContent = 'Closed · opens ' + when + ' ' + nextHours.openLabel;
   el.classList.add('is-closed');
+})();
+</script>
+
+<script>
+(function(){
+  var WORKER = 'https://nc-plaque-mockups.nebraskacomics.workers.dev';
+  var form = document.getElementById('plaque-order-form');
+  var makeBtn = document.getElementById('make-mockup');
+  var approveBtn = document.getElementById('approve-order');
+  var panel = document.getElementById('mockup-panel');
+  var statusEl = document.getElementById('mockup-status');
+  var img = document.getElementById('mockup-img');
+  if(!form || !makeBtn) return;
+
+  var lastMockup = null;
+
+  function field(name){
+    var el = form.querySelector('[name="'+name+'"]');
+    return el ? el.value.trim() : '';
+  }
+
+  function setStatus(msg, kind){
+    panel.classList.add('is-on');
+    statusEl.textContent = msg;
+    statusEl.className = 'mockup-status' + (kind ? ' ' + kind : '');
+  }
+
+  makeBtn.addEventListener('click', function(){
+    var name = field('Plaque name');
+    var color = field('Color');
+    if(!name || name.length < 2){
+      setStatus('Add a plaque name first (2+ characters).', 'err');
+      return;
+    }
+    if(!color){
+      setStatus('Pick a color so the mockup matches.', 'err');
+      return;
+    }
+    makeBtn.disabled = true;
+    approveBtn.disabled = true;
+    lastMockup = null;
+    img.hidden = true;
+    setStatus('Brewing your AI mockup… ~10–20 sec. Cap is 3 mockups per day.', '');
+    fetch(WORKER + '/mockup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        color: color,
+        style: '',
+        notes: field('Notes')
+      })
+    }).then(function(res){
+      return res.json().then(function(data){
+        return { ok: res.ok, status: res.status, data: data };
+      });
+    }).then(function(result){
+      makeBtn.disabled = false;
+      if(!result.ok){
+        setStatus((result.data && result.data.error) || ('Mockup failed ('+result.status+')'), 'err');
+        return;
+      }
+      lastMockup = result.data;
+      img.src = result.data.url;
+      img.hidden = false;
+      var left = typeof result.data.remaining === 'number' ? result.data.remaining : '?';
+      setStatus('Mockup ready. If you like it, hit Looks good — '+left+' mockup(s) left today.', 'ok');
+      approveBtn.disabled = false;
+    }).catch(function(err){
+      makeBtn.disabled = false;
+      setStatus('Could not reach mockup service. Text 402-413-5332 to order instead.', 'err');
+    });
+  });
+
+  approveBtn.addEventListener('click', function(){
+    var name = field('Plaque name');
+    var color = field('Color');
+    var yours = field('Your name');
+    var contact = field('Contact');
+    var notes = field('Notes');
+    if(!name || !color || !yours || !contact){
+      setStatus('Fill plaque name, color, your name, and phone/email before sending.', 'err');
+      return;
+    }
+    if(!lastMockup || !lastMockup.url){
+      setStatus('Make a mockup and approve it before the order goes out.', 'err');
+      return;
+    }
+    var body =
+      'Custom Name Plaque order ($25)\\n' +
+      'Plaque name: ' + name + '\\n' +
+      'Color: ' + color + '\\n' +
+      'Your name: ' + yours + '\\n' +
+      'Contact: ' + contact + '\\n' +
+      'Notes: ' + notes + '\\n' +
+      'AI mockup (customer approved): ' + lastMockup.url + '\\n' +
+      'Pickup: out front of Timeless Treasures, 1717 O St, Lincoln — text to set a time.';
+    var mailto =
+      'mailto:appraise@nebraskacomics.com' +
+      '?subject=' + encodeURIComponent('Custom Name Plaque order — ' + name) +
+      '&body=' + encodeURIComponent(body);
+    var sms =
+      'sms:4024135332?body=' + encodeURIComponent(
+        'Custom name plaque order: ' + name + ' / ' + color +
+        ' / contact ' + contact +
+        ' / mockup ' + lastMockup.url +
+        ' / pickup out front, text to set a time'
+      );
+    // Open email compose; also offer text via a temporary link click
+    window.location.href = mailto;
+    setTimeout(function(){
+      var a = document.createElement('a');
+      a.href = sms;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      // Don't auto-open SMS after mailto — keep a visible text option instead
+      a.remove();
+      setStatus('Email draft opened with your approved mockup link. Prefer text? Use the button below.', 'ok');
+      var existing = document.getElementById('text-approved-order');
+      if(!existing){
+        var link = document.createElement('a');
+        link.id = 'text-approved-order';
+        link.className = 'btn btn-ghost';
+        link.href = sms;
+        link.textContent = 'Or text approved order';
+        approveBtn.parentNode.appendChild(link);
+      } else {
+        existing.href = sms;
+      }
+    }, 400);
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+  });
 })();
 </script>
 </body>

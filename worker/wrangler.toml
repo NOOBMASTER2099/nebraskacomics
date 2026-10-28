@@ -1,0 +1,8 @@
+name = "nc-plaque-mockups"
+main = "src/index.js"
+compatibility_date = "2026-10-28"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "MOCKUPS"
+id = "7077fcdf1fbc4c918dbfe496191ed731"
