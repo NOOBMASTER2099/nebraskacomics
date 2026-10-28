@@ -86,6 +86,7 @@ h1 .heroes,h1 .heart{color:var(--red-hot)}
 .btn-primary:hover{background:#ff3b3b}
 .btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
 .btn-ghost:hover{border-color:var(--red-hot)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:20px 0 20px}
 .fact{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .fact strong{display:block;font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
@@ -157,6 +158,56 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   .hero{padding:28px 0 16px}
   .pills{justify-content:flex-start}
 }
+
+.plaque-card{display:flex;flex-direction:column;gap:14px;overflow:hidden;padding:0}
+.plaque-art{
+  aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;
+  padding:18px 16px;border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(160deg,rgba(196,30,58,.18),transparent 55%),
+    repeating-linear-gradient(0deg,transparent,transparent 11px,rgba(255,255,255,.03) 11px,rgba(255,255,255,.03) 12px),
+    #0c0c0e;
+}
+.plaque-masthead{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.16em;
+  font-size:11px;color:var(--red-hot);
+}
+.plaque-issue{
+  font-family:Bangers,cursive;font-size:28px;letter-spacing:1px;line-height:1;
+  margin-top:auto;
+}
+.plaque-tag{
+  display:inline-block;align-self:flex-start;margin-top:10px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;
+  border:1px solid var(--red);color:var(--red-hot);border-radius:999px;padding:4px 10px;
+}
+.plaque-body{padding:0 22px 22px}
+.plaque-body h3{margin-bottom:6px}
+.plaque-price{font-family:Oswald,sans-serif;letter-spacing:.06em;color:#fff;margin-bottom:6px}
+.order-block{
+  margin-top:28px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--red-hot);margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+.order-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.order-form .full{grid-column:1 / -1}
+.order-form label{display:flex;flex-direction:column;gap:6px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted)}
+.order-form input,.order-form select,.order-form textarea{
+  background:#0a0a0c;border:1px solid var(--line);border-radius:10px;
+  color:var(--ink);padding:12px 14px;font:inherit;text-transform:none;letter-spacing:0;
+}
+.order-form input:focus,.order-form select:focus,.order-form textarea:focus{
+  outline:none;border-color:var(--red-hot);
+}
+.order-form textarea{min-height:90px;resize:vertical}
+.order-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+@media(max-width:860px){
+  .order-form{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -170,6 +221,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <ul>
         <li><a href="#visit">Visit</a></li>
         <li><a href="#shop">Shop</a></li>
+        <li><a href="#plaques">Plaques</a></li>
         <li><a href="#socials">Socials</a></li>
         <li><a href="#free-comics">Free Comics</a></li>
         <li><a href="#newsletter">Newsletter</a></li>
@@ -225,6 +277,90 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <article class="card"><h3><a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a></h3><p>Buy It Now listings shipped from Lincoln.</p></article>
       <article class="card"><h3><a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a></h3><p>Live auctions and drops — watch the socials for show times.</p></article>
       <article class="card"><h3><a href="#contact">Got a stack?</a></h3><p>We buy collections in person. Text photos or bring books to the booth.</p></article>
+    </div>
+  </section>
+
+
+  <section class="wrap" id="plaques">
+    <h2 class="section-title">Plaques &amp; Prints</h2>
+    <p class="section-sub">Original Lincoln landmark comic-cover plaques — no Marvel or DC characters. Pickup out front of Timeless Treasures, 1717 O St, Lincoln. Coming soon.</p>
+    <div class="grid-3" style="margin-bottom:18px">
+      <article class="card plaque-card">
+        <div class="plaque-art">
+          <div class="plaque-masthead">Nebraska Comics · Issue #1</div>
+          <div>
+            <div class="plaque-issue">The Capitol<br />Tower</div>
+            <span class="plaque-tag">Coming soon</span>
+          </div>
+        </div>
+        <div class="plaque-body">
+          <h3>LINCOLN #1: The Capitol Tower</h3>
+          <p class="plaque-price">$15–20</p>
+          <p>Original comic-cover plaque of the Nebraska State Capitol. Pickup out front of Timeless Treasures, 1717 O St, Lincoln.</p>
+        </div>
+      </article>
+      <article class="card plaque-card">
+        <div class="plaque-art">
+          <div class="plaque-masthead">Nebraska Comics · Issue #1</div>
+          <div>
+            <div class="plaque-issue">Memorial<br />Stadium</div>
+            <span class="plaque-tag">Coming soon</span>
+          </div>
+        </div>
+        <div class="plaque-body">
+          <h3>Memorial Stadium</h3>
+          <p class="plaque-price">$15–20</p>
+          <p>Hometown game-day cover art of Memorial Stadium. Original design — pickup out front at 1717 O St.</p>
+        </div>
+      </article>
+      <article class="card plaque-card">
+        <div class="plaque-art">
+          <div class="plaque-masthead">Nebraska Comics · Issue #1</div>
+          <div>
+            <div class="plaque-issue">The<br />Haymarket</div>
+            <span class="plaque-tag">Coming soon</span>
+          </div>
+        </div>
+        <div class="plaque-body">
+          <h3>The Haymarket</h3>
+          <p class="plaque-price">$15–20</p>
+          <p>Lincoln’s historic Haymarket as an Issue #1 cover. Pickup out front of Timeless Treasures.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="order-block">
+      <h3>Custom Name Plaque — $25</h3>
+      <p>Personalized signs like “Jake’s Comic Cave.” Pickup out front of Timeless Treasures, 1717 O St, Lincoln. Email the form or text your order.</p>
+      <form class="order-form" action="mailto:appraise@nebraskacomics.com" method="post" enctype="text/plain">
+        <input type="hidden" name="subject" value="Custom Name Plaque order" />
+        <label>Plaque name
+          <input type="text" name="Plaque name" placeholder="Jake's Comic Cave" required />
+        </label>
+        <label>Color
+          <select name="Color" required>
+            <option value="">Pick a color</option>
+            <option>Black</option>
+            <option>Red</option>
+            <option>White</option>
+            <option>Gold</option>
+            <option>Blue</option>
+          </select>
+        </label>
+        <label>Your name
+          <input type="text" name="Your name" required />
+        </label>
+        <label>Phone or email
+          <input type="text" name="Contact" placeholder="402-... or you@email.com" required />
+        </label>
+        <label class="full">Notes
+          <textarea name="Notes" placeholder="Size, font style, pickup timing…"></textarea>
+        </label>
+        <div class="full order-actions">
+          <button class="btn btn-primary" type="submit">Email order</button>
+          <a class="btn btn-ghost" href="sms:4024135332?body=Custom%20name%20plaque%20order%3A%20">Text your order</a>
+        </div>
+      </form>
     </div>
   </section>
 
