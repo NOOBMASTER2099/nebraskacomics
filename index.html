@@ -602,14 +602,22 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       return;
     }
     var body =
-      'Custom Name Plaque order ($25)\\n' +
-      'Plaque name: ' + name + '\\n' +
-      'Color: ' + color + '\\n' +
-      'Your name: ' + yours + '\\n' +
-      'Contact: ' + contact + '\\n' +
-      'Notes: ' + notes + '\\n' +
-      'AI mockup (customer approved): ' + lastMockup.url + '\\n' +
+      'Custom Name Plaque order ($25)
+' +
+      'Plaque name: ' + name + '
+' +
+      'Color: ' + color + '
+' +
+      'Your name: ' + yours + '
+' +
+      'Contact: ' + contact + '
+' +
+      'Notes: ' + notes + '
+' +
+      'AI mockup (customer approved): ' + lastMockup.url + '
+' +
       'Pickup: out front of Timeless Treasures, 1717 O St, Lincoln — text to set a time.';
+
     var mailto =
       'mailto:appraise@nebraskacomics.com' +
       '?subject=' + encodeURIComponent('Custom Name Plaque order — ' + name) +
