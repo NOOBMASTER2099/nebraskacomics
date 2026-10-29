@@ -249,13 +249,30 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
     <p class="checkout-note" id="bonfire-note">Shirt &amp; hoodie checkout happens on Bonfire (opens in a new tab).</p>
 
+
+    <div class="card" style="padding:0;overflow:hidden;margin-bottom:22px" data-cat-feature="wallart">
+      <div style="display:grid;grid-template-columns:minmax(220px,360px) 1fr;gap:0;align-items:stretch">
+        <div class="thumb is-dark" style="aspect-ratio:auto;min-height:220px;border-bottom:0;border-right:1px solid var(--line)">
+          <video autoplay muted loop playsinline poster="/img/wallart/group-all.jpg" style="width:100%;height:100%;object-fit:cover" aria-label="Wall art at the booth">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;justify-content:center;gap:8px">
+          <p class="product-meta" style="margin:0">Wall Art · In the booth</p>
+          <h3 style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--red-hot);margin:0">We have wall art</h3>
+          <p style="color:var(--muted);margin:0;max-width:520px">Real 3D-printed plaques on the wall at Timeless Treasures — Myers, Ghostface, Spawn, Carnage, Batman Who Laughs, and more. Text for price · mailed or pick up.</p>
+          <div class="actions" style="margin-top:8px">
+            <button type="button" class="btn btn-primary btn-sm" onclick="document.querySelector('[data-filter=wallart]')?.click()">Browse wall art</button>
+            <a class="btn btn-ghost btn-sm" href="sms:+14024135332?body=I%20want%20wall%20art">Text to order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="shop-grid" id="shop-grid">
       <!-- Wall Art (top of grid) -->
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/batman-who-laughs.jpg" aria-label="Batman Who Laughs">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/batman-who-laughs.jpg" alt="Batman Who Laughs" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/batman-who-laughs.jpg" alt="Batman Who Laughs" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Batman Who Laughs</h3>
@@ -267,10 +284,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/spawn.jpg" aria-label="Spawn Mask">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/spawn.jpg" alt="Spawn Mask" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/spawn.jpg" alt="Spawn Mask" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Spawn Mask</h3>
@@ -282,10 +296,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/carnage.jpg" aria-label="Carnage">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/carnage.jpg" alt="Carnage" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/carnage.jpg" alt="Carnage" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Carnage</h3>
@@ -297,10 +308,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-punisher-spidey.jpg" aria-label="Friendly Neighborhood Punisher">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/plaque-punisher-spidey.jpg" alt="Friendly Neighborhood Punisher" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-punisher-spidey.jpg" alt="Friendly Neighborhood Punisher" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Friendly Neighborhood Punisher</h3>
@@ -312,10 +320,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-myers.jpg" aria-label="Michael Myers">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/plaque-myers.jpg" alt="Michael Myers" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-myers.jpg" alt="Michael Myers" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Michael Myers</h3>
@@ -327,10 +332,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-ghostface.jpg" aria-label="Ghostface">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/plaque-ghostface.jpg" alt="Ghostface" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-ghostface.jpg" alt="Ghostface" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Ghostface</h3>
@@ -342,10 +344,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-ghostface-knife.jpg" aria-label="Ghostface Knife">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/plaque-ghostface-knife.jpg" alt="Ghostface Knife" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-ghostface-knife.jpg" alt="Ghostface Knife" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Ghostface Knife</h3>
@@ -357,10 +356,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-spaulding.jpg" aria-label="Captain Spaulding">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/plaque-spaulding.jpg" alt="Captain Spaulding" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-spaulding.jpg" alt="Captain Spaulding" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Captain Spaulding</h3>
@@ -372,10 +368,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         </div>
       </article>
       <article class="card product-card" data-cat="wallart">
-        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-zombie-spidey.jpg" aria-label="Zombie Spidey">
-            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
-          </video>
-          <img src="/img/wallart/plaque-zombie-spidey.jpg" alt="Zombie Spidey" hidden /></div>
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-zombie-spidey.jpg" alt="Zombie Spidey" /></div>
         <div class="product-body">
           <p class="product-meta">Wall Art · 3D Print</p>
           <h3>Zombie Spidey</h3>
