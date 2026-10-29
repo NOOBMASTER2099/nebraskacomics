@@ -165,6 +165,43 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   .pills{justify-content:flex-start}
   .shop-hero-inner{padding:28px 22px}
 }
+
+/* Plaque order + mockup (moved from home) */
+.order-block{
+  margin-top:28px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--red-hot);margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+.order-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.order-form .full{grid-column:1 / -1}
+.order-form label{display:flex;flex-direction:column;gap:6px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted)}
+.order-form input,.order-form select,.order-form textarea{
+  background:#0a0a0c;border:1px solid var(--line);border-radius:10px;
+  color:var(--ink);padding:12px 14px;font:inherit;text-transform:none;letter-spacing:0;
+}
+.order-form input:focus,.order-form select:focus,.order-form textarea:focus{
+  outline:none;border-color:var(--red-hot);
+}
+.order-form textarea{min-height:90px;resize:vertical}
+.order-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+.mockup-panel{margin-top:16px;display:none;flex-direction:column;gap:12px}
+.mockup-panel.is-on{display:flex}
+.mockup-panel img{width:min(320px,100%);border-radius:12px;border:1px solid var(--line);background:#000}
+.mockup-status{font-size:14px;color:var(--muted)}
+.mockup-status.err{color:#ff8a8a}
+.mockup-status.ok{color:#9dffa8}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.product-card .thumb video{
+  width:100%;height:100%;object-fit:cover;background:#0a0a0c;display:block;
+}
+.product-card .thumb.is-dark video{object-fit:contain}
+@media(max-width:860px){
+  .order-form{grid-template-columns:1fr}
+}
 @media(max-width:560px){
   .shop-grid{grid-template-columns:1fr}
 }
@@ -180,9 +217,8 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     <nav>
       <ul>
         <li><a href="/index.html#visit">Visit</a></li>
-        <li><a href="/index.html#shop">Shop</a></li>
-        <li><a href="/store">Store</a></li>
-        <li><a href="/index.html#plaques">Plaques</a></li>
+        <li><a href="/store">Shop</a></li>
+        <li><a href="#plaques">Plaques</a></li>
         <li><a href="/index.html#socials">Socials</a></li>
         <li><a href="/index.html#free-comics">Free Comics</a></li>
         <li><a href="/index.html#newsletter">Newsletter</a></li>
@@ -198,21 +234,266 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <div class="shop-hero-inner">
         <p class="kicker">Nebraska Comics · Official Merch</p>
         <h1>Store</h1>
-        <p class="lede">Shirts, hoodies, 3D prints, custom plaques, and comics from Lincoln. Bonfire ships the gear — prints and plaques can be mailed or picked up out front.</p>
+        <p class="lede">Wall art, 3D prints, shirts, hoodies, custom plaques, and comics from Lincoln. Bonfire ships the gear — prints, wall art, and plaques can be mailed or picked up out front.</p>
       </div>
     </div>
 
     <div class="filter-bar" role="tablist" aria-label="Store categories">
       <button type="button" class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button type="button" class="filter-btn" data-filter="wallart" role="tab" aria-selected="false">Wall Art</button>
+      <button type="button" class="filter-btn" data-filter="prints" role="tab" aria-selected="false">3D Prints</button>
       <button type="button" class="filter-btn" data-filter="shirts" role="tab" aria-selected="false">Shirts</button>
       <button type="button" class="filter-btn" data-filter="hoodies" role="tab" aria-selected="false">Hoodies</button>
-      <button type="button" class="filter-btn" data-filter="prints" role="tab" aria-selected="false">3D Prints</button>
       <button type="button" class="filter-btn" data-filter="plaques" role="tab" aria-selected="false">Plaques</button>
       <button type="button" class="filter-btn" data-filter="comics" role="tab" aria-selected="false">Comics</button>
     </div>
     <p class="checkout-note" id="bonfire-note">Shirt &amp; hoodie checkout happens on Bonfire (opens in a new tab).</p>
 
     <div class="shop-grid" id="shop-grid">
+      <!-- Wall Art (top of grid) -->
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/batman-who-laughs.jpg" aria-label="Batman Who Laughs">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/batman-who-laughs.jpg" alt="Batman Who Laughs" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Batman Who Laughs</h3>
+          <p>Die-cut wall plaque. Real photo from the shop.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Batman%20Who%20Laughs%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/spawn.jpg" aria-label="Spawn Mask">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/spawn.jpg" alt="Spawn Mask" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Spawn Mask</h3>
+          <p>3-color Spawn face wall art. Real photo from the shop.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Spawn%20Mask%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/carnage.jpg" aria-label="Carnage">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/carnage.jpg" alt="Carnage" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Carnage</h3>
+          <p>Die-cut Carnage wall art. Real photo from the shop.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Carnage%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-punisher-spidey.jpg" aria-label="Friendly Neighborhood Punisher">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/plaque-punisher-spidey.jpg" alt="Friendly Neighborhood Punisher" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Friendly Neighborhood Punisher</h3>
+          <p>Punisher × Spidey mashup plaque. Real photo from the shop.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Friendly%20Neighborhood%20Punisher%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-myers.jpg" aria-label="Michael Myers">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/plaque-myers.jpg" alt="Michael Myers" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Michael Myers</h3>
+          <p>Halloween Myers silhouette plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Michael%20Myers%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-ghostface.jpg" aria-label="Ghostface">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/plaque-ghostface.jpg" alt="Ghostface" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Ghostface</h3>
+          <p>Scream Ghostface wall plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Ghostface%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-ghostface-knife.jpg" aria-label="Ghostface Knife">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/plaque-ghostface-knife.jpg" alt="Ghostface Knife" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Ghostface Knife</h3>
+          <p>Ghostface knife die-cut plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Ghostface%20Knife%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-spaulding.jpg" aria-label="Captain Spaulding">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/plaque-spaulding.jpg" alt="Captain Spaulding" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Captain Spaulding</h3>
+          <p>House of 1000 Corpses-inspired plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Captain%20Spaulding%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><video autoplay muted loop playsinline poster="/img/wallart/plaque-zombie-spidey.jpg" aria-label="Zombie Spidey">
+            <source src="/img/wallart/we-have-wallart.mp4" type="video/mp4" />
+          </video>
+          <img src="/img/wallart/plaque-zombie-spidey.jpg" alt="Zombie Spidey" hidden /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Zombie Spidey</h3>
+          <p>Zombie Spider-Man mask plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Zombie%20Spidey%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/venom-wallart.jpg" alt="Venom" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Venom</h3>
+          <p>Die-cut Venom wall plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Venom%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/loki-glorious-purpose.jpg" alt="Loki Glorious Purpose" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Loki Glorious Purpose</h3>
+          <p>Loki wall plaque — Glorious Purpose.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Loki%20Glorious%20Purpose%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/loki-believe.jpg" alt="Loki Believe" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Loki Believe</h3>
+          <p>Loki wall plaque — Believe.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Loki%20Believe%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-tuxedo.jpg" alt="Tuxedo" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Tuxedo</h3>
+          <p>Tuxedo mask wall plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Tuxedo%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-zipline-alone.jpg" alt="Zipline Alone" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Zipline Alone</h3>
+          <p>Zipline-inspired wall plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Zipline%20Alone%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/zipline-figure.jpg" alt="Zipline Figure" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Zipline Figure</h3>
+          <p>Standing zipline figure print.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Zipline%20Figure%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-ufo.jpg" alt="UFO" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>UFO</h3>
+          <p>UFO die-cut wall plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20UFO%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/plaque-ziptie.jpg" alt="Zip Tie" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>Zip Tie</h3>
+          <p>Zip-tie themed wall plaque.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Zip%20Tie%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
+      <article class="card product-card" data-cat="wallart">
+        <div class="thumb is-dark"><img src="/img/wallart/pokerchip.jpg" alt="NC Poker Chip" /></div>
+        <div class="product-body">
+          <p class="product-meta">Wall Art · 3D Print</p>
+          <h3>NC Poker Chip</h3>
+          <p>Nebraska Comics poker chip / coin.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20NC%20Poker%20Chip%20wall%20art">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · mailed or pick up</p>
+        </div>
+      </article>
       <!-- 3D Prints -->
       <article class="card product-card" data-cat="prints">
         <div class="thumb is-dark"><img src="/img/prints/mascot.png" alt="Nebraska Comics mascot figure" /></div>
@@ -381,7 +662,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <p class="product-price">$25</p>
           <p>Personalized signs like “Jake’s Comic Cave.” Preview an AI mockup, approve it, we print. Mailed or pick up out front.</p>
           <div class="product-actions actions">
-            <a class="btn btn-primary btn-sm" href="/index.html#plaques">Design yours</a>
+            <a class="btn btn-primary btn-sm" href="#plaques">Design yours</a>
           </div>
           <p class="product-note">Mailed or pick up · text to set it up</p>
         </div>
@@ -408,6 +689,50 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       </article>
     </div>
     <p class="empty-filter" id="empty-filter">Nothing in that category right now.</p>
+  </section>
+
+
+  <section class="wrap" id="plaques">
+    <h2 class="section-title">Custom Name Plaques</h2>
+    <p class="section-sub">Personalized signs like “Jake’s Comic Cave.” $25. Mailed or pick up out front. Preview an AI mockup first — nothing reaches us until you approve it.</p>
+
+    <div class="order-block">
+      <h3>Custom Name Plaque — $25</h3>
+      <p>Type your plaque name, pick a color, and hit Make my mockup. When you like it, send the order. Mailed or pick up out front of Timeless Treasures (1717 O St) — text 402-413-5332 to set a time.</p>
+      <form class="order-form" id="plaque-order-form" action="mailto:appraise@nebraskacomics.com" method="post" enctype="text/plain">
+        <input type="hidden" name="subject" value="Custom Name Plaque order" />
+        <label>Plaque name
+          <input type="text" name="Plaque name" placeholder="Jake's Comic Cave" required />
+        </label>
+        <label>Color
+          <select name="Color" required>
+            <option value="">Pick a color</option>
+            <option>Black</option>
+            <option>Red</option>
+            <option>White</option>
+            <option>Gold</option>
+            <option>Blue</option>
+          </select>
+        </label>
+        <label>Your name
+          <input type="text" name="Your name" required />
+        </label>
+        <label>Phone or email
+          <input type="text" name="Contact" placeholder="402-... or you@email.com" required />
+        </label>
+        <label class="full">Notes
+          <textarea name="Notes" placeholder="Size, font style, pickup or mail timing…"></textarea>
+        </label>
+        <div class="full order-actions">
+          <button class="btn btn-primary" type="button" id="make-mockup">Make my mockup</button>
+          <button class="btn btn-ghost" type="button" id="approve-order" disabled>Looks good, send order</button>
+        </div>
+        <div class="full mockup-panel" id="mockup-panel" aria-live="polite">
+          <p class="mockup-status" id="mockup-status"></p>
+          <img id="mockup-img" alt="AI plaque mockup preview" hidden />
+        </div>
+      </form>
+    </div>
   </section>
 
   <section class="wrap" id="comics">
@@ -451,8 +776,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
     <div class="pills">
       <a href="/index.html">Home</a>
-      <a href="/store">Store</a>
-      <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Merch</a>
+      <a href="/store">Shop</a>
       <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a>
       <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
@@ -487,6 +811,134 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       btn.setAttribute('aria-selected','true');
       apply(btn.getAttribute('data-filter'));
     });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var WORKER = 'https://nc-plaque-mockups.nebraskacomics.workers.dev';
+  var form = document.getElementById('plaque-order-form');
+  var makeBtn = document.getElementById('make-mockup');
+  var approveBtn = document.getElementById('approve-order');
+  var panel = document.getElementById('mockup-panel');
+  var statusEl = document.getElementById('mockup-status');
+  var img = document.getElementById('mockup-img');
+  if(!form || !makeBtn) return;
+
+  var lastMockup = null;
+
+  function field(name){
+    var el = form.querySelector('[name="'+name+'"]');
+    return el ? el.value.trim() : '';
+  }
+
+  function setStatus(msg, kind){
+    panel.classList.add('is-on');
+    statusEl.textContent = msg;
+    statusEl.className = 'mockup-status' + (kind ? ' ' + kind : '');
+  }
+
+  makeBtn.addEventListener('click', function(){
+    var name = field('Plaque name');
+    var color = field('Color');
+    if(!name || name.length < 2){
+      setStatus('Add a plaque name first (2+ characters).', 'err');
+      return;
+    }
+    if(!color){
+      setStatus('Pick a color so the mockup matches.', 'err');
+      return;
+    }
+    makeBtn.disabled = true;
+    approveBtn.disabled = true;
+    lastMockup = null;
+    img.hidden = true;
+    setStatus('Brewing your AI mockup… ~10–20 sec. Cap is 3 mockups per day.', '');
+    fetch(WORKER + '/mockup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        color: color,
+        style: '',
+        notes: field('Notes')
+      })
+    }).then(function(res){
+      return res.json().then(function(data){
+        return { ok: res.ok, status: res.status, data: data };
+      });
+    }).then(function(result){
+      makeBtn.disabled = false;
+      if(!result.ok){
+        setStatus((result.data && result.data.error) || ('Mockup failed ('+result.status+')'), 'err');
+        return;
+      }
+      lastMockup = result.data;
+      img.src = result.data.url;
+      img.hidden = false;
+      var left = typeof result.data.remaining === 'number' ? result.data.remaining : '?';
+      setStatus('Mockup ready. If you like it, hit Looks good — '+left+' mockup(s) left today.', 'ok');
+      approveBtn.disabled = false;
+    }).catch(function(err){
+      makeBtn.disabled = false;
+      setStatus('Could not reach mockup service. Text 402-413-5332 to order instead.', 'err');
+    });
+  });
+
+  approveBtn.addEventListener('click', function(){
+    var name = field('Plaque name');
+    var color = field('Color');
+    var yours = field('Your name');
+    var contact = field('Contact');
+    var notes = field('Notes');
+    if(!name || !color || !yours || !contact){
+      setStatus('Fill plaque name, color, your name, and phone/email before sending.', 'err');
+      return;
+    }
+    if(!lastMockup || !lastMockup.url){
+      setStatus('Make a mockup and approve it before the order goes out.', 'err');
+      return;
+    }
+    var body =
+      'Custom Name Plaque order ($25)\n' +
+      'Plaque name: ' + name + '\n' +
+      'Color: ' + color + '\n' +
+      'Your name: ' + yours + '\n' +
+      'Contact: ' + contact + '\n' +
+      'Notes: ' + notes + '\n' +
+      'AI mockup (customer approved): ' + lastMockup.url + '\n' +
+      'Fulfillment: mailed or pick up out front of Timeless Treasures, 1717 O St, Lincoln — text to set a time.';
+    var mailto =
+      'mailto:appraise@nebraskacomics.com' +
+      '?subject=' + encodeURIComponent('Custom Name Plaque order — ' + name) +
+      '&body=' + encodeURIComponent(body);
+    var sms =
+      'sms:4024135332?body=' + encodeURIComponent(
+        'Custom name plaque order: ' + name + ' / ' + color +
+        ' / contact ' + contact +
+        ' / mockup ' + lastMockup.url +
+        ' / mailed or pick up out front, text to set a time'
+      );
+    window.location.href = mailto;
+    setTimeout(function(){
+      setStatus('Email draft opened with your approved mockup link. Prefer text? Use the button below.', 'ok');
+      var existing = document.getElementById('text-approved-order');
+      if(!existing){
+        var link = document.createElement('a');
+        link.id = 'text-approved-order';
+        link.className = 'btn btn-ghost';
+        link.href = sms;
+        link.textContent = 'Or text approved order';
+        approveBtn.parentNode.appendChild(link);
+      } else {
+        existing.href = sms;
+      }
+    }, 400);
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
   });
 })();
 </script>
