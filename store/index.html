@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>Store | Nebraska Comics — Lincoln, NE</title>
-<meta name="description" content="Shop Nebraska Comics: comics at Timeless Treasures in Lincoln, 3D prints, custom name plaques, Bonfire merch, and Whatnot streams." />
+<meta name="description" content="Shop Nebraska Comics: shirts and hoodies on Bonfire, 3D prints, custom name plaques, comics at Timeless Treasures, and Whatnot streams." />
 <link rel="icon" href="https://raw.githubusercontent.com/nebraskacomics2099/website/main/logo.jpg" type="image/jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,23 +48,6 @@ header{
 nav ul{display:flex;gap:14px;list-style:none;flex-wrap:wrap}
 nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
 nav a:hover{color:#fff}
-.hero{
-  padding:64px 0 24px;
-  display:grid;
-  grid-template-columns:minmax(240px,380px) 1fr;
-  gap:48px;
-  align-items:center;
-}
-.logo-frame{
-  background:#000;
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:18px;
-  display:grid;
-  place-items:center;
-  box-shadow:0 24px 70px rgba(225,38,38,.16);
-}
-.logo-frame img{width:min(320px,100%);border-radius:8px;background:#000}
 .kicker{
   font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
   color:var(--red-hot);font-size:13px;margin-bottom:12px;
@@ -74,7 +57,6 @@ h1{
   font-size:clamp(48px,7vw,84px);
   line-height:.9;letter-spacing:2px;margin-bottom:18px;
 }
-h1 .heroes,h1 .heart{color:var(--red-hot)}
 .lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 .btn{
@@ -87,27 +69,10 @@ h1 .heroes,h1 .heart{color:var(--red-hot)}
 .btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
 .btn-ghost:hover{border-color:var(--red-hot)}
 button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:20px 0 20px}
-.fact{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.fact strong{display:block;font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
-.fact span,.fact a{color:var(--muted)}
-.fact a:hover{color:#fff}
+.btn-sm{padding:10px 16px;font-size:13px}
 section{padding:48px 0}
 .section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
 .section-sub{color:var(--muted);margin-bottom:12px;max-width:640px}
-.open-status{
-  display:inline-block;
-  font-family:Oswald,sans-serif;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  font-size:14px;
-  margin-bottom:22px;
-}
-.open-status.is-open{color:#6fdf8a}
-.open-status.is-closed{color:var(--muted)}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
 .card h3{
   font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
@@ -115,29 +80,11 @@ section{padding:48px 0}
 }
 .card p{color:var(--muted)}
 .card h3 a:hover{color:#fff}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-iframe.map{width:100%;height:320px;border:0;border-radius:16px;filter:grayscale(.15) contrast(1.05)}
-.hours{list-style:none}
-.hours li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.cta-band{
-  background:linear-gradient(90deg,#6b1010,#c41e3a 42%,#6b1010);
-  border-radius:18px;padding:36px;
-  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
-  margin-bottom:18px;
+.store-banner{
+  background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;
+  margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
 }
-.cta-band h2{font-family:Bangers,cursive;font-size:36px;letter-spacing:1px}
-.cta-band p{margin-top:8px;max-width:560px}
-.cta-band .btn-ghost{border-color:rgba(255,255,255,.45)}
-.give{
-  border:1px solid var(--red);
-  background:linear-gradient(180deg,#16080b 0%,#121214 100%);
-  border-radius:18px;padding:32px;
-  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
-  margin-bottom:18px;
-}
-.give .t{font-family:Oswald,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red-hot);font-size:12px}
-.give h2{font-family:Bangers,cursive;font-size:32px;letter-spacing:1px;margin:8px 0}
-.give p{color:#c9c9c9;max-width:560px}
+.store-banner p{color:var(--muted);max-width:640px;margin-top:8px}
 footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .foot-brand{display:flex;gap:14px;align-items:flex-start}
@@ -152,81 +99,75 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   border:1px solid var(--line);border-radius:999px;padding:8px 14px;
 }
 .pills a:hover{border-color:var(--red-hot);color:#fff}
-@media(max-width:860px){
-  .hero,.facts,.grid-3,.grid-4,.grid-5,.split{grid-template-columns:1fr}
-  nav ul{display:none}
-  .hero{padding:28px 0 16px}
-  .pills{justify-content:flex-start}
-}
 
-.plaque-card{display:flex;flex-direction:column;gap:14px;overflow:hidden;padding:0}
-.plaque-art{
-  aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;
-  padding:18px 16px;border-bottom:1px solid var(--line);
+/* Merch shop */
+.shop-hero{
+  position:relative;overflow:hidden;border-radius:20px;margin:28px 0 8px;
+  border:1px solid var(--line);
+  min-height:220px;
+  display:flex;align-items:flex-end;
   background:
-    linear-gradient(160deg,rgba(196,30,58,.18),transparent 55%),
-    repeating-linear-gradient(0deg,transparent,transparent 11px,rgba(255,255,255,.03) 11px,rgba(255,255,255,.03) 12px),
-    #0c0c0e;
+    linear-gradient(100deg,rgba(7,7,8,.92) 0%,rgba(7,7,8,.55) 55%,rgba(196,30,58,.35) 100%),
+    url("/img/merch/store-og.jpg") center/cover no-repeat;
 }
-.plaque-masthead{
-  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.16em;
-  font-size:11px;color:var(--red-hot);
+.shop-hero-inner{padding:36px 32px;max-width:640px}
+.shop-hero h1{font-size:clamp(40px,6vw,68px);margin-bottom:10px}
+.shop-hero .lede{margin-bottom:0;color:#ddd}
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 22px;
+  position:sticky;top:64px;z-index:15;
+  padding:12px 0;background:rgba(7,7,8,.9);backdrop-filter:blur(10px);
 }
-.plaque-issue{
-  font-family:Bangers,cursive;font-size:28px;letter-spacing:1px;line-height:1;
-  margin-top:auto;
+.filter-btn{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;
+  background:transparent;color:var(--muted);border:1px solid var(--line);
+  border-radius:999px;padding:10px 16px;cursor:pointer;
 }
-.plaque-tag{
-  display:inline-block;align-self:flex-start;margin-top:10px;
-  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;
-  border:1px solid var(--red);color:var(--red-hot);border-radius:999px;padding:4px 10px;
+.filter-btn:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.filter-btn.is-active{background:var(--red-hot);border-color:var(--red-hot);color:#fff}
+.shop-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
 }
-.plaque-body{padding:0 22px 22px}
-.plaque-body h3{margin-bottom:6px}
-.plaque-price{font-family:Oswald,sans-serif;letter-spacing:.06em;color:#fff;margin-bottom:6px}
-.order-block{
-  margin-top:28px;background:var(--panel);border:1px solid var(--line);
-  border-radius:18px;padding:28px;
+.product-card{
+  padding:0;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-.order-block h3{
-  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
-  color:var(--red-hot);margin-bottom:8px;
+.product-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(225,38,38,.55);
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
 }
-.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
-.order-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.order-form .full{grid-column:1 / -1}
-.order-form label{display:flex;flex-direction:column;gap:6px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted)}
-.order-form input,.order-form select,.order-form textarea{
-  background:#0a0a0c;border:1px solid var(--line);border-radius:10px;
-  color:var(--ink);padding:12px 14px;font:inherit;text-transform:none;letter-spacing:0;
+.product-card .thumb{
+  aspect-ratio:1/1;background:#0a0a0c;border-bottom:1px solid var(--line);
+  display:grid;place-items:center;overflow:hidden;
 }
-.order-form input:focus,.order-form select:focus,.order-form textarea:focus{
-  outline:none;border-color:var(--red-hot);
+.product-card .thumb img{
+  width:100%;height:100%;object-fit:cover;background:#fff;
+  transition:transform .25s ease;
 }
-.order-form textarea{min-height:90px;resize:vertical}
-.order-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
-@media(max-width:860px){
-  .order-form{grid-template-columns:1fr}
-}
-
-.mockup-panel{margin-top:16px;display:none;flex-direction:column;gap:12px}
-.mockup-panel.is-on{display:flex}
-.mockup-panel img{width:min(320px,100%);border-radius:12px;border:1px solid var(--line);background:#000}
-.mockup-status{font-size:14px;color:var(--muted)}
-.mockup-status.err{color:#ff8a8a}
-.mockup-status.ok{color:#9dffa8}
-.btn[disabled]{opacity:.55;cursor:not-allowed}
-
-.product-card{padding:0;overflow:hidden;display:flex;flex-direction:column}
-.product-card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#000;border-bottom:1px solid var(--line)}
+.product-card:hover .thumb img{transform:scale(1.04)}
+.product-card .thumb.is-dark img{background:#0a0a0c;object-fit:contain;padding:8px}
 .product-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
-.product-body h3{margin-bottom:0}
+.product-body h3{margin-bottom:0;font-size:18px;line-height:1.25}
 .product-meta{font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:var(--red-hot)}
-.store-banner{
-  background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;
-  margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+.product-price{font-family:Oswald,sans-serif;letter-spacing:.04em;font-size:20px;color:#fff;margin-top:2px}
+.product-note{font-size:12px;color:var(--muted);margin-top:auto;padding-top:8px}
+.product-actions{margin-top:12px}
+.product-card.is-hidden{display:none}
+.empty-filter{display:none;color:var(--muted);padding:24px 0}
+.empty-filter.is-on{display:block}
+.checkout-note{font-size:13px;color:var(--muted);margin:8px 0 0}
+@media(max-width:960px){
+  .shop-grid{grid-template-columns:repeat(2,1fr)}
 }
-.store-banner p{color:var(--muted);max-width:640px;margin-top:8px}
+@media(max-width:860px){
+  nav ul{display:none}
+  .pills{justify-content:flex-start}
+  .shop-hero-inner{padding:28px 22px}
+}
+@media(max-width:560px){
+  .shop-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -240,7 +181,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <ul>
         <li><a href="/index.html#visit">Visit</a></li>
         <li><a href="/index.html#shop">Shop</a></li>
-        <li><a href="/store.html">Store</a></li>
+        <li><a href="/store">Store</a></li>
         <li><a href="/index.html#plaques">Plaques</a></li>
         <li><a href="/index.html#socials">Socials</a></li>
         <li><a href="/index.html#free-comics">Free Comics</a></li>
@@ -252,16 +193,240 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 </header>
 
 <main id="top">
-  <section class="wrap" style="padding-top:48px;padding-bottom:8px">
-    <p class="kicker">Nebraska Comics · Lincoln</p>
-    <h1 style="font-size:clamp(40px,6vw,64px);margin-bottom:12px">Store</h1>
-    <p class="lede" style="margin-bottom:8px">Everything we sell — comics at the booth, 3D prints, custom plaques, Bonfire merch, and live Whatnot drops. Pickup out front; text to set a time. No shipping.</p>
+  <section class="wrap" style="padding-top:24px;padding-bottom:0">
+    <div class="shop-hero">
+      <div class="shop-hero-inner">
+        <p class="kicker">Nebraska Comics · Official Merch</p>
+        <h1>Store</h1>
+        <p class="lede">Shirts, hoodies, 3D prints, custom plaques, and comics from Lincoln. Bonfire ships the gear — booth stuff is pickup out front.</p>
+      </div>
+    </div>
+
+    <div class="filter-bar" role="tablist" aria-label="Store categories">
+      <button type="button" class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button type="button" class="filter-btn" data-filter="shirts" role="tab" aria-selected="false">Shirts</button>
+      <button type="button" class="filter-btn" data-filter="hoodies" role="tab" aria-selected="false">Hoodies</button>
+      <button type="button" class="filter-btn" data-filter="prints" role="tab" aria-selected="false">3D Prints</button>
+      <button type="button" class="filter-btn" data-filter="plaques" role="tab" aria-selected="false">Plaques</button>
+      <button type="button" class="filter-btn" data-filter="comics" role="tab" aria-selected="false">Comics</button>
+    </div>
+    <p class="checkout-note" id="bonfire-note">Shirt &amp; hoodie checkout happens on Bonfire (opens in a new tab).</p>
+
+    <div class="shop-grid" id="shop-grid">
+      <!-- Bonfire shirts -->
+      <article class="card product-card" data-cat="shirts">
+        <div class="thumb"><img src="/img/merch/nothing-ever-happens-in-nebraska.jpg" alt="Nothing Ever Happens in Nebraska tee" /></div>
+        <div class="product-body">
+          <p class="product-meta">Premium Unisex Tee</p>
+          <h3>Nothing Ever Happens in Nebraska</h3>
+          <p class="product-price">$25</p>
+          <p>Solid Black Blend. Our corn-hero comic cover tee.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="https://www.bonfire.com/nothing-ever-happens-in-nebraska/" target="_blank" rel="noopener">Buy now</a>
+          </div>
+          <p class="product-note">Checkout on Bonfire</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="shirts">
+        <div class="thumb"><img src="/img/merch/34-baseball-tee-2.jpg" alt="3/4 Baseball Tee" /></div>
+        <div class="product-body">
+          <p class="product-meta">3/4 Sleeve Baseball Tee</p>
+          <h3>3/4 Baseball Tee</h3>
+          <p class="product-price">$34.99</p>
+          <p>Premium Heather / Heather White raglan.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="https://www.bonfire.com/34-baseball-tee-2/" target="_blank" rel="noopener">Buy now</a>
+          </div>
+          <p class="product-note">Checkout on Bonfire</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="shirts">
+        <div class="thumb"><img src="/img/merch/nebraska-comics.jpg" alt="NEBRASKA COMICS Nike performance tee" /></div>
+        <div class="product-body">
+          <p class="product-meta">Nike Dri-FIT Performance Tee</p>
+          <h3>NEBRASKA COMICS Nike Tee</h3>
+          <p class="product-price">$39.99</p>
+          <p>Black Nike Dri-FIT. Also in classic, women's, and youth styles on Bonfire.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="https://www.bonfire.com/nebraska-comics/" target="_blank" rel="noopener">Buy now</a>
+          </div>
+          <p class="product-note">Checkout on Bonfire</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="shirts">
+        <div class="thumb"><img src="/img/merch/nebraskacomics-1.jpg" alt="Nebraska Comics premium tee athletic heather" /></div>
+        <div class="product-body">
+          <p class="product-meta">Premium Unisex Tee</p>
+          <h3>Nebraska Comics Premium Tee</h3>
+          <p class="product-price">$27.99</p>
+          <p>Athletic Heather with the N + cape logo. Tie-dye and ringer options on Bonfire.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="https://www.bonfire.com/nebraskacomics-1/" target="_blank" rel="noopener">Buy now</a>
+          </div>
+          <p class="product-note">Checkout on Bonfire</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="shirts">
+        <div class="thumb"><img src="/img/merch/nebraskacomics.jpg" alt="Nebraska Comics classic black tee" /></div>
+        <div class="product-body">
+          <p class="product-meta">Classic Unisex Tee</p>
+          <h3>Nebraska Comics Classic Tee</h3>
+          <p class="product-price">$24.99</p>
+          <p>Black classic tee with the shop mark. Comfort Colors and youth too.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="https://www.bonfire.com/nebraskacomics/" target="_blank" rel="noopener">Buy now</a>
+          </div>
+          <p class="product-note">Checkout on Bonfire</p>
+        </div>
+      </article>
+
+      <!-- Hoodies / sweatshirts from same campaign -->
+      <article class="card product-card" data-cat="hoodies">
+        <div class="thumb"><img src="/img/merch/nebraskacomics-hoodie.jpg" alt="Nebraska Comics softstyle pullover hoodie" /></div>
+        <div class="product-body">
+          <p class="product-meta">Softstyle Pullover Hoodie</p>
+          <h3>Nebraska Comics Hoodie</h3>
+          <p class="product-price">$41.99</p>
+          <p>Black Gildan Softstyle. Also Charcoal and Sand.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="https://www.bonfire.com/nebraskacomics/" target="_blank" rel="noopener">Buy now</a>
+          </div>
+          <p class="product-note">Checkout on Bonfire</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="hoodies">
+        <div class="thumb"><img src="/img/merch/nebraskacomics-crewneck.jpg" alt="Nebraska Comics softstyle crewneck sweatshirt" /></div>
+        <div class="product-body">
+          <p class="product-meta">Softstyle Crewneck Sweatshirt</p>
+          <h3>Nebraska Comics Crewneck</h3>
+          <p class="product-price">$39.99</p>
+          <p>Black Softstyle crew. Also Stone Blue and Sand.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="https://www.bonfire.com/nebraskacomics/" target="_blank" rel="noopener">Buy now</a>
+          </div>
+          <p class="product-note">Checkout on Bonfire</p>
+        </div>
+      </article>
+
+      <!-- 3D Prints -->
+      <article class="card product-card" data-cat="prints">
+        <div class="thumb is-dark"><img src="/img/prints/mascot.png" alt="Nebraska Comics mascot figure" /></div>
+        <div class="product-body">
+          <p class="product-meta">3D Print · Figure</p>
+          <h3>Nebraska Comics Mascot</h3>
+          <p>Waving cape hero, ~6 in tall. Pickup out front.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20Nebraska%20Comics%20mascot%20print">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · pickup out front</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="prints">
+        <div class="thumb is-dark"><img src="/img/prints/keychain-nc.png" alt="Nebraska Comics keychain" /></div>
+        <div class="product-body">
+          <p class="product-meta">3D Print · Keychain</p>
+          <h3>Comic Cover Keychain</h3>
+          <p>Mini “Nebraska Comics” cover with keyring tab.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20comic%20cover%20keychain">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · pickup out front</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="prints">
+        <div class="thumb is-dark"><img src="/img/prints/booth-plaque.png" alt="Nebraska Comics booth plaque" /></div>
+        <div class="product-body">
+          <p class="product-meta">3D Print · Plaque</p>
+          <h3>Booth Plaque</h3>
+          <p>Shop-branded wall plaque. Pickup out front.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20booth%20plaque%20print">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · pickup out front</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="prints">
+        <div class="thumb is-dark"><img src="/img/prints/husker-power-rings.png" alt="Husker Power novelty rings" /></div>
+        <div class="product-body">
+          <p class="product-meta">3D Print · Rings</p>
+          <h3>HUSKER / POWER Rings</h3>
+          <p>Matched comic-letter nameplate pair. Decorative novelty — not brass knuckles.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20HUSKER%20POWER%20rings">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · pickup out front</p>
+        </div>
+      </article>
+
+      <article class="card product-card" data-cat="prints">
+        <div class="thumb is-dark"><img src="/img/prints/blackshirts-rings.png" alt="Blackshirts novelty rings" /></div>
+        <div class="product-body">
+          <p class="product-meta">3D Print · Rings</p>
+          <h3>BLACK / SHIRTS Rings</h3>
+          <p>Wide nameplate pair that reads BLACK SHIRTS across both fists.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332?body=I%20want%20the%20BLACK%20SHIRTS%20rings">Text to order</a>
+          </div>
+          <p class="product-note">Text for price · pickup out front</p>
+        </div>
+      </article>
+
+      <!-- Plaques -->
+      <article class="card product-card" data-cat="plaques">
+        <div class="thumb is-dark" style="background:linear-gradient(160deg,rgba(196,30,58,.25),#0c0c0e);">
+          <div style="text-align:center;padding:24px">
+            <div style="font-family:Oswald,sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--red-hot)">Collector's Den</div>
+            <div style="font-family:Bangers,cursive;font-size:36px;letter-spacing:1px;margin-top:12px">Your Name</div>
+            <div style="margin-top:14px;font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--red);color:var(--red-hot);display:inline-block;border-radius:999px;padding:4px 10px">Custom · $25</div>
+          </div>
+        </div>
+        <div class="product-body">
+          <p class="product-meta">Custom Name Plaque</p>
+          <h3>Collector's Den Plaque</h3>
+          <p class="product-price">$25</p>
+          <p>Personalized signs like “Jake’s Comic Cave.” Preview an AI mockup, approve it, we print. Pickup out front.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="/index.html#plaques">Design yours</a>
+          </div>
+          <p class="product-note">Pickup out front · text to set a time</p>
+        </div>
+      </article>
+
+      <!-- Comics card in grid -->
+      <article class="card product-card" data-cat="comics">
+        <div class="thumb is-dark" style="background:linear-gradient(160deg,#1a080c,#0c0c0e);">
+          <div style="text-align:center;padding:24px">
+            <div style="font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;color:var(--red-hot)">Comics</div>
+            <div style="font-family:Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:13px;color:var(--muted);margin-top:8px">Timeless Treasures · Lincoln</div>
+          </div>
+        </div>
+        <div class="product-body">
+          <p class="product-meta">In Booth</p>
+          <h3>Comics &amp; Collectibles</h3>
+          <p>Graded slabs, key issues, full runs, $1 bins, toys. Meet out front — text to set a time.</p>
+          <div class="product-actions actions">
+            <a class="btn btn-primary btn-sm" href="sms:+14024135332">Text 402-413-5332</a>
+            <a class="btn btn-ghost btn-sm" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Directions</a>
+          </div>
+          <p class="product-note">No shipping · pickup out front</p>
+        </div>
+      </article>
+    </div>
+    <p class="empty-filter" id="empty-filter">Nothing in that category right now.</p>
   </section>
 
   <section class="wrap" id="comics">
     <div class="store-banner">
       <div>
-        <h2 class="section-title" style="margin-bottom:0;font-size:36px">Comics</h2>
+        <h2 class="section-title" style="margin-bottom:0;font-size:36px">Comics at the Booth</h2>
         <p>Graded slabs, key issues, full runs, $1 bins, toys and collectables inside Timeless Treasures, 1717 O St, Lincoln. Meet out front — text <a href="sms:+14024135332" style="color:#fff">402-413-5332</a> to set a time. Restocked weekly.</p>
       </div>
       <div class="actions">
@@ -271,95 +436,18 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
   </section>
 
-  <section class="wrap" id="prints">
-    <h2 class="section-title">3D Prints</h2>
-    <p class="section-sub">Printed in Lincoln. Pickup out front — text 402-413-5332 for price, size, or to hold one. More designs at the booth.</p>
-    <div class="grid-4" style="margin-bottom:18px">
-      <article class="card product-card">
-        <img src="/img/prints/mascot.png" alt="Nebraska Comics mascot figure" />
-        <div class="product-body">
-          <p class="product-meta">Figure</p>
-          <h3>Nebraska Comics Mascot</h3>
-          <p>Waving cape hero, ~6 in tall. Our shop mascot in full color.</p>
-        </div>
-      </article>
-      <article class="card product-card">
-        <img src="/img/prints/keychain-nc.png" alt="Nebraska Comics keychain" />
-        <div class="product-body">
-          <p class="product-meta">Keychain</p>
-          <h3>Comic Cover Keychain</h3>
-          <p>Mini “Nebraska Comics” cover with keyring tab. Pocket-size shop gear.</p>
-        </div>
-      </article>
-      <article class="card product-card">
-        <img src="/img/prints/booth-plaque.png" alt="Nebraska Comics booth plaque" />
-        <div class="product-body">
-          <p class="product-meta">Plaque</p>
-          <h3>Booth Plaque</h3>
-          <p>Shop-branded wall plaque. Pickup out front.</p>
-        </div>
-      </article>
-      <article class="card product-card">
-        <img src="/img/prints/husker-power-rings.png" alt="Husker Power novelty rings" />
-        <div class="product-body">
-          <p class="product-meta">Rings</p>
-          <h3>HUSKER / POWER Rings</h3>
-          <p>Matched comic-letter nameplate pair. Decorative novelty rings — not brass knuckles.</p>
-        </div>
-      </article>
-      <article class="card product-card">
-        <img src="/img/prints/blackshirts-rings.png" alt="Blackshirts novelty rings" />
-        <div class="product-body">
-          <p class="product-meta">Rings</p>
-          <h3>BLACK / SHIRTS Rings</h3>
-          <p>Wide nameplate pair that reads BLACK SHIRTS across both fists.</p>
-        </div>
-      </article>
-    </div>
-    <div class="actions" style="margin-bottom:8px">
-      <a class="btn btn-primary" href="sms:+14024135332?body=I%20want%20a%203D%20print">Text to order a print</a>
-      <a class="btn btn-ghost" href="/index.html#visit">Visit the booth</a>
-    </div>
-  </section>
-
-  <section class="wrap" id="custom-plaques">
-    <div class="store-banner">
+  <section class="wrap" id="streams" style="padding-top:8px">
+    <h2 class="section-title">Live Streams</h2>
+    <p class="section-sub">Catch live auctions and drops on Whatnot.</p>
+    <div class="store-banner" style="margin-bottom:0">
       <div>
-        <h2 class="section-title" style="margin-bottom:0;font-size:36px">Custom Name Plaques — $25</h2>
-        <p>Personalized signs like “Jake’s Comic Cave.” Preview an AI mockup on the plaques page, approve it, then we print. Pickup out front.</p>
+        <h3 style="font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--red-hot);margin-bottom:8px">Whatnot</h3>
+        <p style="margin-top:0">Live auctions and drops. Watch the socials for show times.</p>
       </div>
       <div class="actions">
-        <a class="btn btn-primary" href="/index.html#plaques">Design yours</a>
-        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+        <a class="btn btn-ghost" href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Watch on Whatnot</a>
+        <a class="btn btn-ghost" href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Full Bonfire store</a>
       </div>
-    </div>
-  </section>
-
-  <section class="wrap" id="merch">
-    <h2 class="section-title">Merch &amp; Streams</h2>
-    <p class="section-sub">Official gear online, live drops on Whatnot.</p>
-    <div class="grid-3">
-      <article class="card">
-        <h3><a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Bonfire Merch</a></h3>
-        <p>Official Nebraska Comics shirts and gear. Order online from our Bonfire store.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-primary" href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Shop Bonfire</a>
-        </div>
-      </article>
-      <article class="card">
-        <h3><a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a></h3>
-        <p>Live auctions and drops. Watch the socials for show times.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-ghost" href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Watch on Whatnot</a>
-        </div>
-      </article>
-      <article class="card">
-        <h3><a href="/index.html#contact">Got a stack?</a></h3>
-        <p>We buy collections in person. Text photos or meet out front at Timeless Treasures.</p>
-        <div class="actions" style="margin-top:14px">
-          <a class="btn btn-ghost" href="sms:+14024135332">Text our Team</a>
-        </div>
-      </article>
     </div>
   </section>
 </main>
@@ -376,7 +464,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
     <div class="pills">
       <a href="/index.html">Home</a>
-      <a href="/store.html">Store</a>
+      <a href="/store">Store</a>
       <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Merch</a>
       <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a>
       <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
@@ -385,5 +473,35 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var buttons=document.querySelectorAll('.filter-btn');
+  var cards=document.querySelectorAll('.product-card');
+  var empty=document.getElementById('empty-filter');
+  var note=document.getElementById('bonfire-note');
+  function apply(filter){
+    var shown=0;
+    cards.forEach(function(card){
+      var cat=card.getAttribute('data-cat');
+      var on=filter==='all'||cat===filter;
+      card.classList.toggle('is-hidden', !on);
+      if(on) shown++;
+    });
+    empty.classList.toggle('is-on', shown===0);
+    if(note){
+      note.style.display=(filter==='all'||filter==='shirts'||filter==='hoodies')?'block':'none';
+    }
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){b.classList.remove('is-active');b.setAttribute('aria-selected','false');});
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected','true');
+      apply(btn.getAttribute('data-filter'));
+    });
+  });
+})();
+</script>
 </body>
 </html>
