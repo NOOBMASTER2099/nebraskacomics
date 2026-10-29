@@ -1,3 +1,1 @@
-Shop photos used by the Looks section and hero.
-
-hero.jpg / booth.jpg / slabs.jpg / bins.jpg
+Shop photos and 3D print product previews for the Store page (img/prints/).

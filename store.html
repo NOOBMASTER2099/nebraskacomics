@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>Store | Nebraska Comics — Lincoln, NE</title>
+<meta name="description" content="Shop Nebraska Comics: comics at Timeless Treasures in Lincoln, 3D prints, custom name plaques, Bonfire merch, and Whatnot streams." />
+<link rel="icon" href="https://raw.githubusercontent.com/nebraskacomics2099/website/main/logo.jpg" type="image/jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#070708;
+  --panel:#121214;
+  --red:#c41e3a;
+  --red-hot:#e12626;
+  --ink:#f4f1ea;
+  --muted:#b7b3a8;
+  --line:#2a2a2e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:
+    radial-gradient(circle at 14% 0%, rgba(196,30,58,.22), transparent 34%),
+    radial-gradient(circle at 90% 8%, rgba(225,38,38,.08), transparent 30%);
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,7,8,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:8px;object-fit:cover;background:#000}
+.brand-name{font-family:Bangers,cursive;font-size:26px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--red-hot)}
+nav ul{display:flex;gap:14px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.hero{
+  padding:64px 0 24px;
+  display:grid;
+  grid-template-columns:minmax(240px,380px) 1fr;
+  gap:48px;
+  align-items:center;
+}
+.logo-frame{
+  background:#000;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  display:grid;
+  place-items:center;
+  box-shadow:0 24px 70px rgba(225,38,38,.16);
+}
+.logo-frame img{width:min(320px,100%);border-radius:8px;background:#000}
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red-hot);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(48px,7vw,84px);
+  line-height:.9;letter-spacing:2px;margin-bottom:18px;
+}
+h1 .heroes,h1 .heart{color:var(--red-hot)}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--red-hot);color:#fff}
+.btn-primary:hover{background:#ff3b3b}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:var(--red-hot)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:20px 0 20px}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.fact strong{display:block;font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.fact span,.fact a{color:var(--muted)}
+.fact a:hover{color:#fff}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:12px;max-width:640px}
+.open-status{
+  display:inline-block;
+  font-family:Oswald,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:22px;
+}
+.open-status.is-open{color:#6fdf8a}
+.open-status.is-closed{color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:var(--red-hot);
+}
+.card p{color:var(--muted)}
+.card h3 a:hover{color:#fff}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+iframe.map{width:100%;height:320px;border:0;border-radius:16px;filter:grayscale(.15) contrast(1.05)}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cta-band{
+  background:linear-gradient(90deg,#6b1010,#c41e3a 42%,#6b1010);
+  border-radius:18px;padding:36px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.cta-band h2{font-family:Bangers,cursive;font-size:36px;letter-spacing:1px}
+.cta-band p{margin-top:8px;max-width:560px}
+.cta-band .btn-ghost{border-color:rgba(255,255,255,.45)}
+.give{
+  border:1px solid var(--red);
+  background:linear-gradient(180deg,#16080b 0%,#121214 100%);
+  border-radius:18px;padding:32px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.give .t{font-family:Oswald,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red-hot);font-size:12px}
+.give h2{font-family:Bangers,cursive;font-size:32px;letter-spacing:1px;margin:8px 0}
+.give p{color:#c9c9c9;max-width:560px}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:#000}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:620px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:var(--red-hot);color:#fff}
+@media(max-width:860px){
+  .hero,.facts,.grid-3,.grid-4,.grid-5,.split{grid-template-columns:1fr}
+  nav ul{display:none}
+  .hero{padding:28px 0 16px}
+  .pills{justify-content:flex-start}
+}
+
+.plaque-card{display:flex;flex-direction:column;gap:14px;overflow:hidden;padding:0}
+.plaque-art{
+  aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;
+  padding:18px 16px;border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(160deg,rgba(196,30,58,.18),transparent 55%),
+    repeating-linear-gradient(0deg,transparent,transparent 11px,rgba(255,255,255,.03) 11px,rgba(255,255,255,.03) 12px),
+    #0c0c0e;
+}
+.plaque-masthead{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.16em;
+  font-size:11px;color:var(--red-hot);
+}
+.plaque-issue{
+  font-family:Bangers,cursive;font-size:28px;letter-spacing:1px;line-height:1;
+  margin-top:auto;
+}
+.plaque-tag{
+  display:inline-block;align-self:flex-start;margin-top:10px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;
+  border:1px solid var(--red);color:var(--red-hot);border-radius:999px;padding:4px 10px;
+}
+.plaque-body{padding:0 22px 22px}
+.plaque-body h3{margin-bottom:6px}
+.plaque-price{font-family:Oswald,sans-serif;letter-spacing:.06em;color:#fff;margin-bottom:6px}
+.order-block{
+  margin-top:28px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;
+}
+.order-block h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--red-hot);margin-bottom:8px;
+}
+.order-block > p{color:var(--muted);margin-bottom:18px;max-width:640px}
+.order-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.order-form .full{grid-column:1 / -1}
+.order-form label{display:flex;flex-direction:column;gap:6px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted)}
+.order-form input,.order-form select,.order-form textarea{
+  background:#0a0a0c;border:1px solid var(--line);border-radius:10px;
+  color:var(--ink);padding:12px 14px;font:inherit;text-transform:none;letter-spacing:0;
+}
+.order-form input:focus,.order-form select:focus,.order-form textarea:focus{
+  outline:none;border-color:var(--red-hot);
+}
+.order-form textarea{min-height:90px;resize:vertical}
+.order-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+@media(max-width:860px){
+  .order-form{grid-template-columns:1fr}
+}
+
+.mockup-panel{margin-top:16px;display:none;flex-direction:column;gap:12px}
+.mockup-panel.is-on{display:flex}
+.mockup-panel img{width:min(320px,100%);border-radius:12px;border:1px solid var(--line);background:#000}
+.mockup-status{font-size:14px;color:var(--muted)}
+.mockup-status.err{color:#ff8a8a}
+.mockup-status.ok{color:#9dffa8}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+
+.product-card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.product-card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#000;border-bottom:1px solid var(--line)}
+.product-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.product-body h3{margin-bottom:0}
+.product-meta{font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:var(--red-hot)}
+.store-banner{
+  background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;
+  margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.store-banner p{color:var(--muted);max-width:640px;margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img src="https://raw.githubusercontent.com/nebraskacomics2099/website/main/logo.jpg" alt="Nebraska Comics" />
+      <div class="brand-name">NEBRASKA <span>COMICS</span></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html#visit">Visit</a></li>
+        <li><a href="index.html#shop">Shop</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="index.html#plaques">Plaques</a></li>
+        <li><a href="index.html#socials">Socials</a></li>
+        <li><a href="index.html#free-comics">Free Comics</a></li>
+        <li><a href="index.html#newsletter">Newsletter</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap" style="padding-top:48px;padding-bottom:8px">
+    <p class="kicker">Nebraska Comics · Lincoln</p>
+    <h1 style="font-size:clamp(40px,6vw,64px);margin-bottom:12px">Store</h1>
+    <p class="lede" style="margin-bottom:8px">Everything we sell — comics at the booth, 3D prints, custom plaques, Bonfire merch, and live Whatnot drops. Pickup out front; text to set a time. No shipping.</p>
+  </section>
+
+  <section class="wrap" id="comics">
+    <div class="store-banner">
+      <div>
+        <h2 class="section-title" style="margin-bottom:0;font-size:36px">Comics</h2>
+        <p>Graded slabs, key issues, full runs, $1 bins, toys and collectables inside Timeless Treasures, 1717 O St, Lincoln. Meet out front — text <a href="sms:+14024135332" style="color:#fff">402-413-5332</a> to set a time. Restocked weekly.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://maps.google.com/?q=1717+O+St,+Lincoln,+NE+68508" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="prints">
+    <h2 class="section-title">3D Prints</h2>
+    <p class="section-sub">Printed in Lincoln. Pickup out front — text 402-413-5332 for price, size, or to hold one. More designs at the booth.</p>
+    <div class="grid-4" style="margin-bottom:18px">
+      <article class="card product-card">
+        <img src="img/prints/mascot.png" alt="Nebraska Comics mascot figure" />
+        <div class="product-body">
+          <p class="product-meta">Figure</p>
+          <h3>Nebraska Comics Mascot</h3>
+          <p>Waving cape hero, ~6 in tall. Our shop mascot in full color.</p>
+        </div>
+      </article>
+      <article class="card product-card">
+        <img src="img/prints/keychain-nc.png" alt="Nebraska Comics keychain" />
+        <div class="product-body">
+          <p class="product-meta">Keychain</p>
+          <h3>Comic Cover Keychain</h3>
+          <p>Mini “Nebraska Comics” cover with keyring tab. Pocket-size shop gear.</p>
+        </div>
+      </article>
+      <article class="card product-card">
+        <img src="img/prints/booth-plaque.png" alt="Nebraska Comics booth plaque" />
+        <div class="product-body">
+          <p class="product-meta">Plaque</p>
+          <h3>Booth Plaque</h3>
+          <p>Shop-branded wall plaque. Pickup out front.</p>
+        </div>
+      </article>
+      <article class="card product-card">
+        <img src="img/prints/husker-power-rings.png" alt="Husker Power novelty rings" />
+        <div class="product-body">
+          <p class="product-meta">Rings</p>
+          <h3>HUSKER / POWER Rings</h3>
+          <p>Matched comic-letter nameplate pair. Decorative novelty rings — not brass knuckles.</p>
+        </div>
+      </article>
+      <article class="card product-card">
+        <img src="img/prints/blackshirts-rings.png" alt="Blackshirts novelty rings" />
+        <div class="product-body">
+          <p class="product-meta">Rings</p>
+          <h3>BLACK / SHIRTS Rings</h3>
+          <p>Wide nameplate pair that reads BLACK SHIRTS across both fists.</p>
+        </div>
+      </article>
+      <article class="card product-card">
+        <img src="img/prints/asphalt-keychain.png" alt="Asphalt Assassins keychain" />
+        <div class="product-body">
+          <p class="product-meta">Keychain</p>
+          <h3>Asphalt Assassins Keychain</h3>
+          <p>Lincoln scooter crew logo, die-cut with keyring tab.</p>
+        </div>
+      </article>
+      <article class="card product-card">
+        <img src="img/prints/asphalt-badge.png" alt="Asphalt Assassins badge" />
+        <div class="product-body">
+          <p class="product-meta">Badge</p>
+          <h3>Asphalt Assassins Badge</h3>
+          <p>Die-cut stick-on badge. Flat back for tape.</p>
+        </div>
+      </article>
+      <article class="card product-card">
+        <img src="img/prints/asphalt-ring.png" alt="Asphalt Assassins signet ring" />
+        <div class="product-body">
+          <p class="product-meta">Ring</p>
+          <h3>Asphalt Assassins Signet</h3>
+          <p>Skull signet in US 9–12. Ask about sizing.</p>
+        </div>
+      </article>
+    </div>
+    <div class="actions" style="margin-bottom:8px">
+      <a class="btn btn-primary" href="sms:+14024135332?body=I%20want%20a%203D%20print">Text to order a print</a>
+      <a class="btn btn-ghost" href="index.html#visit">Visit the booth</a>
+    </div>
+  </section>
+
+  <section class="wrap" id="custom-plaques">
+    <div class="store-banner">
+      <div>
+        <h2 class="section-title" style="margin-bottom:0;font-size:36px">Custom Name Plaques — $25</h2>
+        <p>Personalized signs like “Jake’s Comic Cave.” Preview an AI mockup on the plaques page, approve it, then we print. Pickup out front.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html#plaques">Design yours</a>
+        <a class="btn btn-ghost" href="sms:+14024135332">Text 402-413-5332</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="merch">
+    <h2 class="section-title">Merch &amp; Streams</h2>
+    <p class="section-sub">Official gear online, live drops on Whatnot.</p>
+    <div class="grid-3">
+      <article class="card">
+        <h3><a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Bonfire Merch</a></h3>
+        <p>Official Nebraska Comics shirts and gear. Order online from our Bonfire store.</p>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn btn-primary" href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Shop Bonfire</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3><a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a></h3>
+        <p>Live auctions and drops. Watch the socials for show times.</p>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn btn-ghost" href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Watch on Whatnot</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3><a href="index.html#contact">Got a stack?</a></h3>
+        <p>We buy collections in person. Text photos or meet out front at Timeless Treasures.</p>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn btn-ghost" href="sms:+14024135332">Text our Team</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="https://raw.githubusercontent.com/nebraskacomics2099/website/main/logo.jpg" alt="Nebraska Comics" />
+      <div>
+        <strong>Nebraska Comics</strong><br />
+        1717 O St, Lincoln, NE 68508<br />
+        A portion of proceeds supports the <a href="https://davidstaenbergfamilyfoundation.org/donate" target="_blank" rel="noopener">Staenberg Family Dyslexic Foundation</a>.
+      </div>
+    </div>
+    <div class="pills">
+      <a href="index.html">Home</a>
+      <a href="store.html">Store</a>
+      <a href="https://www.bonfire.com/store/nebraska-comics/" target="_blank" rel="noopener">Merch</a>
+      <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a>
+      <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
+      <a href="tel:+14024135332">402-413-5332</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
