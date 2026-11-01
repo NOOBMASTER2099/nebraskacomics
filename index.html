@@ -398,5 +398,22 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
 })();
 </script>
 
+
+<script>
+/* privacy-friendly page view — no cookies, no IPs; just path counts */
+(function(){
+  try {
+    var p = location.pathname || '/';
+    fetch('https://nc-plaque-mockups.nebraskacomics.workers.dev/hit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: p }),
+      mode: 'cors',
+      keepalive: true,
+      credentials: 'omit'
+    }).catch(function(){});
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

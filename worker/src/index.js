@@ -1,6 +1,7 @@
 /**
- * Nebraska Comics custom name plaque AI mockups.
- * Free Workers plan + KV. Secret: XAI_API_KEY
+ * Nebraska Comics — plaque mockups + privacy-friendly page views.
+ * Free Workers plan + KV. Secrets: XAI_API_KEY, STATS_KEY
+ * Page hits store no IPs — only day/month + path counters.
  */
 
 const ALLOWED = new Set([
@@ -13,6 +14,7 @@ const MAX = 3;
 const MODEL = "grok-imagine-image-2.0";
 const MOCKUP_TTL = 60 * 60 * 24 * 14;
 const RATE_TTL = 60 * 60 * 24;
+const VIEW_TTL = 60 * 60 * 24 * 400; // ~13 months
 
 function cors(origin) {
   const a = ALLOWED.has(origin) ? origin : "https://nebraskacomics.com";
@@ -45,6 +47,116 @@ function clean(s, max) {
     .replace(/[\u0000-\u001f\u007f]/g, "")
     .trim()
     .slice(0, max);
+}
+
+function chicagoYMD(d) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
+}
+
+function normalizePath(raw) {
+  let p = clean(raw, 200) || "/";
+  if (!p.startsWith("/")) p = "/" + p;
+  p = p.replace(/\/{2,}/g, "/");
+  if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+  // drop query/hash if somehow included
+  p = p.split("?")[0].split("#")[0];
+  if (!/^\/[A-Za-z0-9._~\-\/]*$/.test(p)) return null;
+  return p || "/";
+}
+
+async function bump(env, key) {
+  const raw = await env.MOCKUPS.get(key);
+  const n = (raw ? parseInt(raw, 10) || 0 : 0) + 1;
+  await env.MOCKUPS.put(key, String(n), { expirationTtl: VIEW_TTL });
+  return n;
+}
+
+async function postHit(req, env, origin) {
+  // CORS: only count browser hits from allowed site origins (or no Origin = same-origin/curl)
+  if (origin && !ALLOWED.has(origin)) {
+    return json({ error: "Origin not allowed" }, 403, origin);
+  }
+  let body;
+  try {
+    body = await req.json();
+  } catch (e) {
+    return json({ error: "Expected JSON" }, 400, origin);
+  }
+  const path = normalizePath(body.path || body.pathname || "/");
+  if (!path) return json({ error: "Invalid path" }, 400, origin);
+  const day = chicagoYMD(new Date());
+  const month = day.slice(0, 7);
+  // No IPs stored — counters only
+  const daily = await bump(env, "views:d:" + day + ":" + path);
+  const monthly = await bump(env, "views:m:" + month + ":" + path);
+  return json({ ok: true, path, day, month, daily, monthly }, 200, origin);
+}
+
+async function listPrefix(env, prefix) {
+  const out = [];
+  let cursor;
+  do {
+    const page = await env.MOCKUPS.list({ prefix, cursor, limit: 1000 });
+    for (const k of page.keys || []) out.push(k.name);
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  return out;
+}
+
+async function getStats(req, env, origin) {
+  const url = new URL(req.url);
+  const key = url.searchParams.get("key") || "";
+  if (!env.STATS_KEY || key !== env.STATS_KEY) {
+    return json({ error: "Unauthorized" }, 401, origin);
+  }
+  const dayKeys = await listPrefix(env, "views:d:");
+  const monthKeys = await listPrefix(env, "views:m:");
+  const daily = {};
+  const monthly = {};
+  for (const name of dayKeys) {
+    // views:d:YYYY-MM-DD:/path
+    const rest = name.slice("views:d:".length);
+    const i = rest.indexOf(":");
+    if (i < 0) continue;
+    const day = rest.slice(0, i);
+    const path = rest.slice(i + 1);
+    const val = parseInt((await env.MOCKUPS.get(name)) || "0", 10) || 0;
+    if (!daily[day]) daily[day] = {};
+    daily[day][path] = val;
+  }
+  for (const name of monthKeys) {
+    const rest = name.slice("views:m:".length);
+    const i = rest.indexOf(":");
+    if (i < 0) continue;
+    const month = rest.slice(0, i);
+    const path = rest.slice(i + 1);
+    const val = parseInt((await env.MOCKUPS.get(name)) || "0", 10) || 0;
+    if (!monthly[month]) monthly[month] = {};
+    monthly[month][path] = val;
+  }
+  const today = chicagoYMD(new Date());
+  const thisMonth = today.slice(0, 7);
+  return json(
+    {
+      ok: true,
+      timezone: "America/Chicago",
+      today,
+      thisMonth,
+      daily,
+      monthly,
+      totals: {
+        today: Object.values(daily[today] || {}).reduce((a, b) => a + b, 0),
+        thisMonth: Object.values(monthly[thisMonth] || {}).reduce((a, b) => a + b, 0),
+      },
+    },
+    200,
+    origin
+  );
 }
 
 function buildPrompt(name, color, style, notes) {
@@ -179,6 +291,12 @@ export default {
     }
     if (request.method === "GET" && url.pathname === "/health") {
       return json({ ok: true, service: "nc-plaque-mockups" }, 200, origin);
+    }
+    if (request.method === "POST" && url.pathname === "/hit") {
+      return postHit(request, env, origin);
+    }
+    if (request.method === "GET" && url.pathname === "/stats") {
+      return getStats(request, env, origin);
     }
     const m = url.pathname.match(/^\/mockup\/([a-f0-9]+)$/i);
     if (request.method === "GET" && m) return getImg(m[1], env, origin);
