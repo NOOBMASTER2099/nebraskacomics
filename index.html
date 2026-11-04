@@ -171,11 +171,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
   background:#0a0a0c;display:grid;place-items:center;
 }
 .shop-thumb img{width:100%;height:100%;object-fit:cover}
+.shop-thumbs-3{grid-template-columns:repeat(3,1fr)}
 .shop-thumb.is-dark img{object-fit:contain;padding:6px;background:#0a0a0c}
 .shop-teaser-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .shop-teaser-actions .btn-primary{padding:16px 28px;font-size:16px}
 @media(max-width:860px){
   .shop-thumbs{grid-template-columns:repeat(2,1fr)}
+  .shop-thumbs.shop-thumbs-3{grid-template-columns:repeat(3,1fr);gap:8px}
 }
 </style>
 </head>
@@ -240,11 +242,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
           <p class="section-sub">Shirts, hoodies, wall art, and comics — all in one place. Custom plaques &amp; 3D prints at Lincoln Print Lab.</p>
         </div>
       </div>
-      <div class="shop-thumbs" aria-hidden="true">
-        <div class="shop-thumb is-dark"><img src="/img/prints/mascot.png" alt="" /></div>
-        <div class="shop-thumb"><img src="/img/merch/nebraskacomics.jpg" alt="" /></div>
-        <div class="shop-thumb is-dark"><img src="/img/wallart/spawn.jpg" alt="" /></div>
-        <div class="shop-thumb"><img src="/img/merch/nebraskacomics-hoodie.jpg" alt="" /></div>
+      <div class="shop-thumbs shop-thumbs-3">
+        <a class="shop-thumb" href="https://www.bonfire.com/34-baseball-tee-2/" target="_blank" rel="noopener" title="3/4 Baseball Tee"><img src="/img/merch/34-baseball-tee-2.jpg" alt="3/4 Baseball Tee" /></a>
+        <a class="shop-thumb" href="https://www.bonfire.com/nebraska-comics/" target="_blank" rel="noopener" title="NEBRASKA COMICS Nike Tee"><img src="/img/merch/nebraska-comics.jpg" alt="NEBRASKA COMICS Nike Tee" /></a>
+        <a class="shop-thumb" href="https://www.bonfire.com/nebraskacomics-1/" target="_blank" rel="noopener" title="Nebraska Comics Premium Tee"><img src="/img/merch/nebraskacomics-1.jpg" alt="Nebraska Comics Premium Tee" /></a>
       </div>
       <div class="shop-teaser-actions">
         <a class="btn btn-primary" href="/store">Visit the Store</a>
