@@ -7,6 +7,8 @@
 const ALLOWED = new Set([
   "https://nebraskacomics.com",
   "https://www.nebraskacomics.com",
+  "https://lincolnprintlab.com",
+  "https://www.lincolnprintlab.com",
   "http://localhost:8765",
   "http://127.0.0.1:8765",
 ]);
@@ -159,10 +161,20 @@ async function getStats(req, env, origin) {
   );
 }
 
-function buildPrompt(name, color, style, notes) {
-  const c = color ? color + " color scheme" : "bold red and black comic colors";
+function buildPrompt(name, color, style, notes, brand) {
+  const c = color ? color + " color scheme" : (brand === "lpl" ? "black and white industrial colors" : "bold red and black comic colors");
   const st = style ? ", style notes: " + style : "";
   const n = notes ? ", extra notes: " + notes : "";
+  if (brand === "lpl") {
+    return (
+      'Product mockup of a modern wall plaque titled "' + name + '". ' +
+      "Lincoln Print Lab custom name plaque. Bold lettering spelling exactly \"" +
+      name +
+      '", clean geometric frame, subtle lab / maker aesthetic, black and white with a hint of the chosen color. ' +
+      c + st + n +
+      ". Portrait plaque on a dark workshop wall, sharp readable text, no Marvel or DC characters, original design, clean product shot."
+    );
+  }
   return (
     'Product mockup of a comic-book style wall plaque titled "' + name + '". ' +
     "Nebraska Comics Collectors Den custom name plaque. Bold lettering spelling exactly \"" +
@@ -236,6 +248,13 @@ async function post(req, env, origin) {
   const color = clean(body.color, 40);
   const style = clean(body.style, 120);
   const notes = clean(body.notes, 200);
+  const brandRaw = clean(body.brand || "", 20).toLowerCase();
+  const brand =
+    brandRaw === "lpl" ||
+    brandRaw === "lincolnprintlab" ||
+    (origin && origin.includes("lincolnprintlab.com"))
+      ? "lpl"
+      : "nc";
   if (!name || name.length < 2) return json({ error: "Plaque name required" }, 400, origin);
   const ipaddr = clientIp(req);
   const r = await rateLimit(env, ipaddr);
@@ -251,7 +270,7 @@ async function post(req, env, origin) {
   }
   let b64;
   try {
-    b64 = await generateImage(env.XAI_API_KEY, buildPrompt(name, color, style, notes));
+    b64 = await generateImage(env.XAI_API_KEY, buildPrompt(name, color, style, notes, brand));
   } catch (err) {
     const key = "rate:" + ipaddr;
     const rolled = Math.max(0, r.count - 1);
