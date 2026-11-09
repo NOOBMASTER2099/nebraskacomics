@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<title>3D Prints | Nebraska Comics | Lincoln, NE — Marvel &amp; DC helmets, masks &amp; wall art</title>
+<meta name="description" content="Custom 3D prints of your favorite Marvel &amp; DC heroes — helmets, masks, shields, and wall art, printed for you by Lincoln Print Lab. Pick a design and get an exact quote." />
+<link rel="icon" href="https://raw.githubusercontent.com/nebraskacomics2099/website/main/logo.jpg" type="image/jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#070708;
+  --panel:#121214;
+  --red:#c41e3a;
+  --red-hot:#e12626;
+  --ink:#f4f1ea;
+  --muted:#b7b3a8;
+  --line:#2a2a2e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  background-image:
+    radial-gradient(circle at 14% 0%, rgba(196,30,58,.22), transparent 34%),
+    radial-gradient(circle at 90% 8%, rgba(225,38,38,.08), transparent 30%);
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,7,8,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:8px;object-fit:cover;background:#000}
+.brand-name{font-family:Bangers,cursive;font-size:26px;letter-spacing:1.5px;line-height:1}
+.brand-name span{color:var(--red-hot)}
+nav ul{display:flex;gap:14px;list-style:none;flex-wrap:wrap}
+nav a{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted)}
+nav a:hover{color:#fff}
+.hero{
+  padding:64px 0 24px;
+  display:grid;
+  grid-template-columns:minmax(240px,380px) 1fr;
+  gap:48px;
+  align-items:center;
+}
+.logo-frame{
+  background:#000;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  display:grid;
+  place-items:center;
+  box-shadow:0 24px 70px rgba(225,38,38,.16);
+}
+.logo-frame img{width:min(320px,100%);border-radius:8px;background:#000}
+.kicker{
+  font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red-hot);font-size:13px;margin-bottom:12px;
+}
+h1{
+  font-family:Bangers,cursive;
+  font-size:clamp(48px,7vw,84px);
+  line-height:.9;letter-spacing:2px;margin-bottom:18px;
+}
+h1 .heroes,h1 .heart{color:var(--red-hot)}
+.lede{font-size:19px;color:var(--muted);max-width:540px;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:999px;
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+.btn-primary{background:var(--red-hot);color:#fff}
+.btn-primary:hover{background:#ff3b3b}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:var(--red-hot)}
+button.btn{border:0;cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:20px 0 20px}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.fact strong{display:block;font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.fact span,.fact a{color:var(--muted)}
+.fact a:hover{color:#fff}
+section{padding:48px 0}
+.section-title{font-family:Bangers,cursive;font-size:42px;letter-spacing:1px;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:12px;max-width:640px}
+.open-status{
+  display:inline-block;
+  font-family:Oswald,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:14px;
+  margin-bottom:22px;
+}
+.open-status.is-open{color:#6fdf8a}
+.open-status.is-closed{color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{
+  font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:8px;color:var(--red-hot);
+}
+.card p{color:var(--muted)}
+.card h3 a:hover{color:#fff}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+iframe.map{width:100%;height:320px;border:0;border-radius:16px;filter:grayscale(.15) contrast(1.05)}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cta-band{
+  background:linear-gradient(90deg,#6b1010,#c41e3a 42%,#6b1010);
+  border-radius:18px;padding:36px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.cta-band h2{font-family:Bangers,cursive;font-size:36px;letter-spacing:1px}
+.cta-band p{margin-top:8px;max-width:560px}
+.cta-band .btn-ghost{border-color:rgba(255,255,255,.45)}
+.give{
+  border:1px solid var(--red);
+  background:linear-gradient(180deg,#16080b 0%,#121214 100%);
+  border-radius:18px;padding:32px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.give .t{font-family:Oswald,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red-hot);font-size:12px}
+.give h2{font-family:Bangers,cursive;font-size:32px;letter-spacing:1px;margin:8px 0}
+.give p{color:#c9c9c9;max-width:560px}
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:14px;align-items:flex-start}
+.foot-brand img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:#000}
+.foot-brand strong{color:#fff}
+.foot-brand a{color:var(--muted)}
+.foot-brand a:hover{color:#fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;max-width:620px;justify-content:flex-end}
+.pills a{
+  color:var(--ink);font-family:Oswald,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;font-size:13px;
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.pills a:hover{border-color:var(--red-hot);color:#fff}
+@media(max-width:860px){
+  .hero,.facts,.grid-3,.grid-4,.grid-5,.split{grid-template-columns:1fr}
+  nav ul{display:none}
+  .hero{padding:28px 0 16px}
+  .pills{justify-content:flex-start}
+}
+
+.shop-teaser{
+  margin-top:8px;background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:18px;
+}
+.shop-teaser-top .section-title{margin-bottom:0}
+.shop-teaser-top .section-sub{margin-bottom:0}
+.shop-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.shop-thumb{
+  aspect-ratio:1/1;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+  background:#0a0a0c;display:grid;place-items:center;
+}
+.shop-thumb img{width:100%;height:100%;object-fit:cover}
+.shop-thumbs-3{grid-template-columns:repeat(3,1fr)}
+.shop-thumb.is-dark img{object-fit:contain;padding:6px;background:#0a0a0c}
+.shop-teaser-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.shop-teaser-actions .btn-primary{padding:16px 28px;font-size:16px}
+@media(max-width:860px){
+  .shop-thumbs{grid-template-columns:repeat(2,1fr)}
+  .shop-thumbs.shop-thumbs-3{grid-template-columns:repeat(3,1fr);gap:8px}
+}
+
+.print-card{display:flex;flex-direction:column}
+.print-card img{width:100%;border-radius:12px;margin-bottom:12px;aspect-ratio:4/3;object-fit:cover;background:#0a0a0c}
+.print-card .price{font-family:Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:10px 0 14px}
+.print-card .actions{margin-top:auto}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img src="https://raw.githubusercontent.com/nebraskacomics2099/website/main/logo.jpg" alt="Nebraska Comics" />
+      <div class="brand-name">NEBRASKA <span>COMICS</span></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/#visit">Visit</a></li>
+        <li><a href="/store">Shop</a></li>
+        <li><a href="3d-prints.html">3D Prints</a></li>
+        <li><a href="/#socials">Socials</a></li>
+        <li><a href="/#free-comics">Free Comics</a></li>
+        <li><a href="/#newsletter">Newsletter</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap" style="padding-top:48px">
+    <p class="kicker">Custom 3D prints · Printed by Lincoln Print Lab</p>
+    <h1>3D <span class="heroes">Prints</span></h1>
+    <p class="lede">Your favorite heroes, printed for you. Pick a design below and Lincoln Print Lab prints it for your own collection or costume — helmets, masks, shields, and wall art. These are custom prints made to order, not licensed merchandise. Prices shown are filament estimates; click through to Lincoln Print Lab for the exact quote and to order.</p>
+    <div class="actions" style="margin-bottom:28px">
+      <a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Browse all helmets &amp; props</a>
+      <a class="btn btn-ghost" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Browse all wall art</a>
+    </div>
+    <h2 class="section-title">Helmets, masks &amp; props</h2>
+    <p class="section-sub">Wearable helmets, masks, shields, and props — printed for your own costume or display.</p>
+    <div class="grid-3">
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/856/3130856.webp" alt="Iron Man MK2 Helmet" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Iron Man MK2 Helmet</h3>
+        <p>Wearable Iron Man helmet, split into pieces that print on any printer including a small bed; magnetic faceplate, sized to Budwin&#x27;s #3 sizing head.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/DSM00000001720794/design/2025-05-05_2a67bd8cb6b55.png?x-oss-process=image/format,webp" alt="Iron Man MK5 Helmet (Wearable)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Iron Man MK5 Helmet (Wearable)</h3>
+        <p>Wearable Iron Man helmet in just 4 parts, no motor, no multi-color printer needed; faceplate held on with 12 magnets (8×2mm).</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/065/196065.webp" alt="Iron Man Wearable Helmet Mark 42" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Iron Man Wearable Helmet Mark 42</h3>
+        <p>Full-size wearable Iron Man Mark 42 helmet; print at 100% for full size, 50% for a desk model.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/512/2698512.webp" alt="Motorized Iron Man Helmet (Mark 42)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Motorized Iron Man Helmet (Mark 42)</h3>
+        <p>Iron Man helmet with a magnetic-hinge faceplate; static version or motorized version with servos and a small controller board.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/US94de6948f7f5df/design/2024-07-04_wf2kb4j5705j.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Iron Man Mark 85 Helmet V2" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Iron Man Mark 85 Helmet V2</h3>
+        <p>Updated wearable Iron Man Mark 85 helmet; uses 60 small magnets (7×1mm) for assembly.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Batman Helmet (Cowl) — Perfect for Cosplay</h3>
+        <p>Batman cowl with pointed ears, in a cut version (easier to wear) and an uncut version (display); fits most adult heads.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/US304507bdd79463/design/2024-08-08_3127e8fb9e50e.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Batman Arkham Origins Cowl" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Batman Arkham Origins Cowl</h3>
+        <p>Batman cowl from the Arkham Origins game; prints in TPU for a flexible fit or PLA for display.</p>
+        <p class="price">Print estimate: $101</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/185/56185.webp" alt="Batman Armor Helmet" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Batman Armor Helmet</h3>
+        <p>Armored Batman helmet, reworked in CAD to use much less filament than the original (~370g vs ~820g); includes test slices to check sizing before the full print. Size ~220×178×190mm at original scale.</p>
+        <p class="price">Print estimate: $93</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/330/2973330.webp" alt="Spider-Man Brand New Day Mask (Faceshell)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Spider-Man Brand New Day Mask (Faceshell)</h3>
+        <p>Spider-Man faceshell with magnetic swap-out eyes in 3 expressions (narrow, wide, focused); perforated shell so you can breathe; wear under a fabric mask. Sized to Budwin&#x27;s #3 head.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/447/713447.webp" alt="Spider-Man Classic FaceShell" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Spider-Man Classic FaceShell</h3>
+        <p>Classic comic-style Spider-Man faceshell; uses 20 magnets (5×2mm) for the eyes; sized to Budwin&#x27;s #3 head.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/US2d03e306a5a0a3/design/2024-01-10_7db4e9c4ce753.jpeg?x-oss-process=image/resize,w_1000/format,webp" alt="Spider-Man Raimi FaceShell + Lens (Realistic)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Spider-Man Raimi FaceShell + Lens (Realistic)</h3>
+        <p>Spider-Man faceshell from the Raimi movies (Tobey Maguire), smooth shell with realistic lens.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/US80e0ba82788035/design/2024-08-25_a2a986e39797a.png?x-oss-process=image/resize,w_1000/format,webp" alt="Deadpool 3 Movie Helmet (Textured)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Deadpool 3 Movie Helmet (Textured)</h3>
+        <p>Textured Deadpool mask/helmet from Deadpool &amp; Wolverine; uses 100 magnets (8×2mm); one of the most-printed cosplay masks on MakerWorld.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/044/710044.webp" alt="Wolverine Textured Helmet V3" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Wolverine Textured Helmet V3</h3>
+        <p>Wolverine mask in classic yellow and black, reworked for accuracy with support-free textures; two fits (accurate and comfort); uses 46 magnets (8×2mm).</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/US329ebf081d21cd/design/2024-11-08_7c6cc77f36e88.png?x-oss-process=image/resize,w_1000/format,webp" alt="Venomized Spider-Man Mask" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Venomized Spider-Man Mask</h3>
+        <p>Spider-Man mask with Venom&#x27;s toothy grin and black webbing; multi-color version or single-color with painted details; 50% scale fits any printer.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/782/1300782.webp" alt="Dr. Doom–Inspired Helmet" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Dr. Doom–Inspired Helmet</h3>
+        <p>Helmet inspired by Marvel&#x27;s Dr. Doom, with room inside for most head sizes and eye slots for mesh inserts; good display piece too.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://media.printables.com/media/prints/12864/images/114227_4c08dda2-b5dc-44d3-ba68-f74452ef931f/thumbs/cover/320x480/jpg/capshieldfrontfull_v005_12864.webp" alt="Captain America Shield" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Captain America Shield</h3>
+        <p>Full-size Captain America shield split into a center piece + 8 segments with interlocks; print at 125% on a big printer for true full size, or 80% on a standard bed.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://media.printables.com/media/prints/125141/images/1205799_34f4084b-cfdc-489d-9035-cc49db314a51/thumbs/cover/640x480/png/shield-picture-1.webp" alt="Captain America Shield (Durable Design)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Captain America Shield (Durable Design)</h3>
+        <p>Full-size (~650mm across) Captain America shield engineered for strength: segments under 185×185mm, press-fit dowel joints, strap mounts on the back.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://3dad.ru/uploads/models/989/921989.webp" alt="Thor&#x27;s Hammer (Mjolnir)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Thor&#x27;s Hammer (Mjolnir)</h3>
+        <p>Thor&#x27;s hammer, about 310×150×80mm as posted and scalable; separate nameplate piece, hole in the handle for a leather strap.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Cracked Mjolnir — Thor Hammer (Love and Thunder)</h3>
+        <p>Thor&#x27;s cracked hammer from Love and Thunder, full 1:1 scale; print in translucent filament with an LED inside for glowing cracks.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Mjolnir — Thor Hammer (Full Size)</h3>
+        <p>Full-size Thor&#x27;s hammer, about 600g of filament and ~19 hours; simplified to a few big parts with hidden joins.</p>
+        <p class="price">Print estimate: $150</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/cosplay-helmets-props.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+    </div>
+    <h2 class="section-title" style="margin-top:36px">Wall art &amp; plaques</h2>
+    <p class="section-sub">Layered wall art and plaques for the wall — Spider-Man, Batman, and more.</p>
+    <div class="grid-3">
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/USf6af102bfac77d/design/2025-04-27_6c0fdb0feda15.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Spiderman Wall Plaque (AMS only)" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Spiderman Wall Plaque (AMS only)</h3>
+        <p>Layered Spider-Man wall plaque for Spidey fans; 6+ hour print, standard PLA settings.</p>
+        <p class="price">Print estimate: $50</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Spider-Man Wall art (Single and AMS)</h3>
+        <p>Layered Spider-Man wall art with both single-color and AMS print profiles; 240+ reviews, a proven popular print.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Spider-Man 3D Wall Art — Iconic Mask &amp; Logo</h3>
+        <p>Spider-Man mask rising out of a clean white background with the spider emblem; red and black AMS finish, no supports (eyes are fragile — handle with care).</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Spider-Man Hanging</h3>
+        <p>Spider-Man in a dynamic hanging pose as a wall decoration; newer edition with reinforced lines.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>The Amazing Spider-Man Movie Poster Wall Art</h3>
+        <p>The Amazing Spider-Man movie poster as a HueForge filament painting.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Badass Batman with customizable framework</h3>
+        <p>Batman HueForge wall art with a frame whose color can be changed at layer 28; 4 filaments.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+        <h3>Batman: Return of the Joker — Cut Scene Wall Art</h3>
+        <p>The Joker&#x27;s &quot;HA HA HA&quot; NES cut scene as layered 8-bit pixel wall art; 4 plates, 9 colors, stacks into a frame.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/USd64182a677dba8/design/2024-07-05_3046ab5fa646a.jpeg?x-oss-process=image/resize,w_1000/format,webp" alt="Batman Wall Art SLIM 4 colour AMS" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Batman Wall Art SLIM 4 colour AMS</h3>
+        <p>Slim 4-color Batman wall art; under an hour to print, about 34 g of filament.</p>
+        <p class="price">Print estimate: $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/US5de659c1299787/design/78bbf82c929eeb60.jpeg?x-oss-process=image/resize,w_1000/format,webp" alt="BATMAN Mural — Artistic layers, superimposed layers" loading="lazy" onerror="this.style.display='none'" />
+        <h3>BATMAN Mural — Artistic layers, superimposed layers</h3>
+        <p>Large circular Batman mural in stacked artistic layers (black and gold in the designer&#x27;s photos); change the colors and layer heights for your own style.</p>
+        <p class="price">Print estimate: from $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+      <article class="card print-card">
+      <img src="https://makerworld.bblmw.com/makerworld/model/US2cb5e4cbd74c6f/design/2023-11-03_f94f7ac6a9248.jpg?x-oss-process=image/resize,w_1000/format,webp" alt="Batman Joker / Wall Art / 2d Art / Multicolor" loading="lazy" onerror="this.style.display='none'" />
+        <h3>Batman Joker / Wall Art / 2d Art / Multicolor</h3>
+        <p>Batman and Joker face-off as a 4-color HueForge-style 2D wall art panel; works with or without an AMS via layer swaps.</p>
+        <p class="price">Print estimate: $15</p>
+        <div class="actions"><a class="btn btn-primary" href="https://lincolnprintlab.com/wall-art-plaques.html" target="_blank" rel="noopener">Get a quote at Lincoln Print Lab</a></div>
+      </article>
+    </div>
+    <div class="cta-band" style="margin-top:36px">
+      <div>
+        <h2>Don&rsquo;t see the one you want?</h2>
+        <p>Lincoln Print Lab has hundreds more designs — helmets, props, wall art, and more. Tell them what you&rsquo;re looking for and they&rsquo;ll track it down for you.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-ghost" href="https://lincolnprintlab.com" target="_blank" rel="noopener">Visit Lincoln Print Lab</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <img src="https://raw.githubusercontent.com/nebraskacomics2099/website/main/logo.jpg" alt="Nebraska Comics" />
+      <div>
+        <strong>Nebraska Comics</strong><br />
+        1717 O St, Lincoln, NE 68508<br />
+        A portion of proceeds supports the <a href="https://davidstaenbergfamilyfoundation.org/donate" target="_blank" rel="noopener">Staenberg Family Dyslexic Foundation</a>.
+      </div>
+    </div>
+    <div class="pills">
+      <a href="/store">Store</a>
+      <a href="3d-prints.html">3D Prints</a>
+      <a href="https://www.ebay.com/usr/nebraskacomics" target="_blank" rel="noopener">eBay</a>
+      <a href="https://www.whatnot.com/en-GB/user/nebraksacomics" target="_blank" rel="noopener">Whatnot</a>
+      <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://x.com/nebraskacomics1" target="_blank" rel="noopener">X</a>
+      <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var el = document.getElementById('open-status');
+  if(!el) return;
+  var parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date());
+  var weekday = parts.find(function(p){ return p.type === 'weekday'; }).value;
+  var hour = parseInt(parts.find(function(p){ return p.type === 'hour'; }).value, 10);
+  var minute = parseInt(parts.find(function(p){ return p.type === 'minute'; }).value, 10);
+  var mins = hour * 60 + minute;
+  var order = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var names = {Sun:'Sunday',Mon:'Monday',Tue:'Tuesday',Wed:'Wednesday',Thu:'Thursday',Fri:'Friday',Sat:'Saturday'};
+  function hoursFor(day){
+    if(day === 'Sun') return {open:12*60, close:17*60, openLabel:'12:00 PM', closeLabel:'5:00 PM'};
+    return {open:10*60, close:18*60, openLabel:'10:00 AM', closeLabel:'6:00 PM'};
+  }
+  var today = hoursFor(weekday);
+  if(mins >= today.open && mins < today.close){
+    el.textContent = 'Open now · closes ' + today.closeLabel;
+    el.classList.add('is-open');
+    return;
+  }
+  var nextDay = weekday;
+  var nextHours = today;
+  var when = 'today';
+  if(mins >= today.close){
+    var idx = (order.indexOf(weekday) + 1) % 7;
+    nextDay = order[idx];
+    nextHours = hoursFor(nextDay);
+    when = names[nextDay];
+  }
+  el.textContent = 'Closed · opens ' + when + ' ' + nextHours.openLabel;
+  el.classList.add('is-closed');
+})();
+</script>
+
+
+<script>
+/* privacy-friendly page view — no cookies, no IPs; just path counts */
+(function(){
+  try {
+    var p = location.pathname || '/';
+    fetch('https://nc-plaque-mockups.nebraskacomics.workers.dev/hit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: p }),
+      mode: 'cors',
+      keepalive: true,
+      credentials: 'omit'
+    }).catch(function(){});
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
