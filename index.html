@@ -65,6 +65,13 @@ nav a:hover{color:#fff}
   box-shadow:0 24px 70px rgba(225,38,38,.16);
 }
 .logo-frame img{width:min(320px,100%);border-radius:8px;background:#000}
+
+.social-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 6px}
+.social-row a{display:inline-block;padding:7px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;text-decoration:none;font-size:14px;font-weight:600}
+.social-row a:hover{border-color:var(--red-hot);color:#fff}
+.lpl-credit{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:26px;color:var(--muted);font-size:14px;text-decoration:none}
+.lpl-credit img{width:56px;height:56px;object-fit:contain;border-radius:8px;background:#000}
+.lpl-credit:hover{color:#fff}
 .kicker{
   font-family:Oswald,sans-serif;letter-spacing:.22em;text-transform:uppercase;
   color:var(--red-hot);font-size:13px;margin-bottom:12px;
@@ -233,6 +240,13 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
         <span><a href="mailto:Contact@nebraskacomics.com">Contact@nebraskacomics.com</a><br /><a href="tel:+14024135332">402-413-5332</a></span>
       </div>
     </div>
+
+    <div class="social-row">
+      <a href="https://www.facebook.com/people/Nebraska-Comics/61592087632747/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/nebraskacomics" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@nebraskacomics" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
+    </div>
   </section>
 
   <section class="wrap" id="shop">
@@ -380,6 +394,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);f
       <a href="https://x.com/nebraskacomics1" target="_blank" rel="noopener">X</a>
       <a href="https://www.youtube.com/@NebraskaComics" target="_blank" rel="noopener">YouTube</a>
     </div>
+    <a class="lpl-credit" href="https://lincolnprintlab.com" target="_blank" rel="noopener"><img src="lpl-logo.jpg" alt="Lincoln Print Lab logo" /><span>3D prints &amp; custom builds by Lincoln Print Lab</span></a>
   </div>
 </footer>
 <script>
